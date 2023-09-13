@@ -1,17 +1,18 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Api docs",
   "logo": {
     "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "light": "/logo/light.svg",
+    "href": "https://bios.altervista.org"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#9563FF",
-    "light": "#AE87FF",
-    "dark": "#0D001D",
+    "primary": "#af6de7",
+    "light": "#af6de7",
+    "dark": "#030014",
     "background": {
-      "dark": "#090014"
+      "dark": "#030014"
     },
     "anchors": {
       "from": "#FF7F57",
@@ -21,12 +22,12 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:hello@enterbios.com"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "name": "Demo",
+    "url": "https://biosdemo.altervista.org"
   },
   "tabs": [
     {
@@ -35,48 +36,47 @@
     }
   ],
   "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
-    }
   ],
   "navigation": [
     {
-      "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
-    },
-    {
-      "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
-    },
-    {
-      "group": "Endpoint Examples",
+      "group": "Api Basics",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "api-basics/introduction",
+        "api-basics/authentication",
+        "api-basics/idempotency",
+        "api-basics/ratelimiting",
+        "api-basics/pagination",
+        "api-basics/filteringandsorting",
+        "api-basics/dataformats"
+      ]
+    },
+    {
+      "group": "Errors",
+      "pages": [
+        "errors/httpresponsecode",
+        "errors/errorresponse"
+      ]
+    },
+    {
+      "group": "Authenticate",
+      "pages": [
+        "api-reference/authenticate/create",
+        "api-reference/authenticate/test"
+      ]
+    }, 
+    {
+      "group": "Sellers",
+      "pages": [
+        "api-reference/sellers/create",
+        "api-reference/sellers/retrieve",
+        "api-reference/sellers/update",
+        "api-reference/sellers/delete",
+        "api-reference/sellers/list"
       ]
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/enterBIOS",
+    "linkedin": "https://www.linkedin.com/in/fabiocapodagli/"
   }
 }

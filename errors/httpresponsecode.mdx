@@ -1,0 +1,24 @@
+---
+title: 'HTTP response codes'
+description: 'The BIOS API uses the following HTTP response codes to indicate the success or failure of a request.'
+---
+
+| Code | Status | Description       |
+| ------- | --------- | ---------- |
+| `200` |   `OK`   | 	Request successful.   |
+| `201` |   `Created`   | 	Request successful. Resource created   |
+| `204` |   `No content`   | 	Request successful with no information returned.   |
+| `400` |   `Bad request`   | 		Request impossible to process due to a logical error (e.g., missing parameter, invalid operation, constraint violation, etc.)   |
+| `401` |   `Unauthorized`   | Access to the API resource is not authorized due to an authentication failure (e.g., incorrect client ID, API Key, or URL).   |
+| `403` |   `Forbidden`   | 	Access to the API resource is forbidden, due to an authorization failure (e.g., deactivation of the account or a permission issue regarding a specific feature).   |
+| `404` |   `Not found`   | 		The requested resource cannot be found.   |
+| `405` |   `Method not allowed`   | 	HTTP method is not allowed (e.g., trying a GET instead of a POST).   |
+| `409` |   `Conflict`   | 		The request is not processed due to an identical idempotency key.   |
+| `411` |   `Length required`   | 	The Content-Length header field is not defined and the server requires it.   |
+| `413` |   `Payload too large`   | 	The request entity is larger than the server is able to process (e.g., KYC document larger than 10MB).   |
+| `415` |   `Unsupported media type`   | 	The format of the media sent is not supported by the server (e.g., wrong KYC file format).   |
+| `422` |   `Unprocessable entity`   | 	The request cannot be fulfilled due to semantic errors.   |
+| `429` |   `Too many requests`   | 	Too many requests have been sent in a given period of time (rate limiting).   |
+| `500` |   `Internal server error`   | 	We invite you to try again later or to contact the Support team if the problem persists.   |
+
+

@@ -1,0 +1,58 @@
+---
+title: 'Authentication'
+description: 'BIOS offers OAuth2.0 as way to authenticate requests and therefore provides secure access to the REST API resources.'
+---
+
+<Check>	
+**Best practices – Please note that:**<br/>
+- HTTPS is mandatory for production environments
+- We strongly recommend authenticating from your server for security reasons (rather than from the user’s browser)
+- You need a ClientId and an API key
+</Check>
+
+
+## Generate credentials
+
+1. Login to your BIOS dashboard, and navigate to OS > API credentials
+2. Select Generate API key.
+3. Choose the right scope for credentials and confirm.
+4. Store your API key securely in your system.
+
+## OAuth 2.0 authentication
+The OAuth 2.0 method of authentication consists in generating an authentication token. This can then be used as tokenized temporary credentials. Since you only send your API key when your token expires, this method ensures a higher level of security.
+
+### Step 1 – Get your OAuth token
+You need to make a request (Basic Access authentication) to generate your secured authentication token.
+
+1. Combine your ClientId and API key into a string separated by a colon (“yourclientid:yourapikey”).
+2. Encode the string in Base64.
+3. Call our OAuth endpoint to get your access token:
+
+```bash POST /v1/authenticate
+curl https://api.bios.com/v1/authenticate \
+  -X POST \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'Authorization: Basic your_encoded_string' \
+  -d 'grant_type=client_credentials' 
+```
+  
+
+### Step 2 – Use your access token
+
+Each request to our API should be performed via Bearer authentication.
+Add Bearer plus your access token to the Authorization header (make sure you keep the space between “Bearer ” and the access token string).
+
+**Example:**
+
+> Authorization: Bearer 67b036bd007c40378d4be5a934f197e6
+
+Once your access token expires, you can follow step 1 again to generate a new access token.
+
+
+<Check>	
+**Best practice**<br/>
+There is no need to generate a different token for every call you make.
+</Check>
+
+
+

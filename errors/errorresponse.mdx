@@ -1,0 +1,24 @@
+---
+title: 'Error response'
+description: 'When an error occurs, BIOS returns an error response with the following information:'
+---
+
+| Property | Type | Description and value      |
+| ------- | --------- | ---------- |
+| `message` |   `string`   | 	The description of the error.   |
+| `type` |   `string`   | 	The type of the error (e.g., param_error, resource_not_found, etc.)   |
+| `id` |   `string`   | 		The unique identifier of the error. This information may be requested by our Support team when investigating an issue.   |
+| `date` |   `timestamp`   | 		The date and time at which the error occurred.   |
+| `errors` |   `string array`   | 		The list of issues that triggered the HTTP error.   |
+
+
+```json Error example (JSON)
+{
+    "message" : "A resource has already been created with this Idempotency Key",
+    "type" : "idempotent_creation_conflict",
+    "id" : "13c824a3-06b9-465f-90a7-3d7262d35b66#1658230707",
+    "date" : 16582307080,
+    "errors" : null
+}
+```
+

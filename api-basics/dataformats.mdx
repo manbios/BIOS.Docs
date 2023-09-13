@@ -1,0 +1,15 @@
+---
+title: 'Data formats'
+description: 'Please find below everything you need to know about data formats when using the BIOS API.'
+---
+
+
+| Type | Format       |
+| ----------- | ----------------- |
+| `Dates` | Date and time values are displayed as a **timestamp**, which is an integer representing the number of seconds since the Unix Epoch (January 1, 1970, 00:00:00 UTC).            |
+| `Parameters` | The names of the parameters displayed in requests are **case-sensitive.**            |
+| `ID` | All object IDs are provided as strings (even though they may look like integers).            |
+| `Amounts` | All monetary amounts are given as **integer numbers in cents** (by default, Eurocent, which is the smallest sub-division of the currency, e.g. 12.60 EUR would be represented as 1260 whereas 12 JPY would be represented as just 12).            |
+| `Currencies` | Currencies follow the **ISO_4217** format.<br/><br/>As of today, the following currencies can be used: AED, AUD, CAD, CHF, CZK, DKK, EUR, GBP, HKD, JPY, NOK, PLN, SEK, USD, and ZAR.<br/><br/>**Note:** The available currencies vary across payment methods, cards, wallets, and payouts, and according to your contract.            |
+| `Countries` | Country codes mostly follow the **ISO 3166-1 alpha-2** format.<br/><br/>Accepted values are the following: AD, AE, AF, AG, AI, AL, AM, AO, AQ, AR, AS, AT, AU, AW, AX, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BL, BM, BN, BO, BQ, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CU, CV, CW, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GF, GG, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IM, IN, IO, IQ, IR, IS, IT, JE, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, ME, MF, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PW, PY, QA, RE, RO, RS, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, SS, ST, SV, SX, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW.           |
+

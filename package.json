@@ -1,0 +1,12 @@
+{
+  "name": "bios_docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/manbios/BIOS.Docs",
+  "author": "manuele occhialini <manueleocchia@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mintlify": "^4.0.14"
+  }
+}
+

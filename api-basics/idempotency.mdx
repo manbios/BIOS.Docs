@@ -1,0 +1,38 @@
+---
+title: 'Idempotency'
+description: 'By using an idempotency key, you’ll be able to avoid duplicated calls and retrieve missed API responses.'
+---
+
+## Introduction
+
+The BIOS API supports idempotency for all POST calls, which means that a request can be retried several times without performing the same operation. This avoids unwanted duplicated calls that can have detrimental consequences, for example in case of a network error.
+
+You can make calls idempotent by adding an Idempotency-Key to your request header. The idempotency key is a unique string generated on your side which must contain between 16 and 36 characters (only alphanumeric and dashes).
+
+<Check>	
+**Best practice – Use GUID**<br/>
+We strongly recommend generating a globally unique identifier (GUID) as your idempotency key.
+</Check>
+
+## Blocking duplicated calls
+If you use the same idempotency key within 24 hours, regardless of the other parameter values, Mangopay will block all but the first request. This means you are able to rerun the same request knowing that it is only going to be processed once. 
+
+```json Error example (JSON)
+{
+    "message" : "A resource has already been created with this Idempotency Key",
+    "type" : "idempotent_creation_conflict",
+    "id" : "13c824a3-06b9-465f-90a7-3d7262d35b66#1658230707",
+    "date" : 16582307080,
+    "errors" : null
+}
+```
+
+When an idempotent request is blocked, the 409 HTTP response code is returned, and this regardless of the response code of the previous API call.
+
+## Retrieving missed API responses
+In the event of a timeout or a loss of connection, the idempotency key can be used to retrieve the missed API responses using the View an API Response endpoint.
+
+<Warning>	
+**Caution – Limited to within 24 hours**<br/>
+This only works within 24 hours after the initial use of the idempotency key.
+</Warning>

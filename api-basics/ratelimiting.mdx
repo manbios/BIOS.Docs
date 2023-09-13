@@ -1,0 +1,56 @@
+---
+title: 'Rate limiting'
+description: 'The BIOS API relies on rate limiting to ensure stable and reliable behavior for all clients, in both the Production and Sandbox environments.'
+---
+
+## Limits per time period
+Rate limiting is the controlling of requests received and processed in a given time period.
+Rate limits apply to all endpoints. The maximum number of calls allowed in a given period is as follows:
+
+| Time period | Description       |
+| ----------- | ----------------- |
+| 15 minutes  | 2,300             |
+| 30 minutes  | 4,500             |
+| 1 hour      | 8,800             |
+| 24 hours    | 105,600           |
+
+If you exceed the rate limits, you receive a 429 HTTP response code with the following response body:
+
+```json Error example (JSON)
+{
+  "message" : "Rate limit exceeded. Please contact support for more assistance",
+  "type" : "rate_limit",
+  "id" : *,
+  "date" : *,
+  "errors" : null
+}
+```
+
+<Note>	
+**Note**<br/>
+If you frequently encounter issues related to rate limiting, please contact the Support team to make sure your integration is appropriate, or to increase your rate limits.
+</Note>
+
+## Response header information
+The response header of all API calls provides useful information regarding the rate limit:
+
+| Header                 | Description                                                                                                                 |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `x-ratelimit`            | Indicates the number of API calls you have made.                                                                            |
+| `x-ratelimit-remaining`  | Indicates the number of API calls you have left before reaching the limit.                                                  |
+| `x-ratelimit-reset`      | Indicates how long you have to wait until reset (in timestamp format).<br/> There is one x-ratelimit-reset for each time period. |
+
+The header information can prove particularly useful if you plan on making a lot of API requests in a short period of time (such as batch payouts or transfers for instance). 
+
+The rate limit information can allow you to:
+- Automatically stop sending requests once the limit has been reached and then start making requests again at the x-ratelimit-reset time
+- Automatically set pauses in between calls to ensure you don’t go over the limit
+
+## API implementation best practices
+An implementation can be optimized to avoid reaching the rate limits.
+
+The following oversights commonly increase the risk of exceeding the rate limit:
+- Failed requests being indefinitely retried
+- Systematic GET requests without the platform storing or caching the corresponding information
+- GET requests made daily while they could be made at a larger interval (weekly, monthly)
+- Requests triggered on a fixed interval while they could be triggered after the corresponding POST request has been made instead

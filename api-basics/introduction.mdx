@@ -1,0 +1,61 @@
+---
+title: Introduction
+description: "The BIOS API is based on REST principles, providing a simple and secure way to accept payments in your platform or marketplace."
+---
+
+## Setting up
+
+To start using BIOS, you can refer to:
+
+<CardGroup cols={2}>
+  <Card
+    title="Reference APIs"
+    icon="code"
+    href="/quickstart"
+  >
+    Leverage our HTTP/REST endpoints to start developing your payment system
+  </Card>
+  <Card
+    title="Webhook endpoints"
+    icon="webhook"
+    href="/development"
+  >
+    You can configure webhook to be notified about events that happen in your BIOS account.
+  </Card>
+</CardGroup>
+
+## Environment
+
+BIOS provide two environments:
+
+<CardGroup cols={2}>
+  <Card
+    title="Production"
+    icon="wave-pulse"
+    href="/introduction#environment"
+  >
+  For live production
+  ```javascript 
+    api.enterbios.com
+  ```
+  </Card>
+  <Card
+    title="Sandbox"
+    icon="screwdriver-wrench"
+    href="/introduction#environment"
+  >
+  For testing and integration
+  ```javascript 
+    api.sandbox.enterbios.com
+  ```
+  </Card>
+</CardGroup>
+
+The BIOS API accepts and returns:<br/>
+`Content-Type` application/json <br/>
+`Encoding` UTF-8 JSON
+
+<Note>	
+**Note**<br/>
+Requests to generate an OAuth token use the application/x-www-form-urlencoded Content-Type.<br/> See more information in OAuth 2.0 authentication.
+</Note>
