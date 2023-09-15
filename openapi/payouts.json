@@ -1,0 +1,472 @@
+{
+  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payouts",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:7026"
+    }
+  ],
+  "paths": {
+    "/payouts": {
+      "post": {
+        "tags": [
+          "Payouts"
+        ],
+        "summary": "Create Payout",
+        "description": "Use this endpoint to create a new payout.",
+        "operationId": "BIOSPayoutsEndpointsCreatePayoutEndpoint",
+        "responses": {
+          "201": {
+            "description": "The payout you have just created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayoutsContractsCreatePayoutResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "a4fbef6e-86b4-4ecc-b10b-900a9b4c158f",
+                  "date": 1694783493713,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "abb9e5b8-e410-4125-be5d-1c5cda6bc7bd",
+                  "date": 1694783493718,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Payouts"
+        ],
+        "summary": "List Payouts",
+        "description": "Use this endpoint to list all your payouts.",
+        "operationId": "BIOSPayoutsEndpointsListPayoutsEndpoint",
+        "responses": {
+          "200": {
+            "description": "A list of your payouts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayoutsContractsListPayoutsResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "0f198af6-d027-4b5d-bac6-c5bee76f2b3f",
+                  "date": 1694783493729,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "d790d16f-d618-45d5-a73c-f46e324c1470",
+                  "date": 1694783493729,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payouts/{payout_id}": {
+      "delete": {
+        "tags": [
+          "Payouts"
+        ],
+        "summary": "Delete Payout",
+        "description": "Use this endpoint to delete an existing Payout.",
+        "operationId": "BIOSPayoutsEndpointsDeletePayoutEndpoint",
+        "parameters": [
+          {
+            "name": "payout_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The payout has been deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                },
+                "example": {}
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "1a5c2515-8797-45c1-87e9-5054e2c055da",
+                  "date": 1694783493726,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "b85e8d8e-ba0e-4d0b-86b5-05d4628127f7",
+                  "date": 1694783493726,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "7b1b8971-7082-456d-a654-26584d10273b",
+                  "date": 1694783493726,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Payouts"
+        ],
+        "summary": "Retrieve Payout",
+        "description": "Use this endpoint to retrieve an existing payout.",
+        "operationId": "BIOSPayoutsEndpointsRetrievePayoutEndpoint",
+        "parameters": [
+          {
+            "name": "payout_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The payout with the ID you provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayoutsContractsRetrievePayoutResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "9eca2c77-8b0e-4d98-85a4-cbbaa3d23e09",
+                  "date": 1694783493746,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "4acb1640-3b3e-434d-bf7a-3db210c5b6c9",
+                  "date": 1694783493746,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "20a5b3cb-50cb-43e3-884d-6e1da6e18936",
+                  "date": 1694783493746,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Payouts"
+        ],
+        "summary": "Update Payout",
+        "description": "Use this endpoint to update an existing payout.",
+        "operationId": "BIOSPayoutsEndpointsUpdatePayoutEndpoint",
+        "parameters": [
+          {
+            "name": "payout_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The payouts you have just updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayoutsContractsUpdatePayoutResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "808c55a5-f936-4577-a6bc-c54340d08572",
+                  "date": 1694783493747,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "8968e7a1-4a09-45bc-98dc-0ea2b1244c8c",
+                  "date": 1694783493747,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "6c4e80cd-f820-4b92-849c-13ba9ec72f8b",
+                  "date": 1694783493747,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BIOSPayoutsContractsCreatePayoutResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayoutsContractsPayoutContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayoutsContractsPayoutContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          }
+        }
+      },
+      "BIOSCoreApiErrorResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BIOSPayoutsContractsCreatePayoutRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "FastEndpointsEmptyResponse": {
+        "type": "object",
+        "description": "a response dto that doesn't have any properties",
+        "additionalProperties": false
+      },
+      "BIOSPayoutsContractsListPayoutsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BIOSPayoutsContractsPayoutContract"
+        }
+      },
+      "BIOSPayoutsContractsRetrievePayoutResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayoutsContractsPayoutContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayoutsContractsUpdatePayoutResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayoutsContractsPayoutContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayoutsContractsUpdatePayoutRequest": {
+        "type": "object",
+        "additionalProperties": false
+      }
+    }
+  }
+}

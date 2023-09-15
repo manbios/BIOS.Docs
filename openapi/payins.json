@@ -1,0 +1,472 @@
+{
+  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Payins",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:7292"
+    }
+  ],
+  "paths": {
+    "/payins": {
+      "post": {
+        "tags": [
+          "Payins"
+        ],
+        "summary": "Create Payin",
+        "description": "Use this endpoint to create a new payin.",
+        "operationId": "BIOSPayinsEndpointsCreatePayinEndpoint",
+        "responses": {
+          "201": {
+            "description": "The payin you have just created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsCreatePayinResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "b0dd1b3b-7d62-4306-b6e1-f34c83c970e6",
+                  "date": 1694783493180,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "4328848c-a758-4e97-b8bc-33b90da6b8a8",
+                  "date": 1694783493184,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Payins"
+        ],
+        "summary": "List Payins",
+        "description": "Use this endpoint to list all your payins.",
+        "operationId": "BIOSPayinsEndpointsListPayinsEndpoint",
+        "responses": {
+          "200": {
+            "description": "A list of your payins.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsListPayinsResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "87144ecf-1286-4dc8-a657-44c6074e6d5f",
+                  "date": 1694783493187,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "8c234a43-16d3-49eb-8406-e8b201fcc905",
+                  "date": 1694783493187,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payins/{payin_id}": {
+      "delete": {
+        "tags": [
+          "Payins"
+        ],
+        "summary": "Delete Payin",
+        "description": "Use this endpoint to delete an existing Payin.",
+        "operationId": "BIOSPayinsEndpointsDeletePayinEndpoint",
+        "parameters": [
+          {
+            "name": "payin_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The payin has been deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                },
+                "example": {}
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "6b1cc579-6b3d-4e32-810d-614cbbf83827",
+                  "date": 1694783493186,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "613e9ad1-7e69-43ba-8779-33898f870a4a",
+                  "date": 1694783493186,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "da55a0d5-92aa-4db8-b19a-a090e6185a67",
+                  "date": 1694783493186,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Payins"
+        ],
+        "summary": "Retrieve Payin",
+        "description": "Use this endpoint to retrieve an existing payin.",
+        "operationId": "BIOSPayinsEndpointsRetrievePayinEndpoint",
+        "parameters": [
+          {
+            "name": "payin_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The payin with the ID you provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsRetrievePayinResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "ca73d16d-a730-4eac-9921-ba42f323e6fc",
+                  "date": 1694783493189,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "382fa1fb-335e-43a6-8edc-832d79d79777",
+                  "date": 1694783493189,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "593b1ebd-d2c0-4d2a-836a-6628d9dace00",
+                  "date": 1694783493189,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Payins"
+        ],
+        "summary": "Update Payin",
+        "description": "Use this endpoint to update an existing payin.",
+        "operationId": "BIOSPayinsEndpointsUpdatePayinEndpoint",
+        "parameters": [
+          {
+            "name": "payin_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The payins you have just updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsUpdatePayinResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "f8a6ad43-2eed-4861-9915-b6312485c8ff",
+                  "date": 1694783493191,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "eb6884b0-3494-4448-8f42-6f45501bc278",
+                  "date": 1694783493191,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "d4fa3167-6699-496b-8a12-ed5834d0213a",
+                  "date": 1694783493191,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BIOSPayinsContractsCreatePayinResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsPayinContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          }
+        }
+      },
+      "BIOSCoreApiErrorResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "date": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BIOSPayinsContractsCreatePayinRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "FastEndpointsEmptyResponse": {
+        "type": "object",
+        "description": "a response dto that doesn't have any properties",
+        "additionalProperties": false
+      },
+      "BIOSPayinsContractsListPayinsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+        }
+      },
+      "BIOSPayinsContractsRetrievePayinResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsUpdatePayinResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsUpdatePayinRequest": {
+        "type": "object",
+        "additionalProperties": false
+      }
+    }
+  }
+}

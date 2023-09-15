@@ -61,8 +61,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "e69ba417-6237-4fef-9571-06490516a50d",
-                  "date": 1694612985354,
+                  "id": "348a8519-1798-42ef-9dbd-ec374ab06641",
+                  "date": 1694783494112,
                   "errors": []
                 }
               }
@@ -78,8 +78,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "da6015ab-1d06-48ff-a8b2-1f3807e2fb6e",
-                  "date": 1694612985356,
+                  "id": "8aa35d17-87fa-4892-bf8f-e4226205b0cb",
+                  "date": 1694783494116,
                   "errors": []
                 }
               }
@@ -116,8 +116,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "aad22d1a-77ea-48be-93a7-a7b7571e1835",
-                  "date": 1694612985358,
+                  "id": "18809f3f-5264-4597-b35b-9101b127b791",
+                  "date": 1694783494119,
                   "errors": []
                 }
               }
@@ -133,8 +133,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "efd2c905-d879-4d37-9423-448fe72479bc",
-                  "date": 1694612985358,
+                  "id": "859e965b-805b-4167-908c-b9a7d905d145",
+                  "date": 1694783494119,
                   "errors": []
                 }
               }
@@ -183,8 +183,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "5481749d-aa03-4cc4-be3b-bbbd802e1a78",
-                  "date": 1694612985358,
+                  "id": "266b3575-b366-464d-8f4a-e0356a0fb00e",
+                  "date": 1694783494118,
                   "errors": []
                 }
               }
@@ -200,8 +200,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "39e73e58-42be-4727-9f19-0d742d43dc74",
-                  "date": 1694612985358,
+                  "id": "2bc7140b-0d9f-425e-a50b-e08fb28389b9",
+                  "date": 1694783494118,
                   "errors": []
                 }
               }
@@ -217,8 +217,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "80f9eb89-f5eb-4553-acc1-a2b67733a711",
-                  "date": 1694612985358,
+                  "id": "f980fd7c-c075-419b-937d-d219889dc1df",
+                  "date": 1694783494118,
                   "errors": []
                 }
               }
@@ -272,8 +272,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "79a8e0ee-8084-413e-aeb8-d7d289e29d00",
-                  "date": 1694612985359,
+                  "id": "85cbd69c-66b7-444a-a377-be1a63e94ac0",
+                  "date": 1694783494121,
                   "errors": []
                 }
               }
@@ -289,8 +289,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "750e42e4-70df-4ca5-b914-0606065654ea",
-                  "date": 1694612985359,
+                  "id": "a6ebcc8f-52c3-4380-9a9e-2485eb350dfa",
+                  "date": 1694783494121,
                   "errors": []
                 }
               }
@@ -306,8 +306,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "e5ab4743-98d3-4578-9822-d782ad16eddd",
-                  "date": 1694612985359,
+                  "id": "615d82cd-d590-4dd3-8c71-2c135805066a",
+                  "date": 1694783494121,
                   "errors": []
                 }
               }
@@ -374,8 +374,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "52e04fdd-332a-4e9d-98f6-997be773aef5",
-                  "date": 1694612985359,
+                  "id": "a667aa4c-e7ac-43bb-bedd-3d88e4c360c6",
+                  "date": 1694783494126,
                   "errors": []
                 }
               }
@@ -391,8 +391,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "43395f1d-893f-4d61-9f33-ca0eb369b413",
-                  "date": 1694612985359,
+                  "id": "a7ed0029-9cb4-4433-9018-7739f7cbd3ae",
+                  "date": 1694783494126,
                   "errors": []
                 }
               }
@@ -408,8 +408,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "2899df9d-e852-4abc-a77a-54849166e71f",
-                  "date": 1694612985359,
+                  "id": "4f86217a-644a-4ddd-8fa0-46e17139b018",
+                  "date": 1694783494126,
                   "errors": []
                 }
               }

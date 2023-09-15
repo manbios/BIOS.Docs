@@ -1,5 +1,8 @@
 {
   "$schema": "https://mintlify.com/schema.json",
+  "api": {
+    "baseUrl": "https://api.enterbios.com"
+  },
   "name": "Api docs",
   "logo": {
     "dark": "/logo/dark.svg",
@@ -35,8 +38,7 @@
       "url": "api-reference"
     }
   ],
-  "anchors": [
-  ],
+  "anchors": [],
   "navigation": [
     {
       "group": "Api Basics",
@@ -63,7 +65,7 @@
         "api-reference/authenticate/create",
         "api-reference/authenticate/test"
       ]
-    }, 
+    },
     {
       "group": "Sellers",
       "pages": [
@@ -71,7 +73,87 @@
         "api-reference/sellers/retrieve",
         "api-reference/sellers/update",
         "api-reference/sellers/delete",
-        "api-reference/sellers/list"
+        "api-reference/sellers/list",
+        {
+          "group": "Persons",
+          "pages": [
+            "api-reference/persons/create",
+            "api-reference/persons/retrieve",
+            "api-reference/persons/update",
+            "api-reference/persons/delete",
+            "api-reference/persons/list"
+          ]
+        },
+        {
+          "group": "Companies",
+          "pages": [
+            "api-reference/companies/create",
+            "api-reference/companies/retrieve",
+            "api-reference/companies/update",
+            "api-reference/companies/delete",
+            "api-reference/companies/list"
+          ]
+        },
+        {
+          "group": "Bank Accounts",
+          "pages": [
+            "api-reference/bankAccounts/create",
+            "api-reference/bankAccounts/retrieve",
+            "api-reference/bankAccounts/update",
+            "api-reference/bankAccounts/delete",
+            "api-reference/bankAccounts/list"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Buyers",
+      "pages": [
+        "api-reference/buyers/create",
+        "api-reference/buyers/retrieve",
+        "api-reference/buyers/update",
+        "api-reference/buyers/delete",
+        "api-reference/buyers/list",
+        {
+          "group": "Payment Methods",
+          "pages": [
+            "api-reference/paymentMethods/create",
+            "api-reference/paymentMethods/retrieve",
+            "api-reference/paymentMethods/attach",
+            "api-reference/paymentMethods/detach",
+            "api-reference/paymentMethods/update",
+            "api-reference/paymentMethods/list"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Payins",
+      "pages": [
+        "api-reference/payins/create",
+        "api-reference/payins/retrieve",
+        "api-reference/payins/update",
+        "api-reference/payins/delete",
+        "api-reference/payins/list",
+        {
+          "group": "Charges",
+          "pages": [
+            "api-reference/charges/create",
+            "api-reference/charges/retrieve",
+            "api-reference/charges/update",
+            "api-reference/charges/list"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Payouts",
+      "pages": [
+        "api-reference/payouts/create",
+        "api-reference/payouts/retrieve",
+        "api-reference/payouts/update",
+        "api-reference/payouts/delete",
+        "api-reference/payouts/list"
       ]
     }
   ],
