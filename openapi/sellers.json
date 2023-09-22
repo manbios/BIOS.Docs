@@ -18,14 +18,14 @@
         ],
         "summary": "Create Seller",
         "description": "Use this endpoint to create a new seller profile.",
-        "operationId": "BIOSSellersEndpointsCreateSellerEndpoint",
+        "operationId": "BIOSSellersEndpointsSellersCreateSellerEndpoint",
         "requestBody": {
           "x-name": "CreateSellerRequest",
           "description": "",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsCreateSellerRequest"
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreateSellerRequest"
               }
             }
           },
@@ -38,7 +38,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsCreateSellerResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreateSellerResponse"
                 },
                 "example": {
                   "id": "00000000-0000-0000-0000-000000000000",
@@ -61,8 +61,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "348a8519-1798-42ef-9dbd-ec374ab06641",
-                  "date": 1694783494112,
+                  "id": "5713bc8d-3ccc-410f-9cdc-a0f126f5c360",
+                  "date": 1695396511724,
                   "errors": []
                 }
               }
@@ -78,8 +78,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "8aa35d17-87fa-4892-bf8f-e4226205b0cb",
-                  "date": 1694783494116,
+                  "id": "68180cfe-47b0-42ce-9c2f-09c6dfef241a",
+                  "date": 1695396511729,
                   "errors": []
                 }
               }
@@ -93,14 +93,14 @@
         ],
         "summary": "List Sellers",
         "description": "Use this endpoint to list all your sellers.",
-        "operationId": "BIOSSellersEndpointsListSellersEndpoint",
+        "operationId": "BIOSSellersEndpointsSellersListSellersEndpoint",
         "responses": {
           "200": {
             "description": "A list of your sellers.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsListSellersResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListSellersResponse"
                 },
                 "example": []
               }
@@ -116,8 +116,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "18809f3f-5264-4597-b35b-9101b127b791",
-                  "date": 1694783494119,
+                  "id": "da5139de-657e-4ce2-9df1-40ac17a3e36b",
+                  "date": 1695396511731,
                   "errors": []
                 }
               }
@@ -133,8 +133,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "859e965b-805b-4167-908c-b9a7d905d145",
-                  "date": 1694783494119,
+                  "id": "4c777e18-8107-430a-b9ad-1704932dbc3e",
+                  "date": 1695396511731,
                   "errors": []
                 }
               }
@@ -150,7 +150,7 @@
         ],
         "summary": "Delete Seller",
         "description": "Use this endpoint to delete an existing seller profile.",
-        "operationId": "BIOSSellersEndpointsDeleteSellerEndpoint",
+        "operationId": "BIOSSellersEndpointsSellersDeleteSellerEndpoint",
         "parameters": [
           {
             "name": "seller_id",
@@ -183,8 +183,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "266b3575-b366-464d-8f4a-e0356a0fb00e",
-                  "date": 1694783494118,
+                  "id": "f255fcae-e36a-4ae8-8d98-a9e0556af56a",
+                  "date": 1695396511730,
                   "errors": []
                 }
               }
@@ -200,8 +200,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "2bc7140b-0d9f-425e-a50b-e08fb28389b9",
-                  "date": 1694783494118,
+                  "id": "bcdf4110-2b88-45df-96aa-c12dd8edeed8",
+                  "date": 1695396511730,
                   "errors": []
                 }
               }
@@ -217,8 +217,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "f980fd7c-c075-419b-937d-d219889dc1df",
-                  "date": 1694783494118,
+                  "id": "882af9c5-ff79-4a4a-b165-ba8911b66826",
+                  "date": 1695396511730,
                   "errors": []
                 }
               }
@@ -232,7 +232,7 @@
         ],
         "summary": "Retrieve Seller",
         "description": "Use this endpoint to retrieve an existing seller profile.",
-        "operationId": "BIOSSellersEndpointsRetrieveSellerEndpoint",
+        "operationId": "BIOSSellersEndpointsSellersRetrieveSellerEndpoint",
         "parameters": [
           {
             "name": "seller_id",
@@ -249,7 +249,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsRetrieveSellerResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrieveSellerResponse"
                 },
                 "example": {
                   "id": "00000000-0000-0000-0000-000000000000",
@@ -272,8 +272,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "85cbd69c-66b7-444a-a377-be1a63e94ac0",
-                  "date": 1694783494121,
+                  "id": "99cdf6c2-d876-4a3a-9640-131a446ac2db",
+                  "date": 1695396511732,
                   "errors": []
                 }
               }
@@ -289,8 +289,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "a6ebcc8f-52c3-4380-9a9e-2485eb350dfa",
-                  "date": 1694783494121,
+                  "id": "0f943061-e8d5-4284-9166-5c49450ade81",
+                  "date": 1695396511732,
                   "errors": []
                 }
               }
@@ -306,8 +306,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "615d82cd-d590-4dd3-8c71-2c135805066a",
-                  "date": 1694783494121,
+                  "id": "fe5b284f-e43d-4a96-94b0-233722744df8",
+                  "date": 1695396511732,
                   "errors": []
                 }
               }
@@ -321,7 +321,7 @@
         ],
         "summary": "Update Seller",
         "description": "Use this endpoint to update an existing seller profile.",
-        "operationId": "BIOSSellersEndpointsUpdateSellerEndpoint",
+        "operationId": "BIOSSellersEndpointsSellersUpdateSellerEndpoint",
         "parameters": [
           {
             "name": "seller_id",
@@ -338,7 +338,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsUpdateSellerRequest"
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdateSellerRequest"
               }
             }
           },
@@ -351,7 +351,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsUpdateSellerResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdateSellerResponse"
                 },
                 "example": {
                   "id": "00000000-0000-0000-0000-000000000000",
@@ -374,8 +374,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "a667aa4c-e7ac-43bb-bedd-3d88e4c360c6",
-                  "date": 1694783494126,
+                  "id": "c7ab32f7-4c67-4d9b-8971-24e4ee2593b8",
+                  "date": 1695396511732,
                   "errors": []
                 }
               }
@@ -391,8 +391,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "a7ed0029-9cb4-4433-9018-7739f7cbd3ae",
-                  "date": 1694783494126,
+                  "id": "ce34181f-6f82-4f63-bf84-c02db1f3ca63",
+                  "date": 1695396511732,
                   "errors": []
                 }
               }
@@ -408,8 +408,1139 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "4f86217a-644a-4ddd-8fa0-46e17139b018",
-                  "date": 1694783494126,
+                  "id": "da0a6250-96f0-4799-b889-0c9f7b8d3638",
+                  "date": 1695396511732,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons": {
+      "post": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "Create Person",
+        "description": "Use this endpoint to create a new person profile.",
+        "operationId": "BIOSSellersEndpointsPersonsCreatePersonEndpoint",
+        "responses": {
+          "201": {
+            "description": "The person you have just created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreatePersonResponse"
+                },
+                "example": {
+                  "email": null,
+                  "name": null,
+                  "last_name": null,
+                  "nationality": null,
+                  "phone": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "relationship": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "6f989d29-ff1a-4ed5-bb29-0373f0e767ee",
+                  "date": 1695396511733,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "5848850d-9e49-44da-ad88-923c95ecf6f9",
+                  "date": 1695396511733,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "List Persons",
+        "description": "Use this endpoint to list all your persons.",
+        "operationId": "BIOSSellersEndpointsPersonsListPersonsEndpoint",
+        "responses": {
+          "200": {
+            "description": "A list of your persons.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListPersonsResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "3293cc0f-578b-48f5-90c2-c4d8fd7542c7",
+                  "date": 1695396511735,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "2b597cc9-9498-4cc9-93a3-d38d652f6760",
+                  "date": 1695396511735,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/persons/{person_id}": {
+      "delete": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "Delete person",
+        "description": "Use this endpoint to delete an existing person profile.",
+        "operationId": "BIOSSellersEndpointsPersonsDeletePersonEndpoint",
+        "parameters": [
+          {
+            "name": "person_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The person has been deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                },
+                "example": {}
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "13c1bb1e-f764-4003-b8c9-89b5574665a8",
+                  "date": 1695396511734,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "110c84a1-8f41-49c4-8d64-b58edec7279f",
+                  "date": 1695396511734,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "3d85df89-379c-40a3-9f60-9a53d1ff2712",
+                  "date": 1695396511734,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "Retrieve Person",
+        "description": "Use this endpoint to retrieve an existing person profile.",
+        "operationId": "BIOSSellersEndpointsPersonsRetrievePersonEndpoint",
+        "parameters": [
+          {
+            "name": "person_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The person with the ID you provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrievePersonResponse"
+                },
+                "example": {
+                  "email": null,
+                  "name": null,
+                  "last_name": null,
+                  "nationality": null,
+                  "phone": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "relationship": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "b5172a2d-a964-4872-acf0-8b4b0813a92d",
+                  "date": 1695396511736,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "27ebd69d-3e53-49b0-a683-404e5eb66bca",
+                  "date": 1695396511736,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "53674d55-9c15-4fa6-a53e-7ab00e81499c",
+                  "date": 1695396511736,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Persons"
+        ],
+        "summary": "Update Person",
+        "description": "Use this endpoint to update an existing person profile.",
+        "operationId": "BIOSSellersEndpointsPersonsUpdatePersonEndpoint",
+        "parameters": [
+          {
+            "name": "person_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The person you have just updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdatePersonResponse"
+                },
+                "example": {
+                  "email": null,
+                  "name": null,
+                  "last_name": null,
+                  "nationality": null,
+                  "phone": null,
+                  "date_of_birth": null,
+                  "address": null,
+                  "relationship": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "8e350c67-c1ce-4e2c-adbf-c87306fe1170",
+                  "date": 1695396511737,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "f76475fb-34ca-41ac-9e6b-fa5cef5ff453",
+                  "date": 1695396511737,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "ed8bd7ad-a0e9-434d-bb18-77d9af907033",
+                  "date": 1695396511737,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/companies": {
+      "post": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Create Company",
+        "description": "Use this endpoint to create a new company profile.",
+        "operationId": "BIOSSellersEndpointsCompaniesCreateCompanyEndpoint",
+        "responses": {
+          "201": {
+            "description": "The company you have just created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreateCompanyResponse"
+                },
+                "example": {
+                  "name": null,
+                  "phone": null,
+                  "registration_number": null,
+                  "structure": null,
+                  "address": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "9d5f31aa-6b85-4f9e-ad8e-cfd2c987a1d5",
+                  "date": 1695396511738,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "22eb70fc-7af1-470e-b5ba-617269974c6c",
+                  "date": 1695396511738,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "List Companies",
+        "description": "Use this endpoint to list all your companies.",
+        "operationId": "BIOSSellersEndpointsCompaniesListCompaniesEndpoint",
+        "responses": {
+          "200": {
+            "description": "A list of your companies.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListCompaniesResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "a2c56cd5-f206-47a4-97e1-db60b963175c",
+                  "date": 1695396511740,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "acfaba1e-baf7-48d8-8c82-df8d6d7a40c1",
+                  "date": 1695396511740,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/companies/{company_id}": {
+      "delete": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Delete Company",
+        "description": "Use this endpoint to delete an existing company profile.",
+        "operationId": "BIOSSellersEndpointsCompaniesDeleteCompanyEndpoint",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The company has been deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                },
+                "example": {}
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "91c14068-899f-4d58-92f2-15f46929c0ba",
+                  "date": 1695396511739,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "86d86dc3-caec-488b-9c1c-1ff0b7c625b2",
+                  "date": 1695396511739,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "348d5dd1-036d-4d4b-869f-7452100783c5",
+                  "date": 1695396511739,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Retrieve Company",
+        "description": "Use this endpoint to retrieve an existing company profile.",
+        "operationId": "BIOSSellersEndpointsCompaniesRetrieveCompanyEndpoint",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The company with the ID you provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrieveCompanyResponse"
+                },
+                "example": {
+                  "name": null,
+                  "phone": null,
+                  "registration_number": null,
+                  "structure": null,
+                  "address": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "2c3092d4-0ece-4121-af64-366b8c97aec5",
+                  "date": 1695396511742,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "55a4c9fc-eae5-4e60-b463-bd97482309fe",
+                  "date": 1695396511742,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "4bae3618-620a-411f-b11b-2d154cab7592",
+                  "date": 1695396511742,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Companies"
+        ],
+        "summary": "Update Company",
+        "description": "Use this endpoint to update an existing company profile.",
+        "operationId": "BIOSSellersEndpointsCompaniesUpdateCompanyEndpoint",
+        "parameters": [
+          {
+            "name": "company_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The company you have just updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdateCompanyResponse"
+                },
+                "example": {
+                  "name": null,
+                  "phone": null,
+                  "registration_number": null,
+                  "structure": null,
+                  "address": null
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "8d0e3d9a-048e-4c84-8bb2-b26798ae0c97",
+                  "date": 1695396511744,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "ed7b2e3b-9ada-403d-a323-daa03d7a526c",
+                  "date": 1695396511744,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "a91de542-b598-42ef-835d-29d349284c5a",
+                  "date": 1695396511744,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bankaccounts": {
+      "post": {
+        "tags": [
+          "Bankaccounts"
+        ],
+        "summary": "Create Bank Account",
+        "description": "Use this endpoint to create a new bank account profile.",
+        "operationId": "BIOSSellersEndpointsBankAccountsCreateBankAccountEndpoint",
+        "responses": {
+          "201": {
+            "description": "The bank account you have just created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreateBankAccountResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "533fcd61-7242-43cb-817b-e3187abbeb67",
+                  "date": 1695396511745,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "6f686c41-74df-47b2-b72c-26737b9b4679",
+                  "date": 1695396511745,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Bankaccounts"
+        ],
+        "summary": "List Bank Accounts",
+        "description": "Use this endpoint to list all your bank accounts.",
+        "operationId": "BIOSSellersEndpointsBankAccountsListBankAccountsEndpoint",
+        "responses": {
+          "200": {
+            "description": "A list of your bank Accounts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListBankAccountsResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "85329d12-8295-4c10-8d1d-47d701686a28",
+                  "date": 1695396511753,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "4877893c-5d0a-4dc6-8b62-37553728b276",
+                  "date": 1695396511753,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bankaccounts/{bank_account_id}": {
+      "delete": {
+        "tags": [
+          "Bankaccounts"
+        ],
+        "summary": "Delete Bank Account",
+        "description": "Use this endpoint to delete an existing bank account profile.",
+        "operationId": "BIOSSellersEndpointsBankAccountsDeleteBankAccountEndpoint",
+        "parameters": [
+          {
+            "name": "bank_account_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The bank account has been deleted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                },
+                "example": {}
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "3866f363-64f3-4adf-9a18-66d74800169c",
+                  "date": 1695396511749,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "6d188826-5477-4cda-b677-3e94637a9786",
+                  "date": 1695396511749,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "5b93be22-9cdf-4a37-b66a-806031ed6737",
+                  "date": 1695396511749,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Bankaccounts"
+        ],
+        "summary": "Retrieve Bank Account",
+        "description": "Use this endpoint to retrieve an existing bank account profile.",
+        "operationId": "BIOSSellersEndpointsBankAccountsRetrieveBankAccountEndpoint",
+        "parameters": [
+          {
+            "name": "bank_account_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The bank account with the ID you provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrieveBankAccountResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "8251fd8d-f61c-469f-8ba9-437acd0769a5",
+                  "date": 1695396511754,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "92d9e77a-93bc-4aaa-809e-ebe9129b5216",
+                  "date": 1695396511754,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "f7383e3d-6a61-438d-9e47-569364032053",
+                  "date": 1695396511754,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bankaccounts"
+        ],
+        "summary": "Update Bank Account",
+        "description": "Use this endpoint to update an existing bank account profile.",
+        "operationId": "BIOSSellersEndpointsBankAccountsUpdateBankAccountEndpoint",
+        "parameters": [
+          {
+            "name": "bank_account_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The bank account you have just updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdateBankAccountResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "ba758ee6-76f4-44a6-8509-7c2ff99a9437",
+                  "date": 1695396511755,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "a7305fba-025e-4f45-8616-66b39fab32a6",
+                  "date": 1695396511755,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "7eb3158a-fa46-4139-9b1a-52f5f4f15a95",
+                  "date": 1695396511755,
                   "errors": []
                 }
               }
@@ -421,7 +1552,7 @@
   },
   "components": {
     "schemas": {
-      "BIOSSellersContractsCreateSellerResponse": {
+      "BIOSSellersContractsResponsesCreateSellerResponse": {
         "allOf": [
           {
             "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
@@ -664,7 +1795,7 @@
           }
         }
       },
-      "BIOSSellersContractsCreateSellerRequest": {
+      "BIOSSellersContractsRequestsCreateSellerRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -705,13 +1836,13 @@
         "description": "a response dto that doesn't have any properties",
         "additionalProperties": false
       },
-      "BIOSSellersContractsListSellersResponse": {
+      "BIOSSellersContractsResponsesListSellersResponse": {
         "type": "array",
         "items": {
           "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
         }
       },
-      "BIOSSellersContractsRetrieveSellerResponse": {
+      "BIOSSellersContractsResponsesRetrieveSellerResponse": {
         "allOf": [
           {
             "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
@@ -722,7 +1853,7 @@
           }
         ]
       },
-      "BIOSSellersContractsUpdateSellerResponse": {
+      "BIOSSellersContractsResponsesUpdateSellerResponse": {
         "allOf": [
           {
             "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
@@ -733,7 +1864,7 @@
           }
         ]
       },
-      "BIOSSellersContractsUpdateSellerRequest": {
+      "BIOSSellersContractsRequestsUpdateSellerRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -766,6 +1897,157 @@
             ]
           }
         }
+      },
+      "BIOSSellersContractsResponsesCreatePersonResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsRequestsCreatePersonRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSSellersContractsResponsesListPersonsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
+        }
+      },
+      "BIOSSellersContractsResponsesRetrievePersonResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsResponsesUpdatePersonResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsRequestsUpdatePersonRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSSellersContractsResponsesCreateCompanyResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsRequestsCreateCompanyRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSSellersContractsResponsesListCompaniesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+        }
+      },
+      "BIOSSellersContractsResponsesRetrieveCompanyResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsResponsesUpdateCompanyResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsRequestsUpdateCompanyRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSSellersContractsResponsesCreateBankAccountResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsSharedBankAccountContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          }
+        }
+      },
+      "BIOSSellersContractsRequestsCreateBankAccountRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSSellersContractsResponsesListBankAccountsResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
+        }
+      },
+      "BIOSSellersContractsResponsesRetrieveBankAccountResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsResponsesUpdateBankAccountResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSSellersContractsRequestsUpdateBankAccountRequest": {
+        "type": "object",
+        "additionalProperties": false
       }
     }
   }

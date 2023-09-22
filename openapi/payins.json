@@ -18,7 +18,7 @@
         ],
         "summary": "Create Payin",
         "description": "Use this endpoint to create a new payin.",
-        "operationId": "BIOSPayinsEndpointsCreatePayinEndpoint",
+        "operationId": "BIOSPayinsEndpointsPayinsCreatePayinEndpoint",
         "responses": {
           "201": {
             "description": "The payin you have just created.",
@@ -43,8 +43,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "b0dd1b3b-7d62-4306-b6e1-f34c83c970e6",
-                  "date": 1694783493180,
+                  "id": "7099f4a1-580b-4276-8323-7e1c5bc992a7",
+                  "date": 1695396931617,
                   "errors": []
                 }
               }
@@ -60,8 +60,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "4328848c-a758-4e97-b8bc-33b90da6b8a8",
-                  "date": 1694783493184,
+                  "id": "26132565-6dbc-4a47-8614-9ce008a512ab",
+                  "date": 1695396931624,
                   "errors": []
                 }
               }
@@ -75,7 +75,7 @@
         ],
         "summary": "List Payins",
         "description": "Use this endpoint to list all your payins.",
-        "operationId": "BIOSPayinsEndpointsListPayinsEndpoint",
+        "operationId": "BIOSPayinsEndpointsPayinsListPayinsEndpoint",
         "responses": {
           "200": {
             "description": "A list of your payins.",
@@ -98,8 +98,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "87144ecf-1286-4dc8-a657-44c6074e6d5f",
-                  "date": 1694783493187,
+                  "id": "b5ffbc5e-9dc3-4e1b-897e-43f85ec21252",
+                  "date": 1695396931626,
                   "errors": []
                 }
               }
@@ -115,8 +115,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "8c234a43-16d3-49eb-8406-e8b201fcc905",
-                  "date": 1694783493187,
+                  "id": "5f3dde98-7e67-49ce-a1c5-b0c392881f6b",
+                  "date": 1695396931626,
                   "errors": []
                 }
               }
@@ -132,7 +132,7 @@
         ],
         "summary": "Delete Payin",
         "description": "Use this endpoint to delete an existing Payin.",
-        "operationId": "BIOSPayinsEndpointsDeletePayinEndpoint",
+        "operationId": "BIOSPayinsEndpointsPayinsDeletePayinEndpoint",
         "parameters": [
           {
             "name": "payin_id",
@@ -165,8 +165,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "6b1cc579-6b3d-4e32-810d-614cbbf83827",
-                  "date": 1694783493186,
+                  "id": "9f3eb262-a872-4430-b765-12b8cc9d99d9",
+                  "date": 1695396931625,
                   "errors": []
                 }
               }
@@ -182,8 +182,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "613e9ad1-7e69-43ba-8779-33898f870a4a",
-                  "date": 1694783493186,
+                  "id": "0dc391e8-1144-4637-962c-ee9fba018c54",
+                  "date": 1695396931625,
                   "errors": []
                 }
               }
@@ -199,8 +199,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "da55a0d5-92aa-4db8-b19a-a090e6185a67",
-                  "date": 1694783493186,
+                  "id": "8084b46d-1d5f-47d2-a3b5-d59575b79bf9",
+                  "date": 1695396931625,
                   "errors": []
                 }
               }
@@ -214,7 +214,7 @@
         ],
         "summary": "Retrieve Payin",
         "description": "Use this endpoint to retrieve an existing payin.",
-        "operationId": "BIOSPayinsEndpointsRetrievePayinEndpoint",
+        "operationId": "BIOSPayinsEndpointsPayinsRetrievePayinEndpoint",
         "parameters": [
           {
             "name": "payin_id",
@@ -249,8 +249,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "ca73d16d-a730-4eac-9921-ba42f323e6fc",
-                  "date": 1694783493189,
+                  "id": "e07afd2b-0c06-4276-a0ef-92e622528610",
+                  "date": 1695396931627,
                   "errors": []
                 }
               }
@@ -266,8 +266,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "382fa1fb-335e-43a6-8edc-832d79d79777",
-                  "date": 1694783493189,
+                  "id": "269cb360-4278-4dde-948e-60555858f0c4",
+                  "date": 1695396931627,
                   "errors": []
                 }
               }
@@ -283,8 +283,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "593b1ebd-d2c0-4d2a-836a-6628d9dace00",
-                  "date": 1694783493189,
+                  "id": "6c96893c-b0b2-4b52-840f-3738a9a3a217",
+                  "date": 1695396931627,
                   "errors": []
                 }
               }
@@ -298,7 +298,7 @@
         ],
         "summary": "Update Payin",
         "description": "Use this endpoint to update an existing payin.",
-        "operationId": "BIOSPayinsEndpointsUpdatePayinEndpoint",
+        "operationId": "BIOSPayinsEndpointsPayinsUpdatePayinEndpoint",
         "parameters": [
           {
             "name": "payin_id",
@@ -311,7 +311,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The payins you have just updated.",
+            "description": "The payin you have just updated.",
             "content": {
               "application/json": {
                 "schema": {
@@ -333,8 +333,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "f8a6ad43-2eed-4861-9915-b6312485c8ff",
-                  "date": 1694783493191,
+                  "id": "c9394fe0-6c77-4c46-8553-3fb1c6ce5cb9",
+                  "date": 1695396931628,
                   "errors": []
                 }
               }
@@ -350,8 +350,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "eb6884b0-3494-4448-8f42-6f45501bc278",
-                  "date": 1694783493191,
+                  "id": "d2f72ace-88cf-47aa-b6db-69a1dac1d249",
+                  "date": 1695396931628,
                   "errors": []
                 }
               }
@@ -367,8 +367,693 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "d4fa3167-6699-496b-8a12-ed5834d0213a",
-                  "date": 1694783493191,
+                  "id": "f7b0cac3-6e07-4f30-8521-2f4403c506b0",
+                  "date": 1695396931628,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/disputes/{dispute_id}/accept": {
+      "post": {
+        "tags": [
+          "Disputes"
+        ],
+        "summary": "Accept Dispute",
+        "description": "Use this endpoint to accept an open dispute.",
+        "operationId": "BIOSPayinsEndpointsDisputesAcceptDisputeEndpoint",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The dispute you have just accepted.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsAcceptDisputeResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "a7a14217-1b0e-452d-aec8-ec5e0e83628a",
+                  "date": 1695396931628,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "b6ff11e2-8e30-42ea-bf60-87002a1f34ef",
+                  "date": 1695396931628,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "95cf2a93-3fc2-497f-a353-96c35ed4abd7",
+                  "date": 1695396931628,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/disputes/{dispute_id}/counter": {
+      "post": {
+        "tags": [
+          "Disputes"
+        ],
+        "summary": "Counter Dispute",
+        "description": "Use this endpoint to update evidence for an open dispute.",
+        "operationId": "BIOSPayinsEndpointsDisputesCounterDisputeEndpoint",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The dispute you have just updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsCounterDisputeResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "db01f89c-704b-48df-ab67-199c8205e183",
+                  "date": 1695396931629,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "8916e209-ace5-4d79-8d56-9033c7f34d5d",
+                  "date": 1695396931629,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "77330b4a-f514-4483-9aae-f45af1adcb4c",
+                  "date": 1695396931629,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/disputes": {
+      "get": {
+        "tags": [
+          "Disputes"
+        ],
+        "summary": "List Disputes",
+        "description": "Use this endpoint to list all your disputes.",
+        "operationId": "BIOSPayinsEndpointsDisputesListDisputesEndpoint",
+        "responses": {
+          "200": {
+            "description": "A list of your disputes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsListDisputesResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "ed42716b-ea86-4673-a5ba-1abc0ce3dc3a",
+                  "date": 1695396931630,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "f721ef91-a22b-4502-a249-ec0de2c3bb5b",
+                  "date": 1695396931630,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/disputes/{dispute_id}": {
+      "get": {
+        "tags": [
+          "Disputes"
+        ],
+        "summary": "Retrieve Dispute",
+        "description": "Use this endpoint to retrieve an existing dispute.",
+        "operationId": "BIOSPayinsEndpointsDisputesRetrieveDisputeEndpoint",
+        "parameters": [
+          {
+            "name": "dispute_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The dispute with the ID you provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsRetrieveDisputeResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "0b1984f0-6178-4520-be60-dcdeb6afb365",
+                  "date": 1695396931633,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "e451e790-dd93-429e-a6f7-0260547e0c85",
+                  "date": 1695396931633,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "061031ff-6e03-4cc6-8575-914678215392",
+                  "date": 1695396931633,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/charges": {
+      "post": {
+        "tags": [
+          "Charges"
+        ],
+        "summary": "Create Charge",
+        "description": "Use this endpoint to create a new charge.",
+        "operationId": "BIOSPayinsEndpointsChargesCreateChargeEndpoint",
+        "responses": {
+          "201": {
+            "description": "The charge you have just created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsCreateChargeResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "a1563449-03e8-46db-8867-1da54cc557c9",
+                  "date": 1695396931634,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "a6395cf4-d226-4237-aade-d17fe08c48c5",
+                  "date": 1695396931634,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Charges"
+        ],
+        "summary": "List Charges",
+        "description": "Use this endpoint to list all your charges.",
+        "operationId": "BIOSPayinsEndpointsChargesListChargesEndpoint",
+        "responses": {
+          "200": {
+            "description": "A list of your charges.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsListChargesResponse"
+                },
+                "example": []
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "4047e0b8-b6cb-4b5d-872e-6985a4bb43ce",
+                  "date": 1695396931635,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "7aee6191-8c48-4206-a6f9-0f843f3dec4c",
+                  "date": 1695396931635,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/charges/{charge_id}/refund": {
+      "post": {
+        "tags": [
+          "Charges"
+        ],
+        "summary": "Refund Charge",
+        "description": "Use this endpoint to refund an existing charge.",
+        "operationId": "BIOSPayinsEndpointsChargesRefundChargeEndpoint",
+        "parameters": [
+          {
+            "name": "charge_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The charge you have just Refunded.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsRefundChargeResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "142b175e-d81f-479a-a68d-ed4d6d913783",
+                  "date": 1695396931637,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "1a228754-0bb4-4d34-bded-b898a38bb684",
+                  "date": 1695396931637,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "06c038d9-9e3f-4d2d-94ba-a23e61c9ff40",
+                  "date": 1695396931637,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/charges/{charge_id}": {
+      "get": {
+        "tags": [
+          "Charges"
+        ],
+        "summary": "Retrieve Charge",
+        "description": "Use this endpoint to retrieve an existing charge.",
+        "operationId": "BIOSPayinsEndpointsChargesRetrieveChargeEndpoint",
+        "parameters": [
+          {
+            "name": "charge_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The charge with the ID you provided.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsRetrieveChargeResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "9e6cd704-2a19-4089-92d0-dc98a83a377b",
+                  "date": 1695396931638,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "8013aba7-db40-4c87-821e-204e68f0824b",
+                  "date": 1695396931638,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "9e7486e9-fcc9-4909-add3-e4f42cbf5f1b",
+                  "date": 1695396931638,
+                  "errors": []
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Charges"
+        ],
+        "summary": "Update Charge",
+        "description": "Use this endpoint to update an existing charge.",
+        "operationId": "BIOSPayinsEndpointsChargesUpdateChargeEndpoint",
+        "parameters": [
+          {
+            "name": "charge_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The charge you have just updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSPayinsContractsUpdateChargeResponse"
+                },
+                "example": {
+                  "id": "00000000-0000-0000-0000-000000000000"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "One or more error occurred",
+                  "type": "bad_request",
+                  "id": "dfbaaf43-5c5a-445a-bceb-aa61c77a8f0e",
+                  "date": 1695396931639,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request is not authorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "Access to the API resource is not authorized due to an authentication failure.",
+                  "type": "unauthorized_access",
+                  "id": "92365481-2146-4fca-9dfb-bf4a79e4f08e",
+                  "date": 1695396931639,
+                  "errors": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                },
+                "example": {
+                  "message": "The requested resource cannot be found.",
+                  "type": "not_found",
+                  "id": "17c21bd7-fcde-4707-bb46-d9089b3f7d12",
+                  "date": 1695396931639,
                   "errors": []
                 }
               }
@@ -464,6 +1149,131 @@
         ]
       },
       "BIOSPayinsContractsUpdatePayinRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSPayinsContractsAcceptDisputeResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsDisputeContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsDisputeContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          }
+        }
+      },
+      "BIOSPayinsContractsAcceptDisputeRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSPayinsContractsCounterDisputeResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsDisputeContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsCounterDisputeRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSPayinsContractsListDisputesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BIOSPayinsContractsDisputeContract"
+        }
+      },
+      "BIOSPayinsContractsRetrieveDisputeResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsDisputeContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsCreateChargeResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsChargeContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsChargeContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "guid"
+          }
+        }
+      },
+      "BIOSPayinsContractsCreateChargeRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "BIOSPayinsContractsListChargesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/BIOSPayinsContractsChargeContract"
+        }
+      },
+      "BIOSPayinsContractsRefundChargeResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsChargeContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsRetrieveChargeResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsChargeContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsUpdateChargeResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSPayinsContractsChargeContract"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BIOSPayinsContractsUpdateChargeRequest": {
         "type": "object",
         "additionalProperties": false
       }
