@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Merchants",
@@ -20,6 +20,12 @@
         "description": "Use this endpoint to create a payout.",
         "operationId": "BIOSMerchantsEndpointsPayoutsCreatePayoutEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "201": {
             "description": "The payout you have just created.",
             "content": {
@@ -41,25 +47,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "002b16aa-05f6-49c6-9253-641a83f76ab3",
-                  "date": 1695397320971,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "0cd4f21c-f698-44e0-bebd-b93330f5e1f3",
-                  "date": 1695397320973,
+                  "id": "982cdcfb-97b4-404d-be5a-6b67d97cb5cf",
+                  "date": 1696426203704,
                   "errors": []
                 }
               }
@@ -75,6 +64,12 @@
         "description": "Use this endpoint to list all your payouts.",
         "operationId": "BIOSMerchantsEndpointsPayoutsListPayoutsEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "A list of your payouts.",
             "content": {
@@ -96,25 +91,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "0552642b-e51a-43b5-b421-5c7c8201b021",
-                  "date": 1695397320974,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "f6809195-b73c-4ff7-a140-43d455d08592",
-                  "date": 1695397320974,
+                  "id": "3bc86427-9057-4770-a9ae-e717862b6195",
+                  "date": 1696426203707,
                   "errors": []
                 }
               }
@@ -137,11 +115,18 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "204": {
             "description": "The payout has been deleted.",
             "content": {
@@ -163,25 +148,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "4fcd9e0b-bcdc-48e0-9538-5bc78a2cf5cb",
-                  "date": 1695397320973,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "181a0c2a-4d01-4588-ab57-b2ff177bca1c",
-                  "date": 1695397320973,
+                  "id": "ea867bfa-08ab-4d0e-ace3-1c122049e794",
+                  "date": 1696426203707,
                   "errors": []
                 }
               }
@@ -197,8 +165,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "31963348-8626-4e0f-b2d2-07ec808489ea",
-                  "date": 1695397320973,
+                  "id": "70fcc838-e621-4f93-a676-d29127e1dd81",
+                  "date": 1696426203707,
                   "errors": []
                 }
               }
@@ -219,11 +187,18 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The payout with the ID you provided.",
             "content": {
@@ -245,25 +220,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "92b996de-846a-48d4-a0b5-a31f9ff4b8ba",
-                  "date": 1695397320974,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "9d6eee11-3a5e-445e-a057-6db9a63c20b1",
-                  "date": 1695397320974,
+                  "id": "90881d6d-cd19-46c1-badc-c99711ae2d92",
+                  "date": 1696426203707,
                   "errors": []
                 }
               }
@@ -279,8 +237,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "b37f46f5-890d-4e40-9cee-28331cf4b533",
-                  "date": 1695397320974,
+                  "id": "51a1e0a1-6ec4-42aa-a7de-4c78a0804484",
+                  "date": 1696426203707,
                   "errors": []
                 }
               }
@@ -303,7 +261,8 @@
             "in": "header",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -333,8 +292,8 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "54c387a5-8fdb-464a-99e8-9825fb0944c6",
-                  "date": 1695397320974,
+                  "id": "b891e018-3056-406e-8705-1d274b5a40fa",
+                  "date": 1696426203708,
                   "errors": []
                 }
               }
@@ -350,17 +309,6 @@
         "description": "Use this endpoint to test your authorization token.",
         "operationId": "BIOSMerchantsEndpointsOAuthTestOAuthTokenEndpoint",
         "responses": {
-          "204": {
-            "description": "Your authorization has successfully passed the test.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
-                },
-                "example": {}
-              }
-            }
-          },
           "401": {
             "description": "Authorization checks did not approve the request.",
             "content": {
@@ -371,10 +319,24 @@
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "60c65aea-9fda-4cf5-9177-fbe748e54802",
-                  "date": 1695397320975,
+                  "id": "eb63d217-bf39-40e4-86ca-4a461c2f49d5",
+                  "date": 1696426203708,
                   "errors": []
                 }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "204": {
+            "description": "Your authorization has successfully passed the test.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                },
+                "example": {}
               }
             }
           }

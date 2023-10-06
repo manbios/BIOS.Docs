@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Sellers",
@@ -33,20 +33,30 @@
           "x-position": 1
         },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "201": {
             "description": "The seller you have just created.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreateSellerResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000",
+                  "id": null,
                   "country": null,
                   "type": null,
-                  "individual": null,
+                  "mcc": null,
+                  "url": null,
+                  "description": null,
                   "company": null,
-                  "business_profile": null
+                  "persons": null,
+                  "bank_accounts": null,
+                  "metadata": {}
                 }
               }
             }
@@ -61,25 +71,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "5713bc8d-3ccc-410f-9cdc-a0f126f5c360",
-                  "date": 1695396511724,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "68180cfe-47b0-42ce-9c2f-09c6dfef241a",
-                  "date": 1695396511729,
+                  "id": "a91fac84-003a-4280-a0c6-a277658de3fc",
+                  "date": 1696426205639,
                   "errors": []
                 }
               }
@@ -95,48 +88,23 @@
         "description": "Use this endpoint to list all your sellers.",
         "operationId": "BIOSSellersEndpointsSellersListSellersEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "A list of your sellers.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListSellersResponse"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
+                  }
                 },
                 "example": []
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "da5139de-657e-4ce2-9df1-40ac17a3e36b",
-                  "date": 1695396511731,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "4c777e18-8107-430a-b9ad-1704932dbc3e",
-                  "date": 1695396511731,
-                  "errors": []
-                }
               }
             }
           }
@@ -157,11 +125,18 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "204": {
             "description": "The seller has been deleted.",
             "content": {
@@ -183,25 +158,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "f255fcae-e36a-4ae8-8d98-a9e0556af56a",
-                  "date": 1695396511730,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "bcdf4110-2b88-45df-96aa-c12dd8edeed8",
-                  "date": 1695396511730,
+                  "id": "6e31b10b-a8d9-4560-b1f8-fc39c3f551d9",
+                  "date": 1696426205647,
                   "errors": []
                 }
               }
@@ -217,8 +175,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "882af9c5-ff79-4a4a-b165-ba8911b66826",
-                  "date": 1695396511730,
+                  "id": "7f2c32bd-5495-493c-af9c-5f5e652e76fd",
+                  "date": 1696426205647,
                   "errors": []
                 }
               }
@@ -239,25 +197,36 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The seller with the ID you provided.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrieveSellerResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000",
+                  "id": null,
                   "country": null,
                   "type": null,
-                  "individual": null,
+                  "mcc": null,
+                  "url": null,
+                  "description": null,
                   "company": null,
-                  "business_profile": null
+                  "persons": null,
+                  "bank_accounts": null,
+                  "metadata": {}
                 }
               }
             }
@@ -272,25 +241,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "99cdf6c2-d876-4a3a-9640-131a446ac2db",
-                  "date": 1695396511732,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "0f943061-e8d5-4284-9166-5c49450ade81",
-                  "date": 1695396511732,
+                  "id": "8f928ba0-584b-4a9a-b3cb-df5eca1e6987",
+                  "date": 1696426205649,
                   "errors": []
                 }
               }
@@ -306,8 +258,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "fe5b284f-e43d-4a96-94b0-233722744df8",
-                  "date": 1695396511732,
+                  "id": "66788457-9fde-484f-8ee9-67e3d1e5e467",
+                  "date": 1696426205649,
                   "errors": []
                 }
               }
@@ -328,7 +280,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
@@ -346,20 +299,30 @@
           "x-position": 1
         },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The seller you have just updated.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdateSellerResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000",
+                  "id": null,
                   "country": null,
                   "type": null,
-                  "individual": null,
+                  "mcc": null,
+                  "url": null,
+                  "description": null,
                   "company": null,
-                  "business_profile": null
+                  "persons": null,
+                  "bank_accounts": null,
+                  "metadata": {}
                 }
               }
             }
@@ -374,25 +337,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "c7ab32f7-4c67-4d9b-8971-24e4ee2593b8",
-                  "date": 1695396511732,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "ce34181f-6f82-4f63-bf84-c02db1f3ca63",
-                  "date": 1695396511732,
+                  "id": "2c57deb4-6125-474b-9006-9a4385a6d71a",
+                  "date": 1696426205649,
                   "errors": []
                 }
               }
@@ -408,8 +354,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "da0a6250-96f0-4799-b889-0c9f7b8d3638",
-                  "date": 1695396511732,
+                  "id": "669b5012-4867-4a24-8f82-b87a7e11b06e",
+                  "date": 1696426205649,
                   "errors": []
                 }
               }
@@ -426,23 +372,44 @@
         "summary": "Create Person",
         "description": "Use this endpoint to create a new person profile.",
         "operationId": "BIOSSellersEndpointsPersonsCreatePersonEndpoint",
+        "requestBody": {
+          "x-name": "CreatePersonRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreatePersonRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "201": {
             "description": "The person you have just created.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreatePersonResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
                 },
                 "example": {
+                  "id": null,
+                  "seller_id": null,
                   "email": null,
-                  "name": null,
+                  "first_name": null,
                   "last_name": null,
                   "nationality": null,
                   "phone": null,
                   "date_of_birth": null,
                   "address": null,
-                  "relationship": null
+                  "metadata": {}
                 }
               }
             }
@@ -457,25 +424,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "6f989d29-ff1a-4ed5-bb29-0373f0e767ee",
-                  "date": 1695396511733,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "5848850d-9e49-44da-ad88-923c95ecf6f9",
-                  "date": 1695396511733,
+                  "id": "efa5da71-b60d-49c0-844c-4f14ef49864d",
+                  "date": 1696426205652,
                   "errors": []
                 }
               }
@@ -491,48 +441,23 @@
         "description": "Use this endpoint to list all your persons.",
         "operationId": "BIOSSellersEndpointsPersonsListPersonsEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "A list of your persons.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListPersonsResponse"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
+                  }
                 },
                 "example": []
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "3293cc0f-578b-48f5-90c2-c4d8fd7542c7",
-                  "date": 1695396511735,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "2b597cc9-9498-4cc9-93a3-d38d652f6760",
-                  "date": 1695396511735,
-                  "errors": []
-                }
               }
             }
           }
@@ -553,11 +478,18 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "204": {
             "description": "The person has been deleted.",
             "content": {
@@ -579,25 +511,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "13c1bb1e-f764-4003-b8c9-89b5574665a8",
-                  "date": 1695396511734,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "110c84a1-8f41-49c4-8d64-b58edec7279f",
-                  "date": 1695396511734,
+                  "id": "2dd1badd-f360-4f3b-8677-01b8b657cadd",
+                  "date": 1696426205655,
                   "errors": []
                 }
               }
@@ -613,8 +528,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "3d85df89-379c-40a3-9f60-9a53d1ff2712",
-                  "date": 1695396511734,
+                  "id": "754f2dbe-9d1f-4d5c-89e0-ec75b0dc3974",
+                  "date": 1696426205655,
                   "errors": []
                 }
               }
@@ -635,27 +550,36 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The person with the ID you provided.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrievePersonResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
                 },
                 "example": {
+                  "id": null,
+                  "seller_id": null,
                   "email": null,
-                  "name": null,
+                  "first_name": null,
                   "last_name": null,
                   "nationality": null,
                   "phone": null,
                   "date_of_birth": null,
                   "address": null,
-                  "relationship": null
+                  "metadata": {}
                 }
               }
             }
@@ -670,25 +594,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "b5172a2d-a964-4872-acf0-8b4b0813a92d",
-                  "date": 1695396511736,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "27ebd69d-3e53-49b0-a683-404e5eb66bca",
-                  "date": 1695396511736,
+                  "id": "6670af43-be9f-45b8-be86-36a964366b0e",
+                  "date": 1696426205657,
                   "errors": []
                 }
               }
@@ -704,8 +611,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "53674d55-9c15-4fa6-a53e-7ab00e81499c",
-                  "date": 1695396511736,
+                  "id": "acdea886-08b9-44f1-ab25-5f9e8b395ead",
+                  "date": 1696426205657,
                   "errors": []
                 }
               }
@@ -726,27 +633,49 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
+        "requestBody": {
+          "x-name": "UpdatePersonRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdatePersonRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The person you have just updated.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdatePersonResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
                 },
                 "example": {
+                  "id": null,
+                  "seller_id": null,
                   "email": null,
-                  "name": null,
+                  "first_name": null,
                   "last_name": null,
                   "nationality": null,
                   "phone": null,
                   "date_of_birth": null,
                   "address": null,
-                  "relationship": null
+                  "metadata": {}
                 }
               }
             }
@@ -761,25 +690,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8e350c67-c1ce-4e2c-adbf-c87306fe1170",
-                  "date": 1695396511737,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "f76475fb-34ca-41ac-9e6b-fa5cef5ff453",
-                  "date": 1695396511737,
+                  "id": "583b1345-b7c9-4a40-a4ab-d6eec88616a9",
+                  "date": 1696426205659,
                   "errors": []
                 }
               }
@@ -795,8 +707,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "ed8bd7ad-a0e9-434d-bb18-77d9af907033",
-                  "date": 1695396511737,
+                  "id": "ec64e676-19d4-49bd-8237-b9641bbda9cc",
+                  "date": 1696426205659,
                   "errors": []
                 }
               }
@@ -813,20 +725,42 @@
         "summary": "Create Company",
         "description": "Use this endpoint to create a new company profile.",
         "operationId": "BIOSSellersEndpointsCompaniesCreateCompanyEndpoint",
+        "requestBody": {
+          "x-name": "CreateCompanyRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreateCompanyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "201": {
             "description": "The company you have just created.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreateCompanyResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
                 },
                 "example": {
+                  "id": null,
+                  "seller_id": null,
                   "name": null,
                   "phone": null,
                   "registration_number": null,
                   "structure": null,
-                  "address": null
+                  "address": null,
+                  "metadata": {}
                 }
               }
             }
@@ -841,25 +775,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "9d5f31aa-6b85-4f9e-ad8e-cfd2c987a1d5",
-                  "date": 1695396511738,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "22eb70fc-7af1-470e-b5ba-617269974c6c",
-                  "date": 1695396511738,
+                  "id": "af94294b-9def-4e68-8127-5ce9adc05caf",
+                  "date": 1696426205659,
                   "errors": []
                 }
               }
@@ -875,48 +792,23 @@
         "description": "Use this endpoint to list all your companies.",
         "operationId": "BIOSSellersEndpointsCompaniesListCompaniesEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "A list of your companies.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListCompaniesResponse"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
+                  }
                 },
                 "example": []
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "a2c56cd5-f206-47a4-97e1-db60b963175c",
-                  "date": 1695396511740,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "acfaba1e-baf7-48d8-8c82-df8d6d7a40c1",
-                  "date": 1695396511740,
-                  "errors": []
-                }
               }
             }
           }
@@ -937,11 +829,18 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "204": {
             "description": "The company has been deleted.",
             "content": {
@@ -963,25 +862,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "91c14068-899f-4d58-92f2-15f46929c0ba",
-                  "date": 1695396511739,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "86d86dc3-caec-488b-9c1c-1ff0b7c625b2",
-                  "date": 1695396511739,
+                  "id": "23d33fc4-1a07-44fd-b9b4-68f56bab10e4",
+                  "date": 1696426205660,
                   "errors": []
                 }
               }
@@ -997,8 +879,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "348d5dd1-036d-4d4b-869f-7452100783c5",
-                  "date": 1695396511739,
+                  "id": "d84bb9c6-5352-46d1-a1a8-973cf1977f67",
+                  "date": 1696426205660,
                   "errors": []
                 }
               }
@@ -1019,24 +901,34 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The company with the ID you provided.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrieveCompanyResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
                 },
                 "example": {
+                  "id": null,
+                  "seller_id": null,
                   "name": null,
                   "phone": null,
                   "registration_number": null,
                   "structure": null,
-                  "address": null
+                  "address": null,
+                  "metadata": {}
                 }
               }
             }
@@ -1051,25 +943,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "2c3092d4-0ece-4121-af64-366b8c97aec5",
-                  "date": 1695396511742,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "55a4c9fc-eae5-4e60-b463-bd97482309fe",
-                  "date": 1695396511742,
+                  "id": "2bc7160f-0c53-4673-8295-0fd142529b7c",
+                  "date": 1696426205661,
                   "errors": []
                 }
               }
@@ -1085,8 +960,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "4bae3618-620a-411f-b11b-2d154cab7592",
-                  "date": 1695396511742,
+                  "id": "93014eb1-7e54-423b-a139-09fe231a1485",
+                  "date": 1696426205661,
                   "errors": []
                 }
               }
@@ -1107,24 +982,47 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
+        "requestBody": {
+          "x-name": "UpdateCompanyRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdateCompanyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The company you have just updated.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdateCompanyResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
                 },
                 "example": {
+                  "id": null,
+                  "seller_id": null,
                   "name": null,
                   "phone": null,
                   "registration_number": null,
                   "structure": null,
-                  "address": null
+                  "address": null,
+                  "metadata": {}
                 }
               }
             }
@@ -1139,25 +1037,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8d0e3d9a-048e-4c84-8bb2-b26798ae0c97",
-                  "date": 1695396511744,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "ed7b2e3b-9ada-403d-a323-daa03d7a526c",
-                  "date": 1695396511744,
+                  "id": "3881f9db-1341-424e-b22a-02ebf060b488",
+                  "date": 1696426205661,
                   "errors": []
                 }
               }
@@ -1173,8 +1054,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "a91de542-b598-42ef-835d-29d349284c5a",
-                  "date": 1695396511744,
+                  "id": "f2ca0458-0cb6-44b7-a564-0e9d14b91460",
+                  "date": 1696426205661,
                   "errors": []
                 }
               }
@@ -1191,16 +1072,42 @@
         "summary": "Create Bank Account",
         "description": "Use this endpoint to create a new bank account profile.",
         "operationId": "BIOSSellersEndpointsBankAccountsCreateBankAccountEndpoint",
+        "requestBody": {
+          "x-name": "CreateBankAccountRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreateBankAccountRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "201": {
             "description": "The bank account you have just created.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCreateBankAccountResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                  "id": null,
+                  "seller_id": null,
+                  "country": null,
+                  "currency": null,
+                  "account_number": null,
+                  "holder_name": null,
+                  "holder_type": null,
+                  "metadata": {}
                 }
               }
             }
@@ -1215,25 +1122,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "533fcd61-7242-43cb-817b-e3187abbeb67",
-                  "date": 1695396511745,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "6f686c41-74df-47b2-b72c-26737b9b4679",
-                  "date": 1695396511745,
+                  "id": "15e99faa-5d3d-4a12-81ca-30eb250b3cfa",
+                  "date": 1696426205662,
                   "errors": []
                 }
               }
@@ -1249,48 +1139,23 @@
         "description": "Use this endpoint to list all your bank accounts.",
         "operationId": "BIOSSellersEndpointsBankAccountsListBankAccountsEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "A list of your bank Accounts.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesListBankAccountsResponse"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
+                  }
                 },
                 "example": []
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "85329d12-8295-4c10-8d1d-47d701686a28",
-                  "date": 1695396511753,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "4877893c-5d0a-4dc6-8b62-37553728b276",
-                  "date": 1695396511753,
-                  "errors": []
-                }
               }
             }
           }
@@ -1311,11 +1176,18 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "204": {
             "description": "The bank account has been deleted.",
             "content": {
@@ -1337,25 +1209,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "3866f363-64f3-4adf-9a18-66d74800169c",
-                  "date": 1695396511749,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "6d188826-5477-4cda-b677-3e94637a9786",
-                  "date": 1695396511749,
+                  "id": "8c0f28d2-d22b-4d5d-80ca-bfa1f9f030b4",
+                  "date": 1696426205663,
                   "errors": []
                 }
               }
@@ -1371,8 +1226,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "5b93be22-9cdf-4a37-b66a-806031ed6737",
-                  "date": 1695396511749,
+                  "id": "7ba715cc-1bb3-470a-9910-5ffaafb8318d",
+                  "date": 1696426205663,
                   "errors": []
                 }
               }
@@ -1393,20 +1248,34 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The bank account with the ID you provided.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesRetrieveBankAccountResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                  "id": null,
+                  "seller_id": null,
+                  "country": null,
+                  "currency": null,
+                  "account_number": null,
+                  "holder_name": null,
+                  "holder_type": null,
+                  "metadata": {}
                 }
               }
             }
@@ -1421,25 +1290,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8251fd8d-f61c-469f-8ba9-437acd0769a5",
-                  "date": 1695396511754,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "92d9e77a-93bc-4aaa-809e-ebe9129b5216",
-                  "date": 1695396511754,
+                  "id": "619d6809-b59b-45c5-8682-da936edb2215",
+                  "date": 1696426205664,
                   "errors": []
                 }
               }
@@ -1455,8 +1307,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "f7383e3d-6a61-438d-9e47-569364032053",
-                  "date": 1695396511754,
+                  "id": "34b6af16-dbf8-4d55-bbda-1d0535e76ebf",
+                  "date": 1696426205664,
                   "errors": []
                 }
               }
@@ -1477,20 +1329,47 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
+        "requestBody": {
+          "x-name": "UpdateBankAccountRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdateBankAccountRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The bank account you have just updated.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesUpdateBankAccountResponse"
+                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                  "id": null,
+                  "seller_id": null,
+                  "country": null,
+                  "currency": null,
+                  "account_number": null,
+                  "holder_name": null,
+                  "holder_type": null,
+                  "metadata": {}
                 }
               }
             }
@@ -1505,25 +1384,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "ba758ee6-76f4-44a6-8509-7c2ff99a9437",
-                  "date": 1695396511755,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "a7305fba-025e-4f45-8616-66b39fab32a6",
-                  "date": 1695396511755,
+                  "id": "1eeddfd3-2ae2-4de6-85d8-81baf7efc263",
+                  "date": 1696426205665,
                   "errors": []
                 }
               }
@@ -1539,8 +1401,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "7eb3158a-fa46-4139-9b1a-52f5f4f15a95",
-                  "date": 1695396511755,
+                  "id": "6fe3ce75-803d-4e14-be84-c91832fb3442",
+                  "date": 1696426205665,
                   "errors": []
                 }
               }
@@ -1552,24 +1414,12 @@
   },
   "components": {
     "schemas": {
-      "BIOSSellersContractsResponsesCreateSellerResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSSellersContractsSharedSellerContract": {
+      "BIOSSellersContractsResponsesSellerContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string",
-            "format": "guid"
+            "type": "string"
           },
           "country": {
             "type": "string"
@@ -1577,154 +1427,57 @@
           "type": {
             "type": "string"
           },
-          "individual": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
-              }
-            ]
+          "mcc": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
           },
           "company": {
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+                "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
               }
             ]
           },
-          "business_profile": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedBusinessProfileContract"
-              }
-            ]
+          "persons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
+            }
+          },
+          "bank_accounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
+            }
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
-      "BIOSSellersContractsSharedPersonContract": {
+      "BIOSSellersContractsResponsesCompanyContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "email": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "last_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "nationality": {
-            "type": "string",
-            "nullable": true
-          },
-          "phone": {
-            "type": "string",
-            "nullable": true
-          },
-          "date_of_birth": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedDateOfBirthContract"
-              }
-            ]
-          },
-          "address": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedAddressContract"
-              }
-            ]
-          },
-          "relationship": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedRelationshipContract"
-              }
-            ]
-          }
-        }
-      },
-      "BIOSSellersContractsSharedDateOfBirthContract": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "day": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "month": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "year": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "BIOSSellersContractsSharedAddressContract": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "city": {
+          "id": {
             "type": "string"
           },
-          "line1": {
+          "seller_id": {
             "type": "string"
           },
-          "line2": {
-            "type": "string"
-          },
-          "state": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
-          "postal_code": {
-            "type": "string"
-          }
-        }
-      },
-      "BIOSSellersContractsSharedRelationshipContract": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "percent_ownership": {
-            "type": "number",
-            "format": "decimal"
-          },
-          "owner": {
-            "type": "boolean"
-          },
-          "director": {
-            "type": "boolean"
-          },
-          "executive": {
-            "type": "boolean"
-          },
-          "representative": {
-            "type": "boolean"
-          }
-        }
-      },
-      "BIOSSellersContractsSharedCompanyContract": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
           "name": {
             "type": "string",
             "nullable": true
@@ -1745,28 +1498,147 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedAddressContract"
+                "$ref": "#/components/schemas/BIOSSellersContractsResponsesAddressContract"
               }
             ]
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
-      "BIOSSellersContractsSharedBusinessProfileContract": {
+      "BIOSSellersContractsResponsesAddressContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "mcc": {
+          "city": {
+            "type": "string"
+          },
+          "line1": {
+            "type": "string"
+          },
+          "line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          }
+        }
+      },
+      "BIOSSellersContractsResponsesPersonContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "seller_id": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_of_birth": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSSellersContractsResponsesDateOfBirthContract"
+              }
+            ]
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSSellersContractsResponsesAddressContract"
+              }
+            ]
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BIOSSellersContractsResponsesDateOfBirthContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "day": {
             "type": "integer",
-            "format": "int32",
-            "nullable": true
+            "format": "int32"
           },
-          "url": {
+          "month": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "BIOSSellersContractsResponsesBankAccountContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "seller_id": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "account_number": {
+            "type": "string"
+          },
+          "holder_name": {
             "type": "string",
             "nullable": true
           },
-          "description": {
+          "holder_type": {
             "type": "string",
             "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
           }
         }
       },
@@ -1796,36 +1668,243 @@
         }
       },
       "BIOSSellersContractsRequestsCreateSellerRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BIOSSellersContractsRequestsSellerOptions"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "type": "string",
+                "nullable": true
+              },
+              "country": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BIOSSellersContractsRequestsSellerOptions": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "type": {
-            "type": "string"
+          "mcc": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           },
-          "country": {
-            "type": "string"
+          "url": {
+            "type": "string",
+            "nullable": true
           },
-          "business": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedBusinessProfileContract"
-              }
-            ]
-          },
-          "individual": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
-              }
-            ]
+          "description": {
+            "type": "string",
+            "nullable": true
           },
           "company": {
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCompanyOptions"
+              }
+            ]
+          },
+          "persons": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BIOSSellersContractsRequestsPersonOptions"
+            }
+          },
+          "bank_accounts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BIOSSellersContractsRequestsBankAccountOptions"
+            }
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+              }
+            ]
+          }
+        }
+      },
+      "BIOSSellersContractsRequestsCompanyOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "registration_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "structure": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsAddressOptions"
+              }
+            ]
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+              }
+            ]
+          }
+        }
+      },
+      "BIOSSellersContractsRequestsAddressOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "line1": {
+            "type": "string"
+          },
+          "line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          }
+        }
+      },
+      "BIOSEventsMetadataOptions": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "BIOSSellersContractsRequestsPersonOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "first_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "last_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationality": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "dob": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsDateOfBirthOptions"
+              }
+            ]
+          },
+          "address": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSSellersContractsRequestsAddressOptions"
+              }
+            ]
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+              }
+            ]
+          }
+        }
+      },
+      "BIOSSellersContractsRequestsDateOfBirthOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "day": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "month": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        }
+      },
+      "BIOSSellersContractsRequestsBankAccountOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true
+          },
+          "account_number": {
+            "type": "string",
+            "nullable": true
+          },
+          "holder_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "holder_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
               }
             ]
           }
@@ -1836,72 +1915,10 @@
         "description": "a response dto that doesn't have any properties",
         "additionalProperties": false
       },
-      "BIOSSellersContractsResponsesListSellersResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
-        }
-      },
-      "BIOSSellersContractsResponsesRetrieveSellerResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSSellersContractsResponsesUpdateSellerResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedSellerContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "BIOSSellersContractsRequestsUpdateSellerRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "guid"
-          },
-          "business": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedBusinessProfileContract"
-              }
-            ]
-          },
-          "individual": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
-              }
-            ]
-          },
-          "company": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
-              }
-            ]
-          }
-        }
-      },
-      "BIOSSellersContractsResponsesCreatePersonResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
+            "$ref": "#/components/schemas/BIOSSellersContractsRequestsSellerOptions"
           },
           {
             "type": "object",
@@ -1910,45 +1927,26 @@
         ]
       },
       "BIOSSellersContractsRequestsCreatePersonRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSSellersContractsResponsesListPersonsResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
-        }
-      },
-      "BIOSSellersContractsResponsesRetrievePersonResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
+            "$ref": "#/components/schemas/BIOSSellersContractsRequestsPersonOptions"
           },
           {
             "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSSellersContractsResponsesUpdatePersonResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedPersonContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "seller_id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
       "BIOSSellersContractsRequestsUpdatePersonRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSSellersContractsResponsesCreateCompanyResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+            "$ref": "#/components/schemas/BIOSSellersContractsRequestsPersonOptions"
           },
           {
             "type": "object",
@@ -1957,97 +1955,71 @@
         ]
       },
       "BIOSSellersContractsRequestsCreateCompanyRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSSellersContractsResponsesListCompaniesResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
-        }
-      },
-      "BIOSSellersContractsResponsesRetrieveCompanyResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
+            "$ref": "#/components/schemas/BIOSSellersContractsRequestsCompanyOptions"
           },
           {
             "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSSellersContractsResponsesUpdateCompanyResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedCompanyContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "seller_id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
       "BIOSSellersContractsRequestsUpdateCompanyRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSSellersContractsResponsesCreateBankAccountResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
+            "$ref": "#/components/schemas/BIOSSellersContractsRequestsCompanyOptions"
           },
           {
             "type": "object",
             "additionalProperties": false
           }
         ]
-      },
-      "BIOSSellersContractsSharedBankAccountContract": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "guid"
-          }
-        }
       },
       "BIOSSellersContractsRequestsCreateBankAccountRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSSellersContractsResponsesListBankAccountsResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
-        }
-      },
-      "BIOSSellersContractsResponsesRetrieveBankAccountResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
+            "$ref": "#/components/schemas/BIOSSellersContractsRequestsBankAccountOptions"
           },
           {
             "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSSellersContractsResponsesUpdateBankAccountResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSSellersContractsSharedBankAccountContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "seller_id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
       "BIOSSellersContractsRequestsUpdateBankAccountRequest": {
         "type": "object",
-        "additionalProperties": false
+        "additionalProperties": false,
+        "properties": {
+          "holder_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "holder_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+              }
+            ]
+          }
+        }
       }
     }
   }

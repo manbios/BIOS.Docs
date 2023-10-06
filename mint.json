@@ -1,7 +1,10 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "api": {
-    "baseUrl": "https://api.enterbios.com"
+    "baseUrl": "https://api.enterbios.com",  
+    "playground": {
+      "mode": "simple"
+    }
   },
   "name": "Api docs",
   "logo": {
@@ -152,7 +155,6 @@
         {
           "group": "Charges",
           "pages": [
-            "api-reference/charges/create",
             "api-reference/charges/update",
             "api-reference/charges/refund",
             "api-reference/charges/retrieve",
@@ -164,8 +166,18 @@
           "pages": [
             "api-reference/disputes/accept",
             "api-reference/disputes/counter",
+            "api-reference/disputes/update",
             "api-reference/disputes/retrieve",
             "api-reference/disputes/list"
+          ]
+        },
+        {
+          "group": "Refunds",
+          "pages": [
+            "api-reference/refunds/create",
+            "api-reference/refunds/update",
+            "api-reference/refunds/retrieve",
+            "api-reference/refunds/list"
           ]
         }
       ]

@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.18.2.0 (NJsonSchema v10.8.0.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v13.20.0.0 (NJsonSchema v10.9.0.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Buyers",
@@ -18,26 +18,53 @@
         ],
         "summary": "Attach Payment Method",
         "description": "Use this endpoint to Attach an existing payment method to a buyer.",
-        "operationId": "BIOSBuyersEndpointsPaymentMethodsAttachPaymentMethodEndpoint",
+        "operationId": "BIOSBuyersEndpointsPaymentMethodsAttachPaymentMethodToBuyerEndpoint",
         "parameters": [
           {
             "name": "payment_method_id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
+        "requestBody": {
+          "x-name": "AttachPaymentMethodToBuyerRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AttachPaymentMethodToBuyerRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
-          "204": {
-            "description": "The payment method has been attached to buyer.",
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "200": {
+            "description": "The payment method you've just attached to buyer.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/PaymentMethodContract"
                 },
-                "example": {}
+                "example": {
+                  "id": null,
+                  "type": null,
+                  "billing_details": null,
+                  "card": null,
+                  "bank": null,
+                  "metadata": {}
+                }
               }
             }
           },
@@ -46,30 +73,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "fc7ae617-31ce-46c6-84ab-a8a399574f58",
-                  "date": 1695397321138,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "336c8af5-8c31-4995-85f1-c9a25f035206",
-                  "date": 1695397321140,
+                  "id": "ba12532f-26e1-4006-b5e2-f9176f71af1d",
+                  "date": 1696519120297,
                   "errors": []
                 }
               }
@@ -80,13 +90,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "faf79252-c621-4edf-97d8-d48edf4b6a18",
-                  "date": 1695397321140,
+                  "id": "62bc7c95-e31b-494c-b6e5-416800590800",
+                  "date": 1696519120299,
                   "errors": []
                 }
               }
@@ -103,53 +113,35 @@
         "summary": "Create Payment Method",
         "description": "Use this endpoint to create a new payment method.",
         "operationId": "BIOSBuyersEndpointsPaymentMethodsCreatePaymentMethodEndpoint",
-        "responses": {
-          "201": {
-            "description": "The payment method you have just created.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesCreatePaymentMethodResponse"
-                },
-                "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
-                }
+        "requestBody": {
+          "x-name": "CreatePaymentMethodRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentMethodRequest"
               }
             }
           },
-          "400": {
-            "description": "The request did not pass validation checks.",
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "46075ffd-ddeb-4a33-9bde-223dc688b9bd",
-                  "date": 1695397321141,
-                  "errors": []
+                  "$ref": "#/components/schemas/PaymentMethodContract"
                 }
               }
             }
           },
           "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "854e5246-b6ae-46e8-a4b6-5d9f1a50a954",
-                  "date": 1695397321141,
-                  "errors": []
-                }
-              }
-            }
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -161,48 +153,23 @@
         "description": "Use this endpoint to list all your payment methods.",
         "operationId": "BIOSBuyersEndpointsPaymentMethodsListPaymentMethodsEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "A list of your payment methods.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesListPaymentMethodsResponse"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PaymentMethodContract"
+                  }
                 },
                 "example": []
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "2a746aa9-f11a-4996-8dfe-ad593145f718",
-                  "date": 1695397321142,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "d99659c3-6fea-4159-9327-855a7b30f67a",
-                  "date": 1695397321142,
-                  "errors": []
-                }
               }
             }
           }
@@ -216,26 +183,40 @@
         ],
         "summary": "Detach Payment Method",
         "description": "Use this endpoint to detach an existing payment method from a buyer.",
-        "operationId": "BIOSBuyersEndpointsPaymentMethodsDetachPaymentMethodEndpoint",
+        "operationId": "BIOSBuyersEndpointsPaymentMethodsDetachPaymentMethodFromBuyerEndpoint",
         "parameters": [
           {
             "name": "payment_method_id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
-          "204": {
-            "description": "The payment method has been detached from buyer.",
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "200": {
+            "description": "The payment method you've just detached from buyer.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/PaymentMethodContract"
                 },
-                "example": {}
+                "example": {
+                  "id": null,
+                  "type": null,
+                  "billing_details": null,
+                  "card": null,
+                  "bank": null,
+                  "metadata": {}
+                }
               }
             }
           },
@@ -244,30 +225,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8e257522-fce8-42ab-a7fa-51b085bb1a02",
-                  "date": 1695397321141,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "d1687812-1280-45ef-a131-f95796e823a5",
-                  "date": 1695397321141,
+                  "id": "b76a30ca-2f5e-42c6-bc93-75dd485bd185",
+                  "date": 1696519120307,
                   "errors": []
                 }
               }
@@ -278,13 +242,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "6a81ad9a-9678-469b-bc5c-4a14e3e50f66",
-                  "date": 1695397321141,
+                  "id": "ffae8e4d-e86b-4bf8-8230-0f4190525486",
+                  "date": 1696519120307,
                   "errors": []
                 }
               }
@@ -307,20 +271,32 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The payment method with the ID you provided.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesRetrievePaymentMethodResponse"
+                  "$ref": "#/components/schemas/PaymentMethodContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                  "id": null,
+                  "type": null,
+                  "billing_details": null,
+                  "card": null,
+                  "bank": null,
+                  "metadata": {}
                 }
               }
             }
@@ -330,30 +306,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "f58c48f0-e673-4880-8572-873377150dca",
-                  "date": 1695397321142,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "6d1678d0-0a0e-4506-9f84-c571c7ab3e77",
-                  "date": 1695397321143,
+                  "id": "0f622743-01c2-48af-a009-d9b2bc3c95d9",
+                  "date": 1696519120307,
                   "errors": []
                 }
               }
@@ -364,13 +323,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "6748480a-cc07-4e0a-8368-6295109581a6",
-                  "date": 1695397321143,
+                  "id": "9099b8f4-ec7f-48de-94b7-296e70411eea",
+                  "date": 1696519120307,
                   "errors": []
                 }
               }
@@ -391,20 +350,45 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
+        "requestBody": {
+          "x-name": "UpdatePaymentMethodRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentMethodRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The payment method you have just updated.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesUpdatePaymentMethodResponse"
+                  "$ref": "#/components/schemas/PaymentMethodContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                  "id": null,
+                  "type": null,
+                  "billing_details": null,
+                  "card": null,
+                  "bank": null,
+                  "metadata": {}
                 }
               }
             }
@@ -414,30 +398,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "a371ea2f-778a-496e-9c55-a5ebf781b0f0",
-                  "date": 1695397321143,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "d22a2e80-3c48-4690-9d30-b705a239b276",
-                  "date": 1695397321143,
+                  "id": "1936268c-f239-47a0-9f41-b7f5f8c963dd",
+                  "date": 1696519120307,
                   "errors": []
                 }
               }
@@ -448,13 +415,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "bb02e3cf-9b39-4360-8ef5-20bde07350bd",
-                  "date": 1695397321143,
+                  "id": "cb57f690-7743-4419-92a7-46106fbd3f21",
+                  "date": 1696519120307,
                   "errors": []
                 }
               }
@@ -471,16 +438,47 @@
         "summary": "Create Buyer",
         "description": "Use this endpoint to create a new buyer profile.",
         "operationId": "BIOSBuyersEndpointsBuyersCreateBuyerEndpoint",
+        "requestBody": {
+          "x-name": "CreateBuyerRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBuyerRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "201": {
             "description": "The buyer you have just created.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesCreateBuyerResponse"
+                  "$ref": "#/components/schemas/BuyerContract"
                 },
-                "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                "examples": {
+                      "id": "49ff064b-e42c-4b55-b377-cf3e7cbed158",
+                      "email": "buyeremail@example.it",
+                      "name": "Jhon Doe",
+                      "phone": "+12 34567890",
+                      "address": {
+                        "city": "East Artberg",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "state": "Connecticut",
+                        "country": "us",
+                        "postal_code": "48862"
+                      },
+                      "metadata": {}
                 }
               }
             }
@@ -490,30 +488,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8ea567bc-bcf9-43b1-a265-4afbf08a22e6",
-                  "date": 1695397321144,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "3e3fee11-027b-4609-acb5-043e5054c695",
-                  "date": 1695397321144,
+                  "id": "ce050bfb-e0eb-4330-ae5b-18185bf19d02",
+                  "date": 1696519120308,
                   "errors": []
                 }
               }
@@ -529,48 +510,23 @@
         "description": "Use this endpoint to list all your buyers.",
         "operationId": "BIOSBuyersEndpointsBuyersListBuyersEndpoint",
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "A list of your buyers.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesListBuyersResponse"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BuyerContract"
+                  }
                 },
                 "example": []
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "fd40fdce-2805-4f64-acb1-45c22fac67b2",
-                  "date": 1695397321145,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "83adeab3-97bf-4f95-94ba-8a8f9e18e76e",
-                  "date": 1695397321145,
-                  "errors": []
-                }
               }
             }
           }
@@ -591,17 +547,24 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "204": {
             "description": "The buyer has been deleted.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -612,30 +575,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "85655b2c-7179-44a9-8757-d1ae5da90e0a",
-                  "date": 1695397321144,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "b33d5541-4c12-40e8-9be1-bf9b2af51deb",
-                  "date": 1695397321144,
+                  "id": "a9469849-6eda-465f-966d-4dff2ac0db8e",
+                  "date": 1696519120309,
                   "errors": []
                 }
               }
@@ -646,13 +592,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "ec0a836c-44bd-4a0f-8c2d-637663b20d85",
-                  "date": 1695397321144,
+                  "id": "5cacbd5c-249b-46c2-bb11-2b4cf76f3637",
+                  "date": 1696519120309,
                   "errors": []
                 }
               }
@@ -673,20 +619,32 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
         "responses": {
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
           "200": {
             "description": "The buyer with the ID you provided.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesRetrieveBuyerResponse"
+                  "$ref": "#/components/schemas/BuyerContract"
                 },
                 "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                  "id": null,
+                  "email": null,
+                  "name": null,
+                  "phone": null,
+                  "address": null,
+                  "metadata": {}
                 }
               }
             }
@@ -696,30 +654,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "34ef72e9-4256-42f6-9eca-1687e2cd6e96",
-                  "date": 1695397321145,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "2ffa9616-7772-4854-9f71-e65dfc0b3bb9",
-                  "date": 1695397321145,
+                  "id": "f0de371c-b06e-4372-a0c9-8f152b1e9316",
+                  "date": 1696519120309,
                   "errors": []
                 }
               }
@@ -730,13 +671,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "1971fcb0-016b-4cde-aecc-25230bc89444",
-                  "date": 1695397321145,
+                  "id": "fb096a32-cfa1-4d9e-a4d6-e53ee3535d60",
+                  "date": 1696519120309,
                   "errors": []
                 }
               }
@@ -757,74 +698,55 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "The buyer you have just updated.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSBuyersContractsResponsesUpdateBuyerResponse"
-                },
-                "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
-                }
+        "requestBody": {
+          "x-name": "UpdateBuyerRequest",
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBuyerRequest"
               }
             }
           },
-          "400": {
-            "description": "The request did not pass validation checks.",
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/BuyerContract"
                 },
                 "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "2166ec90-6196-4b87-8752-1054f3922ed9",
-                  "date": 1695397321146,
-                  "errors": []
+                  "id": "dc408d22-3453-4619-8190-a71a6872b8ba",
+                  "email": "buyeremail@example.it",
+                  "name": "Jhon Doe",
+                  "phone": "+12 34567890",
+                  "address": {
+                    "city": "East Artberg",
+                    "line1": "Anderson Station",
+                    "line2": "5170 Rowe Key Apt. 750",
+                    "state": "Connecticut",
+                    "country": "us",
+                    "postal_code": "48862"
+                  },
+                  "metadata": {}
                 }
               }
             }
           },
           "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "30357c09-ba05-4401-b74e-f6fac174f005",
-                  "date": 1695397321146,
-                  "errors": []
-                }
-              }
-            }
+            "description": "Unauthorized"
           },
-          "404": {
-            "description": "Resource not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
-                },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "24dfd3e5-e700-41ec-a464-62f3d0565a2b",
-                  "date": 1695397321146,
-                  "errors": []
-                }
-              }
-            }
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
@@ -832,12 +754,172 @@
   },
   "components": {
     "schemas": {
-      "FastEndpointsEmptyResponse": {
+      "PaymentMethodContract": {
         "type": "object",
-        "description": "a response dto that doesn't have any properties",
-        "additionalProperties": false
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the object.",
+            "example": "1NxskpAKy7tT9lVJViam2Co0"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the PaymentMethod.",
+            "example": "card"
+          },
+          "billing_details": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BillingDetailsContract"
+              }
+            ]
+          },
+          "card": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CardContract"
+              }
+            ]
+          },
+          "bank": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BankContract"
+              }
+            ]
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MetadataContract"
+          }
+        }
       },
-      "BIOSCoreApiErrorResponse": {
+      "BillingDetailsContract": {
+        "type": "object",
+        "description": "Billing information associated with the PaymentMethod that may be used or required by particular types of payment methods.",
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "description": "Billing address.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressContract"
+              }
+            ]
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address.",
+            "nullable": true,
+            "example": "email@example.it"
+          },
+          "name": {
+            "type": "string",
+            "description": "Full name.",
+            "nullable": true,
+            "example": "John Doe"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Billing phone number(including extension).",
+            "nullable": true,
+            "example": "+12 34567890"
+          }
+        }
+      },
+      "AddressContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "line1": {
+            "type": "string"
+          },
+          "line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          }
+        }
+      },
+      "CardContract": {
+        "type": "object",
+        "description": "If this is a card payment method, this hash contains the buyer’s card details.",
+        "additionalProperties": false,
+        "properties": {
+          "brand": {
+            "type": "string",
+            "description": "Card brand.",
+            "example": "visa"
+          },
+          "last_four": {
+            "type": "string",
+            "description": "The last four digits of the card.",
+            "example": 1234
+          },
+          "exp_month": {
+            "type": "integer",
+            "description": "Two-digit number representing the card's expiration month.",
+            "format": "int32",
+            "example": 10
+          },
+          "exp_year": {
+            "type": "integer",
+            "description": "Four-digit number representing the card’s expiration year.",
+            "format": "int32",
+            "example": 2032
+          },
+          "country": {
+            "type": "string",
+            "description": "Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you’ve collected.",
+            "example": "us"
+          },
+          "funding": {
+            "type": "string",
+            "description": "Card funding type.",
+            "example": "credit"
+          }
+        }
+      },
+      "BankContract": {
+        "type": "object",
+        "description": "If this is a bank payment method, this hash contains details about the bank account.",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The buyer’s bank name.",
+            "example": "alior_bank"
+          },
+          "country": {
+            "type": "string",
+            "description": "Two-letter ISO code representing the country the bank account is located in. ",
+            "example": "it"
+          }
+        }
+      },
+      "MetadataContract": {
+        "type": "object",
+        "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "ApiErrorResponse": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -862,49 +944,298 @@
           }
         }
       },
-      "BIOSBuyersContractsRequestsAttachPaymentMethodRequest": {
+      "AttachPaymentMethodToBuyerRequest": {
         "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSBuyersContractsResponsesCreatePaymentMethodResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSBuyersContractsSharedPaymentMethodContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
+        "additionalProperties": false,
+        "required": [
+          "buyer_id"
+        ],
+        "properties": {
+          "buyer_id": {
+            "type": "string",
+            "description": "The ID of the buyer to which to attach the PaymentMethod.",
+            "minLength": 1
           }
-        ]
+        }
       },
-      "BIOSBuyersContractsSharedPaymentMethodContract": {
+      "CreatePaymentMethodRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Possible values `alipay` `bancontact` `blik` `card` `eps` `fpx` `giropay` `ideal` `p24` `paypal` `sofort` `wechat_pay`",
+            "minLength": 1,
+            "example": "card"
+          },
+          "billing_details": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BillingDetailsOptions"
+              }
+            ]
+          },
+          "card": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CreateCardOptions"
+              }
+            ]
+          },
+          "bank": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BankOptions"
+              }
+            ]
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataOptions"
+              }
+            ]
+          }
+        }
+      },
+      "BillingDetailsOptions": {
+        "type": "object",
+        "description": "Billing information associated with the PaymentMethod that may be used or required by particular types of payment methods.",
+        "additionalProperties": false,
+        "properties": {
+          "address": {
+            "description": "Billing address.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressOptions"
+              }
+            ]
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address.",
+            "example": "email@example.it"
+          },
+          "name": {
+            "type": "string",
+            "description": "Full name.",
+            "example": "John Doe"
+          },
+          "phone": {
+            "type": "string",
+            "description": "Billing phone number(including extension).",
+            "example": "+12 34567890"
+          }
+        }
+      },
+      "AddressOptions": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "city": {
+            "type": "string"
+          },
+          "line1": {
+            "type": "string"
+          },
+          "line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          }
+        }
+      },
+      "CreateCardOptions": {
+        "type": "object",
+        "description": "If this is a card PaymentMethod, this hash contains the user’s card details. When providing a card number, you must meet the requirements for PCI compliance. We strongly recommend using BIOS.js instead of interacting with this API directly.",
+        "additionalProperties": false,
+        "required": [
+          "number",
+          "cvc",
+          "expMonth",
+          "expYear"
+        ],
+        "properties": {
+          "number": {
+            "type": "string",
+            "description": "The card number, as a string without any separators.",
+            "minLength": 1,
+            "example": 1234123412341234
+          },
+          "cvc": {
+            "type": "string",
+            "description": "Card security code. It is highly recommended to always include this value.",
+            "minLength": 1,
+            "example": 123
+          },
+          "expMonth": {
+            "type": "integer",
+            "description": "Two-digit number representing the card's expiration month.",
+            "format": "int32",
+            "example": 10
+          },
+          "expYear": {
+            "type": "integer",
+            "description": "Four-digit number representing the card’s expiration year.",
+            "format": "int32",
+            "example": 2032
+          }
+        }
+      },
+      "BankOptions": {
+        "type": "object",
+        "description": "If this is a bank payment method, this hash contains details about the bank account.",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The buyer’s bank name. This parameter can be required with some payment method types.",
+            "nullable": true,
+            "example": "alior_bank"
+          },
+          "country": {
+            "type": "string",
+            "description": "Two-letter ISO code representing the country the bank account is located in. This parameter can be required with some payment method types.",
+            "nullable": true,
+            "example": "it"
+          }
+        }
+      },
+      "MetadataOptions": {
+        "type": "object",
+        "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to metadata.",
+        "additionalProperties": {
+          "type": "string",
+          "nullable": true
+        }
+      },
+      "UpdatePaymentMethodRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "billing_details": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BillingDetailsOptions"
+              }
+            ]
+          },
+          "card": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UpdateCardOptions"
+              }
+            ]
+          },
+          "bank": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BankOptions"
+              }
+            ]
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataOptions"
+              }
+            ]
+          }
+        }
+      },
+      "UpdateCardOptions": {
+        "type": "object",
+        "description": "If this is a card PaymentMethod, this hash contains the user’s card details.",
+        "additionalProperties": false,
+        "required": [
+          "expMonth",
+          "expYear"
+        ],
+        "properties": {
+          "expMonth": {
+            "type": "integer",
+            "description": "Two-digit number representing the card's expiration month.",
+            "format": "int32",
+            "example": 10
+          },
+          "expYear": {
+            "type": "integer",
+            "description": "Four-digit number representing the card’s expiration year.",
+            "format": "int32",
+            "example": 2032
+          }
+        }
+      },
+      "BuyerContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
             "type": "string",
-            "format": "guid"
+            "description": "Unique identifier for the object.",
+            "example": "1NxskpAKy7tT9lVJViam2Co0"
+          },
+          "email": {
+            "type": "string",
+            "description": "The buyer’s email address.",
+            "nullable": true,
+            "example": "buyer_email@example.it"
+          },
+          "name": {
+            "type": "string",
+            "description": "The buyer’s full name.",
+            "nullable": true,
+            "example": "John Doe"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The buyer’s phone number.",
+            "nullable": true,
+            "example": "+12 34567890"
+          },
+          "address": {
+            "description": "The buyer’s address.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressContract"
+              }
+            ]
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataContract"
+              }
+            ]
           }
         }
       },
-      "BIOSBuyersContractsRequestsCreatePaymentMethodRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSBuyersContractsRequestsDetachPaymentMethodRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSBuyersContractsResponsesListPaymentMethodsResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/BIOSBuyersContractsSharedPaymentMethodContract"
-        }
-      },
-      "BIOSBuyersContractsResponsesRetrievePaymentMethodResponse": {
+      "CreateBuyerRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSBuyersContractsSharedPaymentMethodContract"
+            "$ref": "#/components/schemas/BuyerOptions"
           },
           {
             "type": "object",
@@ -912,77 +1243,62 @@
           }
         ]
       },
-      "BIOSBuyersContractsResponsesUpdatePaymentMethodResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSBuyersContractsSharedPaymentMethodContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSBuyersContractsRequestsUpdatePaymentMethodRequest": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "BIOSBuyersContractsResponsesCreateBuyerResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSBuyersContractsSharedBuyerContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSBuyersContractsSharedBuyerContract": {
+      "BuyerOptions": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "id": {
+          "email": {
             "type": "string",
-            "format": "guid"
+            "description": "The buyer’s email address.",
+            "nullable": true,
+            "example": "buyer_email@example.it"
+          },
+          "name": {
+            "type": "string",
+            "description": "The buyer’s full name.",
+            "nullable": true,
+            "example": "John Doe"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The buyer’s phone number.",
+            "nullable": true,
+            "example": "+12 34567890"
+          },
+          "address": {
+            "description": "The buyer’s address.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AddressOptions"
+              }
+            ]
+          },
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataOptions"
+              }
+            ]
           }
         }
       },
-      "BIOSBuyersContractsRequestsCreateBuyerRequest": {
+      "EmptyResponse": {
         "type": "object",
+        "description": "a response dto that doesn't have any properties",
         "additionalProperties": false
       },
-      "BIOSBuyersContractsResponsesListBuyersResponse": {
-        "type": "array",
-        "items": {
-          "$ref": "#/components/schemas/BIOSBuyersContractsSharedBuyerContract"
-        }
-      },
-      "BIOSBuyersContractsResponsesRetrieveBuyerResponse": {
+      "UpdateBuyerRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSBuyersContractsSharedBuyerContract"
+            "$ref": "#/components/schemas/BuyerOptions"
           },
           {
             "type": "object",
             "additionalProperties": false
           }
         ]
-      },
-      "BIOSBuyersContractsResponsesUpdateBuyerResponse": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BIOSBuyersContractsSharedBuyerContract"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BIOSBuyersContractsRequestsUpdateBuyerRequest": {
-        "type": "object",
-        "additionalProperties": false
       }
     }
   }
