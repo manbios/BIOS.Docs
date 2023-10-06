@@ -31,7 +31,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSMerchantsContractsCreatePayoutResponse"
+                  "$ref": "#/components/schemas/CreatePayoutResponse"
                 },
                 "example": {}
               }
@@ -42,13 +42,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "982cdcfb-97b4-404d-be5a-6b67d97cb5cf",
-                  "date": 1696426203704,
+                  "id": "20036beb-739a-4a47-8d44-ff7c3fd243b1",
+                  "date": 1696582048609,
                   "errors": []
                 }
               }
@@ -75,7 +75,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSMerchantsContractsListPayoutsResponse"
+                  "$ref": "#/components/schemas/ListPayoutsResponse"
                 },
                 "example": []
               }
@@ -86,13 +86,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "3bc86427-9057-4770-a9ae-e717862b6195",
-                  "date": 1696426203707,
+                  "id": "f57093b5-d87c-4b11-82b5-98d365c4a1e1",
+                  "date": 1696582048616,
                   "errors": []
                 }
               }
@@ -132,7 +132,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -143,13 +143,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "ea867bfa-08ab-4d0e-ace3-1c122049e794",
-                  "date": 1696426203707,
+                  "id": "682a96bb-0cf9-49e5-b8d4-664d4f22cd7c",
+                  "date": 1696582048615,
                   "errors": []
                 }
               }
@@ -160,13 +160,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "70fcc838-e621-4f93-a676-d29127e1dd81",
-                  "date": 1696426203707,
+                  "id": "98302e45-f548-4a80-9997-20705411e18b",
+                  "date": 1696582048615,
                   "errors": []
                 }
               }
@@ -204,7 +204,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSMerchantsContractsRetrievePayoutResponse"
+                  "$ref": "#/components/schemas/RetrievePayoutResponse"
                 },
                 "example": {}
               }
@@ -215,13 +215,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "90881d6d-cd19-46c1-badc-c99711ae2d92",
-                  "date": 1696426203707,
+                  "id": "efa2f921-5ac9-48e5-b515-e20532079595",
+                  "date": 1696582048617,
                   "errors": []
                 }
               }
@@ -232,13 +232,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "51a1e0a1-6ec4-42aa-a7de-4c78a0804484",
-                  "date": 1696426203707,
+                  "id": "9c03c5c4-d638-40c2-8b86-ccfe82ea4c97",
+                  "date": 1696582048617,
                   "errors": []
                 }
               }
@@ -260,6 +260,7 @@
             "name": "Authorization",
             "in": "header",
             "required": true,
+            "description": "Combine your ClientId and API key into a string separated by a colon (“yourclientid:yourapikey”). Encode the string in Base64. Add “Basic ” plus the encoded string to the Authorization header(make sure you keep the space between “Basic ” and the string).",
             "schema": {
               "type": "string",
               "nullable": true
@@ -272,7 +273,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSMerchantsContractsCreateOAuthTokenResponse"
+                  "$ref": "#/components/schemas/CreateOAuthTokenResponse"
                 },
                 "example": {
                   "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKb2huIERvZSIsImVtYWlsIjoiam9obi5kb2UuZXhhbXBsZUBjb21tb25seS5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2MzAwMDAwMDAsImV4cCI6MTYzMDAxMDEwMH0.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -287,13 +288,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "b891e018-3056-406e-8705-1d274b5a40fa",
-                  "date": 1696426203708,
+                  "id": "e2898f06-69ef-4b5c-bd6c-6c3a54cd6844",
+                  "date": 1696582048619,
                   "errors": []
                 }
               }
@@ -314,13 +315,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "eb63d217-bf39-40e4-86ca-4a461c2f49d5",
-                  "date": 1696426203708,
+                  "id": "86a7917a-d605-4314-a50f-baa289d1a028",
+                  "date": 1696582048620,
                   "errors": []
                 }
               }
@@ -334,7 +335,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -346,10 +347,10 @@
   },
   "components": {
     "schemas": {
-      "BIOSMerchantsContractsCreatePayoutResponse": {
+      "CreatePayoutResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSMerchantsContractsPayoutContract"
+            "$ref": "#/components/schemas/PayoutContract"
           },
           {
             "type": "object",
@@ -357,11 +358,11 @@
           }
         ]
       },
-      "BIOSMerchantsContractsPayoutContract": {
+      "PayoutContract": {
         "type": "object",
         "additionalProperties": false
       },
-      "BIOSCoreApiErrorResponse": {
+      "ApiErrorResponse": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -386,25 +387,25 @@
           }
         }
       },
-      "BIOSMerchantsContractsCreatePayoutRequest": {
+      "CreatePayoutRequest": {
         "type": "object",
         "additionalProperties": false
       },
-      "FastEndpointsEmptyResponse": {
+      "EmptyResponse": {
         "type": "object",
         "description": "a response dto that doesn't have any properties",
         "additionalProperties": false
       },
-      "BIOSMerchantsContractsListPayoutsResponse": {
+      "ListPayoutsResponse": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/BIOSMerchantsContractsPayoutContract"
+          "$ref": "#/components/schemas/PayoutContract"
         }
       },
-      "BIOSMerchantsContractsRetrievePayoutResponse": {
+      "RetrievePayoutResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSMerchantsContractsPayoutContract"
+            "$ref": "#/components/schemas/PayoutContract"
           },
           {
             "type": "object",
@@ -412,23 +413,26 @@
           }
         ]
       },
-      "BIOSMerchantsContractsCreateOAuthTokenResponse": {
+      "CreateOAuthTokenResponse": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "access_token": {
-            "type": "string"
+            "type": "string",
+            "description": "The access token to use to authenticate."
           },
           "token_type": {
-            "type": "string"
+            "type": "string",
+            "description": "Indicates the type of your token (Bearer)."
           },
           "expires_in": {
             "type": "integer",
+            "description": "Returns the number of seconds until your token expires. By default, the value is 3600 seconds for the production environment, and 1200 seconds for the sandbox environment. Please note that this value can vary (for security reasons for instance). We strongly recommend setting up your refresh token request based on the expires_in value rather than hard-coding the default value in your code.",
             "format": "int64"
           }
         }
       },
-      "BIOSMerchantsContractsCreateOAuthTokenRequest": {
+      "CreateOAuthTokenRequest": {
         "type": "object",
         "additionalProperties": false
       }

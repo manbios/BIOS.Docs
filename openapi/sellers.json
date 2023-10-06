@@ -25,7 +25,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreateSellerRequest"
+                "$ref": "#/components/schemas/CreateSellerRequest"
               }
             }
           },
@@ -44,7 +44,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
+                  "$ref": "#/components/schemas/SellerContract"
                 },
                 "example": {
                   "id": null,
@@ -66,13 +66,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "a91fac84-003a-4280-a0c6-a277658de3fc",
-                  "date": 1696426205639,
+                  "id": "a380eda8-b3ed-49cd-ad6d-6a5fb6d45cf2",
+                  "date": 1696582049768,
                   "errors": []
                 }
               }
@@ -101,7 +101,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
+                    "$ref": "#/components/schemas/SellerContract"
                   }
                 },
                 "example": []
@@ -142,7 +142,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -153,13 +153,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "6e31b10b-a8d9-4560-b1f8-fc39c3f551d9",
-                  "date": 1696426205647,
+                  "id": "3ef18b7b-184b-494f-bdba-c0ab70d1e20e",
+                  "date": 1696582049776,
                   "errors": []
                 }
               }
@@ -170,13 +170,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "7f2c32bd-5495-493c-af9c-5f5e652e76fd",
-                  "date": 1696426205647,
+                  "id": "a4eec8ac-ef20-4419-bc96-a60801328ccb",
+                  "date": 1696582049776,
                   "errors": []
                 }
               }
@@ -214,7 +214,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
+                  "$ref": "#/components/schemas/SellerContract"
                 },
                 "example": {
                   "id": null,
@@ -236,13 +236,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8f928ba0-584b-4a9a-b3cb-df5eca1e6987",
-                  "date": 1696426205649,
+                  "id": "79321f8a-8c0a-44d9-a2d7-6476b6155bee",
+                  "date": 1696582049778,
                   "errors": []
                 }
               }
@@ -253,13 +253,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "66788457-9fde-484f-8ee9-67e3d1e5e467",
-                  "date": 1696426205649,
+                  "id": "57705ebc-4e17-4670-a351-211db2310462",
+                  "date": 1696582049778,
                   "errors": []
                 }
               }
@@ -291,7 +291,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdateSellerRequest"
+                "$ref": "#/components/schemas/UpdateSellerRequest"
               }
             }
           },
@@ -310,7 +310,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesSellerContract"
+                  "$ref": "#/components/schemas/SellerContract"
                 },
                 "example": {
                   "id": null,
@@ -332,13 +332,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "2c57deb4-6125-474b-9006-9a4385a6d71a",
-                  "date": 1696426205649,
+                  "id": "cd1850d8-9e60-4b41-a577-956bf54719ca",
+                  "date": 1696582049778,
                   "errors": []
                 }
               }
@@ -349,13 +349,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "669b5012-4867-4a24-8f82-b87a7e11b06e",
-                  "date": 1696426205649,
+                  "id": "81be3e7d-a2fa-4541-945d-9aaf0cf7a504",
+                  "date": 1696582049778,
                   "errors": []
                 }
               }
@@ -378,7 +378,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreatePersonRequest"
+                "$ref": "#/components/schemas/CreatePersonRequest"
               }
             }
           },
@@ -397,7 +397,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
+                  "$ref": "#/components/schemas/PersonContract"
                 },
                 "example": {
                   "id": null,
@@ -419,13 +419,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "efa5da71-b60d-49c0-844c-4f14ef49864d",
-                  "date": 1696426205652,
+                  "id": "82be4742-b7e3-42e7-86d0-5d9d78983ab3",
+                  "date": 1696582049780,
                   "errors": []
                 }
               }
@@ -454,7 +454,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
+                    "$ref": "#/components/schemas/PersonContract"
                   }
                 },
                 "example": []
@@ -495,7 +495,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -506,13 +506,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "2dd1badd-f360-4f3b-8677-01b8b657cadd",
-                  "date": 1696426205655,
+                  "id": "9592c2e6-1c3c-4e2e-8591-4758e51ce0f7",
+                  "date": 1696582049781,
                   "errors": []
                 }
               }
@@ -523,13 +523,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "754f2dbe-9d1f-4d5c-89e0-ec75b0dc3974",
-                  "date": 1696426205655,
+                  "id": "cb1ab414-fbf7-44d2-a40e-e91903510fca",
+                  "date": 1696582049781,
                   "errors": []
                 }
               }
@@ -567,7 +567,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
+                  "$ref": "#/components/schemas/PersonContract"
                 },
                 "example": {
                   "id": null,
@@ -589,13 +589,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "6670af43-be9f-45b8-be86-36a964366b0e",
-                  "date": 1696426205657,
+                  "id": "b719e788-6d3f-47ab-82c3-53f5310e9b5e",
+                  "date": 1696582049783,
                   "errors": []
                 }
               }
@@ -606,13 +606,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "acdea886-08b9-44f1-ab25-5f9e8b395ead",
-                  "date": 1696426205657,
+                  "id": "94714dc1-32e4-48f8-ac95-271c30f3b429",
+                  "date": 1696582049783,
                   "errors": []
                 }
               }
@@ -644,7 +644,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdatePersonRequest"
+                "$ref": "#/components/schemas/UpdatePersonRequest"
               }
             }
           },
@@ -663,7 +663,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
+                  "$ref": "#/components/schemas/PersonContract"
                 },
                 "example": {
                   "id": null,
@@ -685,13 +685,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "583b1345-b7c9-4a40-a4ab-d6eec88616a9",
-                  "date": 1696426205659,
+                  "id": "fde63c0a-4b8d-40a3-aad5-7b6e0c7beda0",
+                  "date": 1696582049785,
                   "errors": []
                 }
               }
@@ -702,13 +702,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "ec64e676-19d4-49bd-8237-b9641bbda9cc",
-                  "date": 1696426205659,
+                  "id": "a63f47ef-eed4-4a6e-98b8-874242b7c144",
+                  "date": 1696582049785,
                   "errors": []
                 }
               }
@@ -731,7 +731,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreateCompanyRequest"
+                "$ref": "#/components/schemas/CreateCompanyRequest"
               }
             }
           },
@@ -750,14 +750,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
+                  "$ref": "#/components/schemas/CompanyContract"
                 },
                 "example": {
                   "id": null,
                   "seller_id": null,
                   "name": null,
                   "phone": null,
-                  "registration_number": null,
                   "structure": null,
                   "address": null,
                   "metadata": {}
@@ -770,13 +769,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "af94294b-9def-4e68-8127-5ce9adc05caf",
-                  "date": 1696426205659,
+                  "id": "05a4b1d9-bd8c-46c7-892d-8b6a911c0c13",
+                  "date": 1696582049786,
                   "errors": []
                 }
               }
@@ -805,7 +804,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
+                    "$ref": "#/components/schemas/CompanyContract"
                   }
                 },
                 "example": []
@@ -846,7 +845,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -857,13 +856,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "23d33fc4-1a07-44fd-b9b4-68f56bab10e4",
-                  "date": 1696426205660,
+                  "id": "79c4470f-0901-4187-90b6-4ddc806bd950",
+                  "date": 1696582049787,
                   "errors": []
                 }
               }
@@ -874,13 +873,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "d84bb9c6-5352-46d1-a1a8-973cf1977f67",
-                  "date": 1696426205660,
+                  "id": "bce411e9-d50a-48ff-ba7c-48c38c518f9c",
+                  "date": 1696582049787,
                   "errors": []
                 }
               }
@@ -918,14 +917,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
+                  "$ref": "#/components/schemas/CompanyContract"
                 },
                 "example": {
                   "id": null,
                   "seller_id": null,
                   "name": null,
                   "phone": null,
-                  "registration_number": null,
                   "structure": null,
                   "address": null,
                   "metadata": {}
@@ -938,13 +936,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "2bc7160f-0c53-4673-8295-0fd142529b7c",
-                  "date": 1696426205661,
+                  "id": "4f025409-0bb3-4cad-a926-2673d1ffae36",
+                  "date": 1696582049788,
                   "errors": []
                 }
               }
@@ -955,13 +953,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "93014eb1-7e54-423b-a139-09fe231a1485",
-                  "date": 1696426205661,
+                  "id": "29a64f20-228a-41ae-a694-12e992795dbb",
+                  "date": 1696582049788,
                   "errors": []
                 }
               }
@@ -993,7 +991,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdateCompanyRequest"
+                "$ref": "#/components/schemas/UpdateCompanyRequest"
               }
             }
           },
@@ -1012,14 +1010,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
+                  "$ref": "#/components/schemas/CompanyContract"
                 },
                 "example": {
                   "id": null,
                   "seller_id": null,
                   "name": null,
                   "phone": null,
-                  "registration_number": null,
                   "structure": null,
                   "address": null,
                   "metadata": {}
@@ -1032,13 +1029,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "3881f9db-1341-424e-b22a-02ebf060b488",
-                  "date": 1696426205661,
+                  "id": "3ad0a5c7-0e4d-466b-84ae-8ff834016c82",
+                  "date": 1696582049789,
                   "errors": []
                 }
               }
@@ -1049,13 +1046,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "f2ca0458-0cb6-44b7-a564-0e9d14b91460",
-                  "date": 1696426205661,
+                  "id": "6fb5b15b-e428-4979-a821-c7f312a535f5",
+                  "date": 1696582049789,
                   "errors": []
                 }
               }
@@ -1078,7 +1075,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCreateBankAccountRequest"
+                "$ref": "#/components/schemas/CreateBankAccountRequest"
               }
             }
           },
@@ -1097,14 +1094,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
+                  "$ref": "#/components/schemas/BankAccountContract"
                 },
                 "example": {
                   "id": null,
                   "seller_id": null,
                   "country": null,
                   "currency": null,
-                  "account_number": null,
                   "holder_name": null,
                   "holder_type": null,
                   "metadata": {}
@@ -1117,13 +1113,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "15e99faa-5d3d-4a12-81ca-30eb250b3cfa",
-                  "date": 1696426205662,
+                  "id": "2036d7b6-e015-4ca8-a126-18e1902147ed",
+                  "date": 1696582049790,
                   "errors": []
                 }
               }
@@ -1152,7 +1148,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
+                    "$ref": "#/components/schemas/BankAccountContract"
                   }
                 },
                 "example": []
@@ -1193,7 +1189,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -1204,13 +1200,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8c0f28d2-d22b-4d5d-80ca-bfa1f9f030b4",
-                  "date": 1696426205663,
+                  "id": "af5de16a-68df-49fd-8c32-ee6ad53fe22d",
+                  "date": 1696582049790,
                   "errors": []
                 }
               }
@@ -1221,13 +1217,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "7ba715cc-1bb3-470a-9910-5ffaafb8318d",
-                  "date": 1696426205663,
+                  "id": "84c276f1-190c-4b9f-afa6-577cf51b7b0e",
+                  "date": 1696582049790,
                   "errors": []
                 }
               }
@@ -1265,14 +1261,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
+                  "$ref": "#/components/schemas/BankAccountContract"
                 },
                 "example": {
                   "id": null,
                   "seller_id": null,
                   "country": null,
                   "currency": null,
-                  "account_number": null,
                   "holder_name": null,
                   "holder_type": null,
                   "metadata": {}
@@ -1285,13 +1280,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "619d6809-b59b-45c5-8682-da936edb2215",
-                  "date": 1696426205664,
+                  "id": "358328b4-0975-4d7c-9fde-14cc335dc158",
+                  "date": 1696582049795,
                   "errors": []
                 }
               }
@@ -1302,13 +1297,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "34b6af16-dbf8-4d55-bbda-1d0535e76ebf",
-                  "date": 1696426205664,
+                  "id": "89179818-8752-4ff7-9c3c-8cee0884556f",
+                  "date": 1696582049795,
                   "errors": []
                 }
               }
@@ -1340,7 +1335,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsUpdateBankAccountRequest"
+                "$ref": "#/components/schemas/UpdateBankAccountRequest"
               }
             }
           },
@@ -1359,14 +1354,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
+                  "$ref": "#/components/schemas/BankAccountContract"
                 },
                 "example": {
                   "id": null,
                   "seller_id": null,
                   "country": null,
                   "currency": null,
-                  "account_number": null,
                   "holder_name": null,
                   "holder_type": null,
                   "metadata": {}
@@ -1379,13 +1373,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "1eeddfd3-2ae2-4de6-85d8-81baf7efc263",
-                  "date": 1696426205665,
+                  "id": "c6086cec-1b3b-45d2-8b25-90346e55020f",
+                  "date": 1696582049796,
                   "errors": []
                 }
               }
@@ -1396,13 +1390,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "6fe3ce75-803d-4e14-be84-c91832fb3442",
-                  "date": 1696426205665,
+                  "id": "075efe61-9770-478e-8480-6fa931661823",
+                  "date": 1696582049796,
                   "errors": []
                 }
               }
@@ -1414,235 +1408,262 @@
   },
   "components": {
     "schemas": {
-      "BIOSSellersContractsResponsesSellerContract": {
+      "SellerContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the object."
           },
           "country": {
-            "type": "string"
+            "type": "string",
+            "description": "The seller’s country.\n/// "
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "description": "The business type."
           },
           "mcc": {
             "type": "integer",
+            "description": "The merchant category code for the account. MCCs are used to classify businesses based on the goods or services they provide.",
             "format": "int32",
             "nullable": true
           },
           "url": {
             "type": "string",
+            "description": "The business’s publicly available website.",
             "nullable": true
           },
           "description": {
             "type": "string",
+            "description": "Internal-only description of the product sold by, or service provided by, the business. Used by BIOS for risk and underwriting purposes.",
             "nullable": true
           },
           "company": {
+            "description": "Information about the company or business.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsResponsesCompanyContract"
+                "$ref": "#/components/schemas/CompanyContract"
               }
             ]
           },
           "persons": {
             "type": "array",
+            "description": "Information about the persons attached to this sellers. ",
             "items": {
-              "$ref": "#/components/schemas/BIOSSellersContractsResponsesPersonContract"
+              "$ref": "#/components/schemas/PersonContract"
             }
           },
           "bank_accounts": {
             "type": "array",
+            "description": "Information about the bank accounts attached to this sellers. ",
             "items": {
-              "$ref": "#/components/schemas/BIOSSellersContractsResponsesBankAccountContract"
+              "$ref": "#/components/schemas/BankAccountContract"
             }
           },
           "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/MetadataContract"
           }
         }
       },
-      "BIOSSellersContractsResponsesCompanyContract": {
+      "CompanyContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the object."
           },
           "seller_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the seller associated with this company."
           },
           "name": {
             "type": "string",
+            "description": "The company’s legal name.",
             "nullable": true
           },
           "phone": {
             "type": "string",
-            "nullable": true
-          },
-          "registration_number": {
-            "type": "string",
+            "description": "The company’s phone number (used for verification).",
             "nullable": true
           },
           "structure": {
             "type": "string",
+            "description": "The category identifying the legal structure of the company or legal entity.",
             "nullable": true
           },
           "address": {
+            "description": "The company’s primary address.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsResponsesAddressContract"
+                "$ref": "#/components/schemas/AddressContract"
               }
             ]
           },
           "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/MetadataContract"
           }
         }
       },
-      "BIOSSellersContractsResponsesAddressContract": {
+      "AddressContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City, district, suburb, town, or village."
+          },
+          "country": {
+            "type": "string",
+            "description": "Two-letter country code (ISO 3166-1 alpha-2)."
           },
           "line1": {
-            "type": "string"
+            "type": "string",
+            "description": "Address line 1 (e.g., street, PO Box, or company name)."
           },
           "line2": {
             "type": "string",
+            "description": "Address line 2 (e.g., apartment, suite, unit, or building).",
             "nullable": true
           },
-          "state": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
           "postal_code": {
-            "type": "string"
+            "type": "string",
+            "description": "ZIP or postal code."
+          },
+          "state": {
+            "type": "string",
+            "description": "State, county, province, or region."
           }
         }
       },
-      "BIOSSellersContractsResponsesPersonContract": {
+      "MetadataContract": {
+        "type": "object",
+        "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "PersonContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the object."
           },
           "seller_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the seller associated with this bank account."
           },
           "email": {
             "type": "string",
+            "description": "The person’s email address.",
             "nullable": true
           },
           "first_name": {
             "type": "string",
+            "description": "The person’s first name.",
             "nullable": true
           },
           "last_name": {
             "type": "string",
+            "description": "The person’s last name.",
             "nullable": true
           },
           "nationality": {
             "type": "string",
+            "description": "The country where the person is a national.",
             "nullable": true
           },
           "phone": {
             "type": "string",
+            "description": "The person’s phone number.",
             "nullable": true
           },
           "date_of_birth": {
+            "description": "The person’s date of birth.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsResponsesDateOfBirthContract"
+                "$ref": "#/components/schemas/DateOfBirthContract"
               }
             ]
           },
           "address": {
+            "description": "The person’s address.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsResponsesAddressContract"
+                "$ref": "#/components/schemas/AddressContract"
               }
             ]
           },
           "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/MetadataContract"
           }
         }
       },
-      "BIOSSellersContractsResponsesDateOfBirthContract": {
+      "DateOfBirthContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "day": {
             "type": "integer",
+            "description": "The day of birth, between 1 and 31.",
             "format": "int32"
           },
           "month": {
             "type": "integer",
+            "description": "The month of birth, between 1 and 12.",
             "format": "int32"
           },
           "year": {
             "type": "integer",
+            "description": "The four-digit year of birth.",
             "format": "int32"
           }
         }
       },
-      "BIOSSellersContractsResponsesBankAccountContract": {
+      "BankAccountContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the object."
           },
           "seller_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the seller associated with this bank account."
           },
           "country": {
-            "type": "string"
+            "type": "string",
+            "description": "Two-letter ISO code representing the country the bank account is located in."
           },
           "currency": {
-            "type": "string"
-          },
-          "account_number": {
-            "type": "string"
+            "type": "string",
+            "description": "Three-letter ISO code for the currency paid out to the bank account."
           },
           "holder_name": {
             "type": "string",
+            "description": "The name of the person or business that owns the bank account.",
             "nullable": true
           },
           "holder_type": {
             "type": "string",
+            "description": "The type of entity that holds the account. ",
             "nullable": true
           },
           "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/MetadataContract"
           }
         }
       },
-      "BIOSCoreApiErrorResponse": {
+      "ApiErrorResponse": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1667,99 +1688,111 @@
           }
         }
       },
-      "BIOSSellersContractsRequestsCreateSellerRequest": {
+      "CreateSellerRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsRequestsSellerOptions"
+            "$ref": "#/components/schemas/SellerOptions"
           },
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "type",
+              "country"
+            ],
             "properties": {
               "type": {
                 "type": "string",
-                "nullable": true
+                "description": "The business type.",
+                "minLength": 1
               },
               "country": {
                 "type": "string",
-                "nullable": true
+                "description": "The country in which the seller holder resides, or in which the business is legally established. This should be an ISO 3166-1 alpha-2 country code. For example, if you are in the United States and the business for which you’re creating an account is legally represented in Canada, you would use CA as the country for the account being created. ",
+                "minLength": 1
               }
             }
           }
         ]
       },
-      "BIOSSellersContractsRequestsSellerOptions": {
+      "SellerOptions": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "mcc": {
             "type": "integer",
+            "description": "The merchant category code for the account. MCCs are used to classify businesses based on the goods or services they provide.",
             "format": "int32",
             "nullable": true
           },
           "url": {
             "type": "string",
+            "description": "The business’s publicly available website.",
             "nullable": true
           },
           "description": {
             "type": "string",
+            "description": "Internal-only description of the product sold by, or service provided by, the business. Used by BIOS for risk and underwriting purposes.",
             "nullable": true
           },
           "company": {
+            "description": "Information about the company or business.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsCompanyOptions"
+                "$ref": "#/components/schemas/CompanyOptions"
               }
             ]
           },
           "persons": {
             "type": "array",
+            "description": "Information about the person to attach to this sellers. ",
             "items": {
-              "$ref": "#/components/schemas/BIOSSellersContractsRequestsPersonOptions"
+              "$ref": "#/components/schemas/PersonOptions"
             }
           },
           "bank_accounts": {
             "type": "array",
+            "description": "Bank accounts to attach to the seller for receiving payouts ",
             "items": {
-              "$ref": "#/components/schemas/BIOSSellersContractsRequestsBankAccountOptions"
+              "$ref": "#/components/schemas/BankAccountOptions"
             }
           },
           "metadata": {
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
         }
       },
-      "BIOSSellersContractsRequestsCompanyOptions": {
+      "CompanyOptions": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "name": {
             "type": "string",
+            "description": "The company’s legal name.",
             "nullable": true
           },
           "phone": {
             "type": "string",
-            "nullable": true
-          },
-          "registration_number": {
-            "type": "string",
+            "description": "The company’s phone number(used for verification).",
             "nullable": true
           },
           "structure": {
             "type": "string",
+            "description": "The category identifying the legal structure of the company or legal entity.",
             "nullable": true
           },
           "address": {
+            "description": "The company’s primary address.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsAddressOptions"
+                "$ref": "#/components/schemas/AddressOptions"
               }
             ]
           },
@@ -1767,81 +1800,95 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
         }
       },
-      "BIOSSellersContractsRequestsAddressOptions": {
+      "AddressOptions": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City, district, suburb, town, or village."
+          },
+          "country": {
+            "type": "string",
+            "description": "Two-letter country code (ISO 3166-1 alpha-2)."
           },
           "line1": {
-            "type": "string"
+            "type": "string",
+            "description": "Address line 1 (e.g., street, PO Box, or company name)."
           },
           "line2": {
             "type": "string",
+            "description": "Address line 2 (e.g., apartment, suite, unit, or building).",
             "nullable": true
           },
-          "state": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
           "postal_code": {
-            "type": "string"
+            "type": "string",
+            "description": "ZIP or postal code."
+          },
+          "state": {
+            "type": "string",
+            "description": "State, county, province, or region."
           }
         }
       },
-      "BIOSEventsMetadataOptions": {
+      "MetadataOptions": {
         "type": "object",
+        "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to metadata.",
         "additionalProperties": {
           "type": "string",
           "nullable": true
         }
       },
-      "BIOSSellersContractsRequestsPersonOptions": {
+      "PersonOptions": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "email": {
             "type": "string",
+            "description": "The person’s email address.",
             "nullable": true
           },
           "first_name": {
             "type": "string",
+            "description": "The person’s first name.",
             "nullable": true
           },
           "last_name": {
             "type": "string",
+            "description": "The person’s last name.",
             "nullable": true
           },
           "nationality": {
             "type": "string",
+            "description": "The country where the person is a national.",
             "nullable": true
           },
           "phone": {
             "type": "string",
+            "description": "The person’s phone number.",
             "nullable": true
           },
           "dob": {
+            "description": "The person’s date of birth.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsDateOfBirthOptions"
+                "$ref": "#/components/schemas/DateOfBirthOptions"
               }
             ]
           },
           "address": {
+            "description": "The person’s address.",
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSSellersContractsRequestsAddressOptions"
+                "$ref": "#/components/schemas/AddressOptions"
               }
             ]
           },
@@ -1849,76 +1896,102 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
         }
       },
-      "BIOSSellersContractsRequestsDateOfBirthOptions": {
+      "DateOfBirthOptions": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "day": {
             "type": "integer",
+            "description": "The day of birth, between 1 and 31.",
             "format": "int32",
             "nullable": true
           },
           "month": {
             "type": "integer",
+            "description": "The month of birth, between 1 and 12.",
             "format": "int32",
             "nullable": true
           },
           "year": {
             "type": "integer",
+            "description": "The four-digit year of birth.",
             "format": "int32",
             "nullable": true
           }
         }
       },
-      "BIOSSellersContractsRequestsBankAccountOptions": {
+      "BankAccountOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UpdateBankAccountRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "country",
+              "currency",
+              "account_number"
+            ],
+            "properties": {
+              "country": {
+                "type": "string",
+                "description": "The country in which the bank account is located.",
+                "minLength": 1
+              },
+              "currency": {
+                "type": "string",
+                "description": "The currency the bank account is in. This must be a country/currency pairing that BIOS supports.",
+                "minLength": 1
+              },
+              "account_number": {
+                "type": "string",
+                "description": "The account number for the bank account, in string form. Must be a checking account.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "UpdateBankAccountRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "country": {
-            "type": "string",
-            "nullable": true
-          },
-          "currency": {
-            "type": "string",
-            "nullable": true
-          },
-          "account_number": {
-            "type": "string",
-            "nullable": true
-          },
           "holder_name": {
             "type": "string",
+            "description": "The name of the person or business that owns the bank account.",
             "nullable": true
           },
           "holder_type": {
             "type": "string",
+            "description": "The type of entity that holds the account. This can be either individual or company. ",
             "nullable": true
           },
           "metadata": {
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
         }
       },
-      "FastEndpointsEmptyResponse": {
+      "EmptyResponse": {
         "type": "object",
         "description": "a response dto that doesn't have any properties",
         "additionalProperties": false
       },
-      "BIOSSellersContractsRequestsUpdateSellerRequest": {
+      "UpdateSellerRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsRequestsSellerOptions"
+            "$ref": "#/components/schemas/SellerOptions"
           },
           {
             "type": "object",
@@ -1926,27 +1999,31 @@
           }
         ]
       },
-      "BIOSSellersContractsRequestsCreatePersonRequest": {
+      "CreatePersonRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsRequestsPersonOptions"
+            "$ref": "#/components/schemas/PersonOptions"
           },
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "seller_id"
+            ],
             "properties": {
               "seller_id": {
                 "type": "string",
-                "nullable": true
+                "description": "The Seller ID that this person belongs to.",
+                "minLength": 1
               }
             }
           }
         ]
       },
-      "BIOSSellersContractsRequestsUpdatePersonRequest": {
+      "UpdatePersonRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsRequestsPersonOptions"
+            "$ref": "#/components/schemas/PersonOptions"
           },
           {
             "type": "object",
@@ -1954,27 +2031,31 @@
           }
         ]
       },
-      "BIOSSellersContractsRequestsCreateCompanyRequest": {
+      "CreateCompanyRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsRequestsCompanyOptions"
+            "$ref": "#/components/schemas/CompanyOptions"
           },
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "seller_id"
+            ],
             "properties": {
               "seller_id": {
                 "type": "string",
-                "nullable": true
+                "description": "The Seller ID that this company belongs to.",
+                "minLength": 1
               }
             }
           }
         ]
       },
-      "BIOSSellersContractsRequestsUpdateCompanyRequest": {
+      "UpdateCompanyRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsRequestsCompanyOptions"
+            "$ref": "#/components/schemas/CompanyOptions"
           },
           {
             "type": "object",
@@ -1982,44 +2063,26 @@
           }
         ]
       },
-      "BIOSSellersContractsRequestsCreateBankAccountRequest": {
+      "CreateBankAccountRequest": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSSellersContractsRequestsBankAccountOptions"
+            "$ref": "#/components/schemas/BankAccountOptions"
           },
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "seller_id"
+            ],
             "properties": {
               "seller_id": {
                 "type": "string",
-                "nullable": true
+                "description": "The Seller ID that this bank belongs to.",
+                "minLength": 1
               }
             }
           }
         ]
-      },
-      "BIOSSellersContractsRequestsUpdateBankAccountRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "holder_name": {
-            "type": "string",
-            "nullable": true
-          },
-          "holder_type": {
-            "type": "string",
-            "nullable": true
-          },
-          "metadata": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
-              }
-            ]
-          }
-        }
       }
     }
   }

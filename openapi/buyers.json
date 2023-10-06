@@ -78,8 +78,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "ba12532f-26e1-4006-b5e2-f9176f71af1d",
-                  "date": 1696519120297,
+                  "id": "9aac91bc-b155-4245-b8e4-e122d3549bf6",
+                  "date": 1696582546368,
                   "errors": []
                 }
               }
@@ -95,8 +95,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "62bc7c95-e31b-494c-b6e5-416800590800",
-                  "date": 1696519120299,
+                  "id": "cbcb8f9c-a7a1-4670-aa52-b4bb714b4bff",
+                  "date": 1696582546373,
                   "errors": []
                 }
               }
@@ -230,8 +230,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "b76a30ca-2f5e-42c6-bc93-75dd485bd185",
-                  "date": 1696519120307,
+                  "id": "5972fc58-69ca-4329-9214-947f7b5dd56e",
+                  "date": 1696582546390,
                   "errors": []
                 }
               }
@@ -247,8 +247,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "ffae8e4d-e86b-4bf8-8230-0f4190525486",
-                  "date": 1696519120307,
+                  "id": "eb126615-5009-4ea9-9045-a58d746b89e8",
+                  "date": 1696582546390,
                   "errors": []
                 }
               }
@@ -311,8 +311,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "0f622743-01c2-48af-a009-d9b2bc3c95d9",
-                  "date": 1696519120307,
+                  "id": "04769ddd-bc4b-457f-8760-b75e4c7737f8",
+                  "date": 1696582546392,
                   "errors": []
                 }
               }
@@ -328,8 +328,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "9099b8f4-ec7f-48de-94b7-296e70411eea",
-                  "date": 1696519120307,
+                  "id": "0805e902-dbde-4e5d-ac9e-2a7b6db9a16e",
+                  "date": 1696582546392,
                   "errors": []
                 }
               }
@@ -403,8 +403,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "1936268c-f239-47a0-9f41-b7f5f8c963dd",
-                  "date": 1696519120307,
+                  "id": "7ef7f41a-ca64-48f3-958c-ee0c13bf3c4f",
+                  "date": 1696582546393,
                   "errors": []
                 }
               }
@@ -420,8 +420,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "cb57f690-7743-4419-92a7-46106fbd3f21",
-                  "date": 1696519120307,
+                  "id": "400b6992-24f4-4a00-a351-12f534396a4b",
+                  "date": 1696582546393,
                   "errors": []
                 }
               }
@@ -466,19 +466,23 @@
                   "$ref": "#/components/schemas/BuyerContract"
                 },
                 "examples": {
-                      "id": "49ff064b-e42c-4b55-b377-cf3e7cbed158",
+                  "value": {
+                    "value": {
+                      "id": "822d91a1-c963-42b0-b602-44fda373d845",
                       "email": "buyeremail@example.it",
                       "name": "Jhon Doe",
                       "phone": "+12 34567890",
                       "address": {
                         "city": "East Artberg",
+                        "country": "us",
                         "line1": "Anderson Station",
                         "line2": "5170 Rowe Key Apt. 750",
-                        "state": "Connecticut",
-                        "country": "us",
-                        "postal_code": "48862"
+                        "postal_code": "48862",
+                        "state": "Connecticut"
                       },
                       "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -493,8 +497,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "ce050bfb-e0eb-4330-ae5b-18185bf19d02",
-                  "date": 1696519120308,
+                  "id": "6ea75ec8-4c36-4dad-90e5-749a099d1b5f",
+                  "date": 1696582546395,
                   "errors": []
                 }
               }
@@ -580,8 +584,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "a9469849-6eda-465f-966d-4dff2ac0db8e",
-                  "date": 1696519120309,
+                  "id": "260215d3-16b5-436e-aa14-35bade6adf76",
+                  "date": 1696582546395,
                   "errors": []
                 }
               }
@@ -597,8 +601,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "5cacbd5c-249b-46c2-bb11-2b4cf76f3637",
-                  "date": 1696519120309,
+                  "id": "16f3cd2f-a0cb-436f-b599-bf75ce206801",
+                  "date": 1696582546395,
                   "errors": []
                 }
               }
@@ -659,8 +663,8 @@
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "f0de371c-b06e-4372-a0c9-8f152b1e9316",
-                  "date": 1696519120309,
+                  "id": "d3471b53-a555-4840-9673-9ed6d1206441",
+                  "date": 1696582546396,
                   "errors": []
                 }
               }
@@ -676,8 +680,8 @@
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "fb096a32-cfa1-4d9e-a4d6-e53ee3535d60",
-                  "date": 1696519120309,
+                  "id": "1814c20d-ec3d-486b-9d13-7ad2fb1eef46",
+                  "date": 1696582546396,
                   "errors": []
                 }
               }
@@ -725,17 +729,17 @@
                   "$ref": "#/components/schemas/BuyerContract"
                 },
                 "example": {
-                  "id": "dc408d22-3453-4619-8190-a71a6872b8ba",
+                  "id": "2c4267ed-7e31-4a64-b6f7-32b2bddfd864",
                   "email": "buyeremail@example.it",
                   "name": "Jhon Doe",
                   "phone": "+12 34567890",
                   "address": {
                     "city": "East Artberg",
+                    "country": "us",
                     "line1": "Anderson Station",
                     "line2": "5170 Rowe Key Apt. 750",
-                    "state": "Connecticut",
-                    "country": "us",
-                    "postal_code": "48862"
+                    "postal_code": "48862",
+                    "state": "Connecticut"
                   },
                   "metadata": {}
                 }
@@ -760,13 +764,11 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Unique identifier for the object.",
-            "example": "1NxskpAKy7tT9lVJViam2Co0"
+            "description": "Unique identifier for the object."
           },
           "type": {
             "type": "string",
-            "description": "The type of the PaymentMethod.",
-            "example": "card"
+            "description": "The type of the PaymentMethod."
           },
           "billing_details": {
             "nullable": true,
@@ -814,20 +816,17 @@
           "email": {
             "type": "string",
             "description": "Email address.",
-            "nullable": true,
-            "example": "email@example.it"
+            "nullable": true
           },
           "name": {
             "type": "string",
             "description": "Full name.",
-            "nullable": true,
-            "example": "John Doe"
+            "nullable": true
           },
           "phone": {
             "type": "string",
             "description": "Billing phone number(including extension).",
-            "nullable": true,
-            "example": "+12 34567890"
+            "nullable": true
           }
         }
       },
@@ -836,23 +835,29 @@
         "additionalProperties": false,
         "properties": {
           "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City, district, suburb, town, or village."
+          },
+          "country": {
+            "type": "string",
+            "description": "Two-letter country code (ISO 3166-1 alpha-2)."
           },
           "line1": {
-            "type": "string"
+            "type": "string",
+            "description": "Address line 1 (e.g., street, PO Box, or company name)."
           },
           "line2": {
             "type": "string",
+            "description": "Address line 2 (e.g., apartment, suite, unit, or building).",
             "nullable": true
           },
-          "state": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
           "postal_code": {
-            "type": "string"
+            "type": "string",
+            "description": "ZIP or postal code."
+          },
+          "state": {
+            "type": "string",
+            "description": "State, county, province, or region."
           }
         }
       },
@@ -863,35 +868,29 @@
         "properties": {
           "brand": {
             "type": "string",
-            "description": "Card brand.",
-            "example": "visa"
+            "description": "Card brand."
           },
           "last_four": {
             "type": "string",
-            "description": "The last four digits of the card.",
-            "example": 1234
+            "description": "The last four digits of the card."
           },
           "exp_month": {
             "type": "integer",
             "description": "Two-digit number representing the card's expiration month.",
-            "format": "int32",
-            "example": 10
+            "format": "int32"
           },
           "exp_year": {
             "type": "integer",
             "description": "Four-digit number representing the card’s expiration year.",
-            "format": "int32",
-            "example": 2032
+            "format": "int32"
           },
           "country": {
             "type": "string",
-            "description": "Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you’ve collected.",
-            "example": "us"
+            "description": "Two-letter ISO code representing the country of the card. You could use this attribute to get a sense of the international breakdown of cards you’ve collected."
           },
           "funding": {
             "type": "string",
-            "description": "Card funding type.",
-            "example": "credit"
+            "description": "Card funding type."
           }
         }
       },
@@ -902,13 +901,11 @@
         "properties": {
           "name": {
             "type": "string",
-            "description": "The buyer’s bank name.",
-            "example": "alior_bank"
+            "description": "The buyer’s bank name."
           },
           "country": {
             "type": "string",
-            "description": "Two-letter ISO code representing the country the bank account is located in. ",
-            "example": "it"
+            "description": "Two-letter ISO code representing the country the bank account is located in. "
           }
         }
       },
@@ -968,8 +965,7 @@
           "type": {
             "type": "string",
             "description": "Possible values `alipay` `bancontact` `blik` `card` `eps` `fpx` `giropay` `ideal` `p24` `paypal` `sofort` `wechat_pay`",
-            "minLength": 1,
-            "example": "card"
+            "minLength": 1
           },
           "billing_details": {
             "nullable": true,
@@ -1021,18 +1017,15 @@
           },
           "email": {
             "type": "string",
-            "description": "Email address.",
-            "example": "email@example.it"
+            "description": "Email address."
           },
           "name": {
             "type": "string",
-            "description": "Full name.",
-            "example": "John Doe"
+            "description": "Full name."
           },
           "phone": {
             "type": "string",
-            "description": "Billing phone number(including extension).",
-            "example": "+12 34567890"
+            "description": "Billing phone number(including extension)."
           }
         }
       },
@@ -1041,23 +1034,29 @@
         "additionalProperties": false,
         "properties": {
           "city": {
-            "type": "string"
+            "type": "string",
+            "description": "City, district, suburb, town, or village."
+          },
+          "country": {
+            "type": "string",
+            "description": "Two-letter country code (ISO 3166-1 alpha-2)."
           },
           "line1": {
-            "type": "string"
+            "type": "string",
+            "description": "Address line 1 (e.g., street, PO Box, or company name)."
           },
           "line2": {
             "type": "string",
+            "description": "Address line 2 (e.g., apartment, suite, unit, or building).",
             "nullable": true
           },
-          "state": {
-            "type": "string"
-          },
-          "country": {
-            "type": "string"
-          },
           "postal_code": {
-            "type": "string"
+            "type": "string",
+            "description": "ZIP or postal code."
+          },
+          "state": {
+            "type": "string",
+            "description": "State, county, province, or region."
           }
         }
       },
@@ -1075,26 +1074,22 @@
           "number": {
             "type": "string",
             "description": "The card number, as a string without any separators.",
-            "minLength": 1,
-            "example": 1234123412341234
+            "minLength": 1
           },
           "cvc": {
             "type": "string",
             "description": "Card security code. It is highly recommended to always include this value.",
-            "minLength": 1,
-            "example": 123
+            "minLength": 1
           },
           "expMonth": {
             "type": "integer",
             "description": "Two-digit number representing the card's expiration month.",
-            "format": "int32",
-            "example": 10
+            "format": "int32"
           },
           "expYear": {
             "type": "integer",
             "description": "Four-digit number representing the card’s expiration year.",
-            "format": "int32",
-            "example": 2032
+            "format": "int32"
           }
         }
       },
@@ -1106,14 +1101,12 @@
           "name": {
             "type": "string",
             "description": "The buyer’s bank name. This parameter can be required with some payment method types.",
-            "nullable": true,
-            "example": "alior_bank"
+            "nullable": true
           },
           "country": {
             "type": "string",
             "description": "Two-letter ISO code representing the country the bank account is located in. This parameter can be required with some payment method types.",
-            "nullable": true,
-            "example": "it"
+            "nullable": true
           }
         }
       },
@@ -1175,14 +1168,12 @@
           "expMonth": {
             "type": "integer",
             "description": "Two-digit number representing the card's expiration month.",
-            "format": "int32",
-            "example": 10
+            "format": "int32"
           },
           "expYear": {
             "type": "integer",
             "description": "Four-digit number representing the card’s expiration year.",
-            "format": "int32",
-            "example": 2032
+            "format": "int32"
           }
         }
       },
@@ -1192,26 +1183,22 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "Unique identifier for the object.",
-            "example": "1NxskpAKy7tT9lVJViam2Co0"
+            "description": "Unique identifier for the object."
           },
           "email": {
             "type": "string",
             "description": "The buyer’s email address.",
-            "nullable": true,
-            "example": "buyer_email@example.it"
+            "nullable": true
           },
           "name": {
             "type": "string",
             "description": "The buyer’s full name.",
-            "nullable": true,
-            "example": "John Doe"
+            "nullable": true
           },
           "phone": {
             "type": "string",
             "description": "The buyer’s phone number.",
-            "nullable": true,
-            "example": "+12 34567890"
+            "nullable": true
           },
           "address": {
             "description": "The buyer’s address.",
@@ -1250,20 +1237,17 @@
           "email": {
             "type": "string",
             "description": "The buyer’s email address.",
-            "nullable": true,
-            "example": "buyer_email@example.it"
+            "nullable": true
           },
           "name": {
             "type": "string",
             "description": "The buyer’s full name.",
-            "nullable": true,
-            "example": "John Doe"
+            "nullable": true
           },
           "phone": {
             "type": "string",
             "description": "The buyer’s phone number.",
-            "nullable": true,
-            "example": "+12 34567890"
+            "nullable": true
           },
           "address": {
             "description": "The buyer’s address.",

@@ -25,7 +25,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSPayinsContractsRequestsCreateRefundRequest"
+                "$ref": "#/components/schemas/CreateRefundRequest"
               }
             }
           },
@@ -44,7 +44,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesRefundContract"
+                  "$ref": "#/components/schemas/RefundContract"
                 },
                 "example": {
                   "id": null,
@@ -52,7 +52,6 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
                   "state": null,
                   "reason": null,
                   "metadata": {}
@@ -65,13 +64,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "68a79198-25dd-4d29-b566-3d7d0c84c755",
-                  "date": 1696426205617,
+                  "id": "4eccb29c-9d4f-4650-a94d-4e26be7f4ef0",
+                  "date": 1696582048530,
                   "errors": []
                 }
               }
@@ -100,7 +99,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/BIOSPayinsContractsResponsesRefundContract"
+                    "$ref": "#/components/schemas/RefundContract"
                   }
                 },
                 "example": []
@@ -141,7 +140,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesRefundContract"
+                  "$ref": "#/components/schemas/RefundContract"
                 },
                 "example": {
                   "id": null,
@@ -149,7 +148,6 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
                   "state": null,
                   "reason": null,
                   "metadata": {}
@@ -162,13 +160,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "4353a63e-6db4-4c0e-88a9-889ad8d8bad0",
-                  "date": 1696426205623,
+                  "id": "3f447d60-6a85-43c1-a397-90790d44da18",
+                  "date": 1696582048537,
                   "errors": []
                 }
               }
@@ -179,13 +177,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "88a2d39f-ef86-4f6b-8b0b-29b5d43d445e",
-                  "date": 1696426205623,
+                  "id": "8d85817e-8c30-4eaa-aae5-84a4f2453212",
+                  "date": 1696582048537,
                   "errors": []
                 }
               }
@@ -217,7 +215,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSPayinsContractsRequestsUpdateRefundRequest"
+                "$ref": "#/components/schemas/UpdateRefundRequest"
               }
             }
           },
@@ -236,7 +234,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesRefundContract"
+                  "$ref": "#/components/schemas/RefundContract"
                 },
                 "example": {
                   "id": null,
@@ -244,7 +242,6 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
                   "state": null,
                   "reason": null,
                   "metadata": {}
@@ -257,13 +254,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "a39c7baf-756e-4359-b9b8-291803ee6033",
-                  "date": 1696426205628,
+                  "id": "ed5c31cc-a4e6-48d9-ba18-10688fa7531a",
+                  "date": 1696582048544,
                   "errors": []
                 }
               }
@@ -274,13 +271,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "26032732-b293-40d3-b7c0-4c94eccb3dd7",
-                  "date": 1696426205628,
+                  "id": "d669e987-27c1-4abd-b38b-5eae062e146e",
+                  "date": 1696582048544,
                   "errors": []
                 }
               }
@@ -303,13 +300,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "ff640c76-c1d1-40f7-ac88-84a3d6c2cc23",
-                  "date": 1696426205625,
+                  "id": "58e9a4f5-586f-4e7e-a970-cc4227b06d5d",
+                  "date": 1696582048538,
                   "errors": []
                 }
               }
@@ -323,7 +320,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsCreatePayinResponse"
+                  "$ref": "#/components/schemas/CreatePayinResponse"
                 },
                 "example": {
                   "id": "00000000-0000-0000-0000-000000000000"
@@ -336,13 +333,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "794e36a5-a54c-4c02-83c7-3bbf713ef29b",
-                  "date": 1696426205625,
+                  "id": "b6a94cbf-85fd-481c-b1fb-1968bca1dff1",
+                  "date": 1696582048538,
                   "errors": []
                 }
               }
@@ -363,13 +360,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "c92d323b-a13a-4d0a-8702-af6130dfd00b",
-                  "date": 1696426205626,
+                  "id": "0a98b495-4ad0-42df-90e9-a8b042aa2085",
+                  "date": 1696582048541,
                   "errors": []
                 }
               }
@@ -383,7 +380,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsListPayinsResponse"
+                  "$ref": "#/components/schemas/ListPayinsResponse"
                 },
                 "example": []
               }
@@ -394,13 +391,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "9c79c9d2-1f74-4cb5-a42a-eac711624256",
-                  "date": 1696426205626,
+                  "id": "d9d20873-f363-4354-8b7f-9a7710006dae",
+                  "date": 1696582048541,
                   "errors": []
                 }
               }
@@ -434,13 +431,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "05cad362-93a2-42ae-8673-0b45b7098b77",
-                  "date": 1696426205626,
+                  "id": "e81dcfe8-a433-4f34-800f-f682d5d3bcb1",
+                  "date": 1696582048540,
                   "errors": []
                 }
               }
@@ -454,7 +451,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FastEndpointsEmptyResponse"
+                  "$ref": "#/components/schemas/EmptyResponse"
                 },
                 "example": {}
               }
@@ -465,13 +462,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "bc3f37ce-6cae-4c2a-b1a4-8d4cfbf35503",
-                  "date": 1696426205626,
+                  "id": "2eaa02f9-eb43-4dcc-8ac7-21f0d8999326",
+                  "date": 1696582048540,
                   "errors": []
                 }
               }
@@ -482,13 +479,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "c280d368-a844-4fe0-902c-91366b5c11f1",
-                  "date": 1696426205626,
+                  "id": "e272f881-98ad-4a55-af60-d19b52cbc3f8",
+                  "date": 1696582048540,
                   "errors": []
                 }
               }
@@ -520,13 +517,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "cec1b756-3bbb-431b-a363-44510bd63068",
-                  "date": 1696426205627,
+                  "id": "ae3fcf46-ff8d-4d5a-a9e4-4478c0e72fc5",
+                  "date": 1696582048542,
                   "errors": []
                 }
               }
@@ -540,7 +537,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsRetrievePayinResponse"
+                  "$ref": "#/components/schemas/RetrievePayinResponse"
                 },
                 "example": {
                   "id": "00000000-0000-0000-0000-000000000000"
@@ -553,13 +550,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "980053e4-9b4f-4d2b-b295-7d4ad08664fc",
-                  "date": 1696426205627,
+                  "id": "b4d669f0-d1b5-4cd9-b647-20bdb0dbbcad",
+                  "date": 1696582048542,
                   "errors": []
                 }
               }
@@ -570,13 +567,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "7c323360-a1c7-4e20-8a21-9ab1ac9262f7",
-                  "date": 1696426205627,
+                  "id": "c293b8a9-fb78-4e59-8d2b-b6cbbd2df8b2",
+                  "date": 1696582048542,
                   "errors": []
                 }
               }
@@ -608,13 +605,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "Access to the API resource is not authorized due to an authentication failure.",
                   "type": "unauthorized_access",
-                  "id": "2928fb75-8b5a-48b6-8533-95408a4679be",
-                  "date": 1696426205628,
+                  "id": "586c14dd-3ca3-4614-907d-4547eb11eba5",
+                  "date": 1696582048543,
                   "errors": []
                 }
               }
@@ -628,7 +625,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsUpdatePayinResponse"
+                  "$ref": "#/components/schemas/UpdatePayinResponse"
                 },
                 "example": {
                   "id": "00000000-0000-0000-0000-000000000000"
@@ -641,13 +638,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "bfdcae09-0463-4a81-afeb-a11071bc6888",
-                  "date": 1696426205628,
+                  "id": "ef4d6bd2-a9da-4238-a74b-6ccabcb7ff4a",
+                  "date": 1696582048543,
                   "errors": []
                 }
               }
@@ -658,13 +655,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "1752ed70-1905-4f95-ba84-883cb5f2565b",
-                  "date": 1696426205628,
+                  "id": "12cffc18-917d-4a9c-8a4a-ea6a3e992da8",
+                  "date": 1696582048543,
                   "errors": []
                 }
               }
@@ -704,7 +701,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesDisputeContract"
+                  "$ref": "#/components/schemas/DisputeContract"
                 },
                 "example": {
                   "id": null,
@@ -713,7 +710,6 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
                   "state": null,
                   "reason": null,
                   "metadata": {}
@@ -726,13 +722,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "10152585-001a-4435-b95e-7757aee62681",
-                  "date": 1696426205629,
+                  "id": "8fa3daf7-dc46-4ca3-a505-9ca3eb6a54fe",
+                  "date": 1696582048544,
                   "errors": []
                 }
               }
@@ -743,13 +739,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "a766d976-9686-4c2b-9872-20fd519ebc98",
-                  "date": 1696426205629,
+                  "id": "1a7a0829-0a5a-4dfb-a939-fc37968799d9",
+                  "date": 1696582048544,
                   "errors": []
                 }
               }
@@ -783,7 +779,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSPayinsContractsRequestsCounterDisputeRequest"
+                "$ref": "#/components/schemas/CounterDisputeRequest"
               }
             }
           },
@@ -802,7 +798,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesDisputeContract"
+                  "$ref": "#/components/schemas/DisputeContract"
                 },
                 "example": {
                   "id": null,
@@ -811,7 +807,6 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
                   "state": null,
                   "reason": null,
                   "metadata": {}
@@ -824,13 +819,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "3b661aa4-9792-4893-994c-0969641467e1",
-                  "date": 1696426205629,
+                  "id": "873d837e-0c04-4cbd-8442-443655f8154c",
+                  "date": 1696582048545,
                   "errors": []
                 }
               }
@@ -841,13 +836,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "f5f5fb74-3eb7-40d4-8182-12bac963117a",
-                  "date": 1696426205629,
+                  "id": "47fa3b57-1a80-40ab-be45-6ab0793de126",
+                  "date": 1696582048545,
                   "errors": []
                 }
               }
@@ -878,7 +873,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/BIOSPayinsContractsResponsesDisputeContract"
+                    "$ref": "#/components/schemas/DisputeContract"
                   }
                 },
                 "example": []
@@ -919,7 +914,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesDisputeContract"
+                  "$ref": "#/components/schemas/DisputeContract"
                 },
                 "example": {
                   "id": null,
@@ -928,7 +923,6 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
                   "state": null,
                   "reason": null,
                   "metadata": {}
@@ -941,13 +935,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "c361e8ec-055e-4cf5-a5ab-ed7e64309370",
-                  "date": 1696426205630,
+                  "id": "584f04a4-67fe-4df9-a10f-d6c63247be8e",
+                  "date": 1696582048546,
                   "errors": []
                 }
               }
@@ -958,13 +952,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "b984fe27-961f-4859-b815-9c9662e23d12",
-                  "date": 1696426205630,
+                  "id": "e6d425d8-be58-4a13-8f42-9a1e7913a93d",
+                  "date": 1696582048546,
                   "errors": []
                 }
               }
@@ -996,7 +990,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSPayinsContractsRequestsUpdateDisputeRequest"
+                "$ref": "#/components/schemas/UpdateDisputeRequest"
               }
             }
           },
@@ -1015,7 +1009,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesDisputeContract"
+                  "$ref": "#/components/schemas/DisputeContract"
                 },
                 "example": {
                   "id": null,
@@ -1024,7 +1018,6 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
                   "state": null,
                   "reason": null,
                   "metadata": {}
@@ -1037,13 +1030,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "cb9aaf7d-3ddc-48be-92ae-f2ee051d81a6",
-                  "date": 1696426205631,
+                  "id": "726ff65f-d940-410f-8c40-0d22aa392728",
+                  "date": 1696582048546,
                   "errors": []
                 }
               }
@@ -1054,13 +1047,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "ba967d4c-a578-45b6-b746-5f72e972270f",
-                  "date": 1696426205631,
+                  "id": "d1305e41-852e-40a2-8e61-f483bf34279d",
+                  "date": 1696582048546,
                   "errors": []
                 }
               }
@@ -1091,7 +1084,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/BIOSPayinsContractsResponsesChargeContract"
+                    "$ref": "#/components/schemas/ChargeContract"
                   }
                 },
                 "example": []
@@ -1103,13 +1096,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "eacc0b17-2985-4a0d-872f-a976ecc357a0",
-                  "date": 1696426205632,
+                  "id": "afae4e50-4131-4f91-bf1a-59ef7ee1cc3d",
+                  "date": 1696582048547,
                   "errors": []
                 }
               }
@@ -1149,7 +1142,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesChargeContract"
+                  "$ref": "#/components/schemas/ChargeContract"
                 },
                 "example": {
                   "id": null,
@@ -1159,8 +1152,8 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
-                  "state": null
+                  "state": null,
+                  "metadata": null
                 }
               }
             }
@@ -1170,13 +1163,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "8faa9bba-a368-4c21-bced-22080feadd48",
-                  "date": 1696426205632,
+                  "id": "3a8be5bc-125c-4579-b2eb-a456f5388ea1",
+                  "date": 1696582048548,
                   "errors": []
                 }
               }
@@ -1187,13 +1180,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "6042c893-c2ba-4afa-a011-3dfeb5784b6f",
-                  "date": 1696426205632,
+                  "id": "3f1f9f22-39b1-4dba-912e-e4754cd24369",
+                  "date": 1696582048548,
                   "errors": []
                 }
               }
@@ -1233,7 +1226,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesChargeContract"
+                  "$ref": "#/components/schemas/ChargeContract"
                 },
                 "example": {
                   "id": null,
@@ -1243,8 +1236,8 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
-                  "state": null
+                  "state": null,
+                  "metadata": null
                 }
               }
             }
@@ -1254,13 +1247,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "9bfa7303-7525-4ba6-9f5c-f5dc45db567f",
-                  "date": 1696426205633,
+                  "id": "c0d1b0a4-9ced-430b-982f-83c5e8a211e8",
+                  "date": 1696582048548,
                   "errors": []
                 }
               }
@@ -1271,13 +1264,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "1ac6e225-8559-45a7-bf14-27d65405b8f5",
-                  "date": 1696426205633,
+                  "id": "0c607126-8a07-4f98-bd83-711da13f6846",
+                  "date": 1696582048548,
                   "errors": []
                 }
               }
@@ -1309,7 +1302,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/BIOSPayinsContractsRequestsUpdateChargeRequest"
+                "$ref": "#/components/schemas/UpdateChargeRequest"
               }
             }
           },
@@ -1328,7 +1321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSPayinsContractsResponsesChargeContract"
+                  "$ref": "#/components/schemas/ChargeContract"
                 },
                 "example": {
                   "id": null,
@@ -1338,8 +1331,8 @@
                   "amount": 0,
                   "currency": null,
                   "psp": null,
-                  "psp_id": null,
-                  "state": null
+                  "state": null,
+                  "metadata": null
                 }
               }
             }
@@ -1349,13 +1342,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "One or more error occurred",
                   "type": "bad_request",
-                  "id": "17a91f34-02e0-4597-a178-6d9ed1ac8b51",
-                  "date": 1696426205634,
+                  "id": "247416c5-6ff6-4f15-85f5-8052b95547bb",
+                  "date": 1696582048549,
                   "errors": []
                 }
               }
@@ -1366,13 +1359,13 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BIOSCoreApiErrorResponse"
+                  "$ref": "#/components/schemas/ApiErrorResponse"
                 },
                 "example": {
                   "message": "The requested resource cannot be found.",
                   "type": "not_found",
-                  "id": "692a779a-39ad-4e44-afc4-c24409efca1d",
-                  "date": 1696426205634,
+                  "id": "6daf96b0-021d-471c-9916-88a3b493cd12",
+                  "date": 1696582048549,
                   "errors": []
                 }
               }
@@ -1384,44 +1377,52 @@
   },
   "components": {
     "schemas": {
-      "BIOSPayinsContractsResponsesRefundContract": {
+      "RefundContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the object."
           },
           "charge_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the charge that’s refunded."
           },
           "amount": {
             "type": "integer",
+            "description": "Amount, in cents.",
             "format": "int64"
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "description": "Three-letter ISO currency code, in lowercase. Must be a supported currency."
           },
           "psp": {
-            "type": "string"
-          },
-          "psp_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The payment service provider where this dispute was raised."
           },
           "state": {
-            "type": "string"
+            "type": "string",
+            "description": "The state of the refund."
           },
           "reason": {
-            "type": "string"
+            "type": "string",
+            "description": "The reason why this refund was created."
           },
           "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/MetadataContract"
           }
         }
       },
-      "BIOSCoreApiErrorResponse": {
+      "MetadataContract": {
+        "type": "object",
+        "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format.",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "ApiErrorResponse": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1446,44 +1447,52 @@
           }
         }
       },
-      "BIOSPayinsContractsRequestsCreateRefundRequest": {
+      "CreateRefundRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "charge_id",
+          "reason"
+        ],
         "properties": {
           "charge_id": {
             "type": "string",
-            "nullable": true
+            "description": "The charge identifier of the charge to refund.",
+            "minLength": 1
           },
           "amount": {
             "type": "integer",
+            "description": "A positive integer in cents representing how much of this charge to refund. Can refund only up to the remaining, unrefunded amount of the charge. If not provided the full refundable amount is used as default.",
             "format": "int64",
             "nullable": true
           },
           "reason": {
             "type": "string",
-            "nullable": true
+            "description": "The charge identifier of the charge to refund.",
+            "minLength": 1
           },
           "metadata": {
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
         }
       },
-      "BIOSEventsMetadataOptions": {
+      "MetadataOptions": {
         "type": "object",
+        "description": "Set of key-value pairs that you can attach to an object. This can be useful for storing additional information about the object in a structured format. Individual keys can be unset by posting an empty value to them. All keys can be unset by posting an empty value to metadata.",
         "additionalProperties": {
           "type": "string",
           "nullable": true
         }
       },
-      "BIOSPayinsContractsCreatePayinResponse": {
+      "CreatePayinResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+            "$ref": "#/components/schemas/PayinContract"
           },
           {
             "type": "object",
@@ -1491,7 +1500,7 @@
           }
         ]
       },
-      "BIOSPayinsContractsPayinContract": {
+      "PayinContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1501,25 +1510,25 @@
           }
         }
       },
-      "BIOSPayinsContractsCreatePayinRequest": {
+      "CreatePayinRequest": {
         "type": "object",
         "additionalProperties": false
       },
-      "FastEndpointsEmptyResponse": {
+      "EmptyResponse": {
         "type": "object",
         "description": "a response dto that doesn't have any properties",
         "additionalProperties": false
       },
-      "BIOSPayinsContractsListPayinsResponse": {
+      "ListPayinsResponse": {
         "type": "array",
         "items": {
-          "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+          "$ref": "#/components/schemas/PayinContract"
         }
       },
-      "BIOSPayinsContractsRetrievePayinResponse": {
+      "RetrievePayinResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+            "$ref": "#/components/schemas/PayinContract"
           },
           {
             "type": "object",
@@ -1527,10 +1536,10 @@
           }
         ]
       },
-      "BIOSPayinsContractsUpdatePayinResponse": {
+      "UpdatePayinResponse": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/BIOSPayinsContractsPayinContract"
+            "$ref": "#/components/schemas/PayinContract"
           },
           {
             "type": "object",
@@ -1538,11 +1547,11 @@
           }
         ]
       },
-      "BIOSPayinsContractsUpdatePayinRequest": {
+      "UpdatePayinRequest": {
         "type": "object",
         "additionalProperties": false
       },
-      "BIOSPayinsContractsRequestsUpdateRefundRequest": {
+      "UpdateRefundRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1550,167 +1559,196 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
         }
       },
-      "BIOSPayinsContractsResponsesDisputeContract": {
+      "DisputeContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the object."
           },
           "seller_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Seller ID that this dispute belongs to."
           },
           "charge_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Charge ID that this dispute refers to."
           },
           "amount": {
             "type": "integer",
+            "description": "Disputed amount. Usually the amount of the charge, but it can differ (usually because of currency fluctuation or because only part of the order is disputed).",
             "format": "int64"
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "description": "Three-letter ISO currency code, in lowercase. Must be a supported currency."
           },
           "psp": {
-            "type": "string"
-          },
-          "psp_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The payment service provider where this dispute was raised."
           },
           "state": {
-            "type": "string"
+            "type": "string",
+            "description": "The state of the dispute."
           },
           "reason": {
-            "type": "string"
+            "type": "string",
+            "description": "The reason why this dispute was raised."
           },
           "metadata": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
+            "$ref": "#/components/schemas/MetadataContract"
           }
         }
       },
-      "BIOSPayinsContractsRequestsCounterDisputeRequest": {
+      "CounterDisputeRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "access_activity_log": {
             "type": "string",
+            "description": "Any server or activity logs showing proof that the buyer accessed or downloaded the purchased digital product. This information should include IP addresses, corresponding timestamps, and any detailed recorded activity.",
             "nullable": true
           },
           "billing_address": {
             "type": "string",
+            "description": "The billing address provided by the buyer.",
             "nullable": true
           },
           "cancellation_policy": {
             "type": "string",
+            "description": "(ID of a file upload) Your subscription cancellation policy, as shown to the buyer.",
             "nullable": true
           },
           "cancellation_policy_disclosure": {
             "type": "string",
+            "description": "An explanation of how and when the buyer was shown your refund policy prior to purchase.",
             "nullable": true
           },
           "cancellation_rebuttal": {
             "type": "string",
+            "description": "A justification for why the buyer’s subscription was not canceled.",
             "nullable": true
           },
-          "customer_communication": {
+          "buyer_communication": {
             "type": "string",
+            "description": "(ID of a file upload) Any communication with the buyer that you feel is relevant to your case. example include emails proving that the buyer received the product or service, or demonstrating their use of or satisfaction with the product or service.",
             "nullable": true
           },
-          "customer_email_address": {
+          "buyer_email_address": {
             "type": "string",
+            "description": "The email address of the buyer.",
             "nullable": true
           },
-          "customer_name": {
+          "buyer_name": {
             "type": "string",
+            "description": "The name of the buyer.",
             "nullable": true
           },
-          "customer_purchase_ip": {
+          "buyer_purchase_ip": {
             "type": "string",
+            "description": "The IP address that the buyer used when making the purchase.",
             "nullable": true
           },
-          "customer_signature": {
+          "buyer_signature": {
             "type": "string",
+            "description": "(ID of a file upload) A relevant document or contract showing the buyer’s signature.",
             "nullable": true
           },
           "duplicate_charge_documentation": {
             "type": "string",
+            "description": "(ID of a file upload) Documentation for the prior charge that can uniquely identify the charge, such as a receipt, shipping label, work order, etc. This document should be paired with a similar document from the disputed payment that proves the two payments are separate.",
             "nullable": true
           },
           "duplicate_charge_explanation": {
             "type": "string",
+            "description": "An explanation of the difference between the disputed charge versus the prior charge that appears to be a duplicate.",
             "nullable": true
           },
           "duplicate_charge_id": {
             "type": "string",
+            "description": "The BIOS ID for the prior charge which appears to be a duplicate of the disputed charge.",
             "nullable": true
           },
           "product_description": {
             "type": "string",
+            "description": "A description of the product or service that was sold.",
             "nullable": true
           },
           "receipt": {
             "type": "string",
+            "description": "(ID of a file upload) Any receipt or message sent to the buyer notifying them of the charge.",
             "nullable": true
           },
           "refund_policy": {
             "type": "string",
+            "description": "(ID of a file upload) Your refund policy, as shown to the buyer.",
             "nullable": true
           },
           "refund_policy_disclosure": {
             "type": "string",
+            "description": "Documentation demonstrating that the buyer was shown your refund policy prior to purchase.",
             "nullable": true
           },
           "refund_refusal_explanation": {
             "type": "string",
+            "description": "A justification for why the buyer is not entitled to a refund.",
             "nullable": true
           },
           "service_date": {
             "type": "string",
+            "description": "The date on which the buyer received or began receiving the purchased service, in a clear human-readable format.",
             "nullable": true
           },
           "service_documentation": {
             "type": "string",
+            "description": "(ID of a file upload) Documentation showing proof that a service was provided to the buyer. This could include a copy of a signed contract, work order, or other form of written agreement.",
             "nullable": true
           },
           "shipping_address": {
             "type": "string",
+            "description": "The address to which a physical product was shipped. You should try to include as complete address information as possible.",
             "nullable": true
           },
           "shipping_carrier": {
             "type": "string",
+            "description": "The delivery service that shipped a physical product, such as Fedex, UPS, USPS, etc. If multiple carriers were used for this purchase, please separate them with commas.",
             "nullable": true
           },
           "shipping_date": {
             "type": "string",
+            "description": "The date on which a physical product began its route to the shipping address, in a clear human-readable format.",
             "nullable": true
           },
           "shipping_documentation": {
             "type": "string",
+            "description": "(ID of a file upload) Documentation showing proof that a product was shipped to the buyer at the same address the buyer provided to you. This could include a copy of the shipment receipt, shipping label, etc. It should show the buyer’s full shipping address, if possible.",
             "nullable": true
           },
           "shipping_tracking_number": {
             "type": "string",
+            "description": "The tracking number for a physical product, obtained from the delivery service. If multiple tracking numbers were generated for this purchase, please separate them with commas.",
             "nullable": true
           },
           "uncategorized_file": {
             "type": "string",
+            "description": "(ID of a file upload) Any additional evidence or statements.",
             "nullable": true
           },
           "uncategorized_text": {
             "type": "string",
+            "description": "Any additional evidence or statements.",
             "nullable": true
           }
         }
       },
-      "BIOSPayinsContractsRequestsUpdateDisputeRequest": {
+      "UpdateDisputeRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1718,47 +1756,55 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
         }
       },
-      "BIOSPayinsContractsResponsesChargeContract": {
+      "ChargeContract": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Unique identifier for the object."
           },
           "seller_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The Seller ID that these funds are intended for."
           },
           "payin_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the PaymentIntent associated with this charge."
           },
           "payment_method_id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the payment method used in this charge."
           },
           "amount": {
             "type": "integer",
+            "description": "Amount intended to be collected by this payin. A positive integer representing how much to charge in the smallest currency unit (e.g., 100 cents to charge $1.00 or 100 to charge ¥100, a zero-decimal currency). The minimum amount is $0.50 US or equivalent in charge currency. The amount value supports up to eight digits (e.g., a value of 99999999 for a USD charge of $999,999.99).",
             "format": "int64"
           },
           "currency": {
-            "type": "string"
+            "type": "string",
+            "description": "Three-letter ISO currency code, in lowercase. Must be a supported currency."
           },
           "psp": {
-            "type": "string"
-          },
-          "psp_id": {
-            "type": "string"
+            "type": "string",
+            "description": "The payment service provider where this charge was attempted."
           },
           "state": {
-            "type": "string"
+            "type": "string",
+            "description": "The state of the charge."
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/MetadataContract"
           }
         }
       },
-      "BIOSPayinsContractsRequestsUpdateChargeRequest": {
+      "UpdateChargeRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
@@ -1766,7 +1812,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/BIOSEventsMetadataOptions"
+                "$ref": "#/components/schemas/MetadataOptions"
               }
             ]
           }
