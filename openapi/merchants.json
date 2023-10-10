@@ -20,12 +20,6 @@
         "description": "Use this endpoint to create a payout.",
         "operationId": "BIOSMerchantsEndpointsPayoutsCreatePayoutEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The payout you have just created.",
             "content": {
@@ -33,7 +27,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/CreatePayoutResponse"
                 },
-                "example": {}
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
+                }
               }
             }
           },
@@ -44,12 +42,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "20036beb-739a-4a47-8d44-ff7c3fd243b1",
-                  "date": 1696582048609,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "b29d6f42-2b52-486d-9bf8-1b0282438289",
+                      "date": 1696938724718,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -64,12 +66,6 @@
         "description": "Use this endpoint to list all your payouts.",
         "operationId": "BIOSMerchantsEndpointsPayoutsListPayoutsEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your payouts.",
             "content": {
@@ -77,7 +73,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/ListPayoutsResponse"
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": []
+                  }
+                }
               }
             }
           },
@@ -88,12 +88,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "f57093b5-d87c-4b11-82b5-98d365c4a1e1",
-                  "date": 1696582048616,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "17c3b168-1949-4b0e-89a7-08712ba87005",
+                      "date": 1696938724721,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -121,12 +125,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "204": {
             "description": "The payout has been deleted.",
             "content": {
@@ -134,7 +132,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
+                }
               }
             }
           },
@@ -145,12 +147,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "682a96bb-0cf9-49e5-b8d4-664d4f22cd7c",
-                  "date": 1696582048615,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "43b0451d-7fef-4a27-8f11-5cbab42e0883",
+                      "date": 1696938724721,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -162,12 +168,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "98302e45-f548-4a80-9997-20705411e18b",
-                  "date": 1696582048615,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "a7ed1832-0580-4dc3-ac76-89df032f12a5",
+                      "date": 1696938724721,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -193,12 +203,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The payout with the ID you provided.",
             "content": {
@@ -206,7 +210,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/RetrievePayoutResponse"
                 },
-                "example": {}
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
+                }
               }
             }
           },
@@ -217,12 +225,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "efa2f921-5ac9-48e5-b515-e20532079595",
-                  "date": 1696582048617,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "43ab8b3d-5d9c-41d6-ae51-f7c09367fd79",
+                      "date": 1696938724721,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -234,12 +246,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "9c03c5c4-d638-40c2-8b86-ccfe82ea4c97",
-                  "date": 1696582048617,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "fe58b832-703e-46cf-93d4-07c43bb18ae8",
+                      "date": 1696938724721,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -260,7 +276,7 @@
             "name": "Authorization",
             "in": "header",
             "required": true,
-            "description": "Combine your ClientId and API key into a string separated by a colon (“yourclientid:yourapikey”). Encode the string in Base64. Add “Basic ” plus the encoded string to the Authorization header(make sure you keep the space between “Basic ” and the string).",
+            "description": "Combine your ClientId and API key into a string separated by a colon (“yourclientid:yourapikey”).  Encode the string in Base64. Add “Basic ” plus the encoded string to the Authorization header(make sure you keep the space between “Basic ” and the string).",
             "schema": {
               "type": "string",
               "nullable": true
@@ -275,10 +291,14 @@
                 "schema": {
                   "$ref": "#/components/schemas/CreateOAuthTokenResponse"
                 },
-                "example": {
-                  "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKb2huIERvZSIsImVtYWlsIjoiam9obi5kb2UuZXhhbXBsZUBjb21tb25seS5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2MzAwMDAwMDAsImV4cCI6MTYzMDAxMDEwMH0.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-                  "token_type": "Bearer",
-                  "expires_in": 300
+                "examples": {
+                  "value": {
+                    "value": {
+                      "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKb2huIERvZSIsImVtYWlsIjoiam9obi5kb2UuZXhhbXBsZUBjb21tb25seS5jb20iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2MzAwMDAwMDAsImV4cCI6MTYzMDAxMDEwMH0.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                      "token_type": "Bearer",
+                      "expires_in": 300
+                    }
+                  }
                 }
               }
             }
@@ -290,12 +310,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "e2898f06-69ef-4b5c-bd6c-6c3a54cd6844",
-                  "date": 1696582048619,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "Access to the API resource is not authorized due to an authentication failure.",
+                      "type": "unauthorized_access",
+                      "id": "4e221c89-cacd-477a-99cc-12b9e1c89b7c",
+                      "date": 1696938724722,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -317,18 +341,19 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "86a7917a-d605-4314-a50f-baa289d1a028",
-                  "date": 1696582048620,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "Access to the API resource is not authorized due to an authentication failure.",
+                      "type": "unauthorized_access",
+                      "id": "46055473-d027-4eba-8898-2d80a2fa7200",
+                      "date": 1696938724722,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
-          },
-          "403": {
-            "description": "Forbidden"
           },
           "204": {
             "description": "Your authorization has successfully passed the test.",
@@ -337,7 +362,88 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credentials": {
+      "post": {
+        "tags": [
+          "Credentials"
+        ],
+        "operationId": "BIOSMerchantsEndpointsCredentialsCreateCredentialsEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateCredentialsResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Credentials"
+        ],
+        "operationId": "BIOSMerchantsEndpointsCredentialsListCredentialsEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CredentialsContract"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/credentials/{credentials_id}": {
+      "delete": {
+        "tags": [
+          "Credentials"
+        ],
+        "operationId": "BIOSMerchantsEndpointsCredentialsDeleteCredentialsEndpoint",
+        "parameters": [
+          {
+            "name": "credentials_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
               }
             }
           }
@@ -435,6 +541,27 @@
       "CreateOAuthTokenRequest": {
         "type": "object",
         "additionalProperties": false
+      },
+      "CreateCredentialsResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "public_key": {
+            "type": "string"
+          },
+          "secret_key": {
+            "type": "string"
+          }
+        }
+      },
+      "CredentialsContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "public_key": {
+            "type": "string"
+          }
+        }
       }
     }
   }

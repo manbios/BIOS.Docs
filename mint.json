@@ -156,7 +156,6 @@
           "group": "Charges",
           "pages": [
             "api-reference/charges/update",
-            "api-reference/charges/refund",
             "api-reference/charges/retrieve",
             "api-reference/charges/list"
           ]

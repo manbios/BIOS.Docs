@@ -26,6 +26,16 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateRefundRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "charge_id": "516367df-41ec-4895-965b-ece150b2b67a",
+                    "amount": 20000,
+                    "reason": "requested_by_customer",
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -33,12 +43,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The refund you have just created.",
             "content": {
@@ -46,15 +50,19 @@
                 "schema": {
                   "$ref": "#/components/schemas/RefundContract"
                 },
-                "example": {
-                  "id": null,
-                  "charge_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "reason": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "ac7cd76e-1ddb-4cb2-9daa-473e1570adb0",
+                      "charge_id": "516367df-41ec-4895-965b-ece150b2b67a",
+                      "amount": 20000,
+                      "currency": "eur",
+                      "psp": "stripe",
+                      "state": "initiated",
+                      "reason": "requested_by_customer",
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -66,12 +74,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "4eccb29c-9d4f-4650-a94d-4e26be7f4ef0",
-                  "date": 1696582048530,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "923474a4-14c5-476b-9c2f-1a3d63ae6921",
+                      "date": 1696938555366,
+                      "errors": [
+                        "The charge has not enough available amount to refund."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -86,12 +100,6 @@
         "description": "Use this endpoint to list all your refunds.",
         "operationId": "BIOSPayinsEndpointsRefundsListRefundsEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your refunds.",
             "content": {
@@ -102,14 +110,39 @@
                     "$ref": "#/components/schemas/RefundContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "b634c8aa-51fe-4dd3-8c25-2cc754b8856e",
+                        "charge_id": "d384c64f-1869-482d-b8d3-5cbfc2de54d9",
+                        "amount": 20000,
+                        "currency": "eur",
+                        "psp": "stripe",
+                        "state": "initiated",
+                        "reason": "requested_by_customer",
+                        "metadata": {}
+                      },
+                      {
+                        "id": "c4ff1bd9-ce2f-41ca-8f2d-a5c4c3cb264b",
+                        "charge_id": "18266351-7a79-467f-9200-11c6b9f2ec51",
+                        "amount": 2500,
+                        "currency": "usd",
+                        "psp": "paypal",
+                        "state": "pending",
+                        "reason": "expired_uncaptured_charge",
+                        "metadata": {}
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/refunds/{refund_id}": {
+    "/refunds/{id}": {
       "get": {
         "tags": [
           "Refunds"
@@ -119,7 +152,7 @@
         "operationId": "BIOSPayinsEndpointsRefundsRetrieveRefundEndpoint",
         "parameters": [
           {
-            "name": "refund_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -129,12 +162,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The refund with the ID you provided.",
             "content": {
@@ -142,32 +169,19 @@
                 "schema": {
                   "$ref": "#/components/schemas/RefundContract"
                 },
-                "example": {
-                  "id": null,
-                  "charge_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "reason": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "3f447d60-6a85-43c1-a397-90790d44da18",
-                  "date": 1696582048537,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "16529544-2e04-46f4-a162-7cb99fd857ec",
+                      "charge_id": "557eb295-5cf7-48b2-9f6c-714cccbc94be",
+                      "amount": 20000,
+                      "currency": "eur",
+                      "psp": "stripe",
+                      "state": "initiated",
+                      "reason": "requested_by_customer",
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -179,12 +193,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "8d85817e-8c30-4eaa-aae5-84a4f2453212",
-                  "date": 1696582048537,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "0d482b62-7ed1-452b-915d-4acc00b8217f",
+                      "date": 1696938555369,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -197,10 +215,10 @@
         ],
         "summary": "Update Refund",
         "description": "Use this endpoint to update an existing refund.",
-        "operationId": "BIOSPayinsEndpointsDisputesUpdateRefundEndpoint",
+        "operationId": "BIOSPayinsEndpointsRefundsUpdateRefundEndpoint",
         "parameters": [
           {
-            "name": "refund_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -216,6 +234,15 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateRefundRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "metadata": {
+                      "client_id": "fb9fd93d-327f-457c-8ec5-08b39ec67693"
+                    }
+                  }
+                }
               }
             }
           },
@@ -223,12 +250,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The refund you have just updated.",
             "content": {
@@ -236,15 +257,22 @@
                 "schema": {
                   "$ref": "#/components/schemas/RefundContract"
                 },
-                "example": {
-                  "id": null,
-                  "charge_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "reason": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "7d9f7e85-4304-4636-b88d-c44fb88d9bb4",
+                      "charge_id": "06598da2-15b5-4695-9395-ac0831da287e",
+                      "amount": 20000,
+                      "currency": "eur",
+                      "psp": "stripe",
+                      "state": "initiated",
+                      "reason": "requested_by_customer",
+                      "metadata": {
+                        "client_timestamp": "1696938555370",
+                        "client_id": "fb9fd93d-327f-457c-8ec5-08b39ec67693"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -256,12 +284,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "ed5c31cc-a4e6-48d9-ba18-10688fa7531a",
-                  "date": 1696582048544,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "9f26503a-b7b3-4007-8c5b-3023d09ddabf",
+                      "date": 1696938555372,
+                      "errors": [
+                        "Invalid metadata update."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -273,12 +307,66 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "d669e987-27c1-4abd-b38b-5eae062e146e",
-                  "date": 1696582048544,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "f2fd876f-47ee-42e4-9acd-a3ec9078efb8",
+                      "date": 1696938555372,
+                      "errors": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stripe/refunds/create": {
+      "post": {
+        "tags": [
+          "Stripe"
+        ],
+        "operationId": "BIOSPayinsEndpointsRefundsStripeCreatedStripeRefundEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stripe/refunds/update": {
+      "post": {
+        "tags": [
+          "Stripe"
+        ],
+        "operationId": "BIOSPayinsEndpointsRefundsStripeUpdatedStripeRefundEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
                 }
               }
             }
@@ -295,26 +383,6 @@
         "description": "Use this endpoint to create a new payin.",
         "operationId": "BIOSPayinsEndpointsPayinsCreatePayinEndpoint",
         "responses": {
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "58e9a4f5-586f-4e7e-a970-cc4227b06d5d",
-                  "date": 1696582048538,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The payin you have just created.",
             "content": {
@@ -322,8 +390,12 @@
                 "schema": {
                   "$ref": "#/components/schemas/CreatePayinResponse"
                 },
-                "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "00000000-0000-0000-0000-000000000000"
+                    }
+                  }
                 }
               }
             }
@@ -335,12 +407,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "b6a94cbf-85fd-481c-b1fb-1968bca1dff1",
-                  "date": 1696582048538,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "8a04cf93-6ced-4238-a11f-c628e398817d",
+                      "date": 1696938555374,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -355,26 +431,6 @@
         "description": "Use this endpoint to list all your payins.",
         "operationId": "BIOSPayinsEndpointsPayinsListPayinsEndpoint",
         "responses": {
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "0a98b495-4ad0-42df-90e9-a8b042aa2085",
-                  "date": 1696582048541,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your payins.",
             "content": {
@@ -382,7 +438,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/ListPayinsResponse"
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": []
+                  }
+                }
               }
             }
           },
@@ -393,12 +453,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "d9d20873-f363-4354-8b7f-9a7710006dae",
-                  "date": 1696582048541,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "43d733d4-aa64-4be9-9b99-1b9849781c72",
+                      "date": 1696938555377,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -426,26 +490,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "e81dcfe8-a433-4f34-800f-f682d5d3bcb1",
-                  "date": 1696582048540,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "204": {
             "description": "The payin has been deleted.",
             "content": {
@@ -453,7 +497,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
+                }
               }
             }
           },
@@ -464,12 +512,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "2eaa02f9-eb43-4dcc-8ac7-21f0d8999326",
-                  "date": 1696582048540,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "35dbcfb4-4268-4ea3-ab37-590d8632f0a1",
+                      "date": 1696938555375,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -481,12 +533,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "e272f881-98ad-4a55-af60-d19b52cbc3f8",
-                  "date": 1696582048540,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "eb1b53f3-d799-4762-91f9-a5d5087711d7",
+                      "date": 1696938555375,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -512,26 +568,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "ae3fcf46-ff8d-4d5a-a9e4-4478c0e72fc5",
-                  "date": 1696582048542,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The payin with the ID you provided.",
             "content": {
@@ -539,8 +575,12 @@
                 "schema": {
                   "$ref": "#/components/schemas/RetrievePayinResponse"
                 },
-                "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "00000000-0000-0000-0000-000000000000"
+                    }
+                  }
                 }
               }
             }
@@ -552,12 +592,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "b4d669f0-d1b5-4cd9-b647-20bdb0dbbcad",
-                  "date": 1696582048542,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "149ffc46-f60f-495f-99c1-e718e3144369",
+                      "date": 1696938555380,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -569,12 +613,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "c293b8a9-fb78-4e59-8d2b-b6cbbd2df8b2",
-                  "date": 1696582048542,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "dff8500d-133e-421a-82cf-4d88741d83be",
+                      "date": 1696938555380,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -600,26 +648,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "The request is not authorized.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "Access to the API resource is not authorized due to an authentication failure.",
-                  "type": "unauthorized_access",
-                  "id": "586c14dd-3ca3-4614-907d-4547eb11eba5",
-                  "date": 1696582048543,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The payin you have just updated.",
             "content": {
@@ -627,8 +655,12 @@
                 "schema": {
                   "$ref": "#/components/schemas/UpdatePayinResponse"
                 },
-                "example": {
-                  "id": "00000000-0000-0000-0000-000000000000"
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "00000000-0000-0000-0000-000000000000"
+                    }
+                  }
                 }
               }
             }
@@ -640,12 +672,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "ef4d6bd2-a9da-4238-a74b-6ccabcb7ff4a",
-                  "date": 1696582048543,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "791c3573-9749-436f-8f7b-2f36e4d765c3",
+                      "date": 1696938555381,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -657,12 +693,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "12cffc18-917d-4a9c-8a4a-ea6a3e992da8",
-                  "date": 1696582048543,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "7591d8c1-c60a-4e70-9df8-c4ab93d856d9",
+                      "date": 1696938555381,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -670,7 +710,7 @@
         }
       }
     },
-    "/disputes/{dispute_id}/accept": {
+    "/disputes/{id}/accept": {
       "post": {
         "tags": [
           "Disputes"
@@ -680,7 +720,7 @@
         "operationId": "BIOSPayinsEndpointsDisputesAcceptDisputeEndpoint",
         "parameters": [
           {
-            "name": "dispute_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -690,12 +730,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The dispute you have just accepted.",
             "content": {
@@ -703,16 +737,49 @@
                 "schema": {
                   "$ref": "#/components/schemas/DisputeContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "charge_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "reason": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "f9ee6b97-c07b-4509-9c31-476a0285a715",
+                      "seller_id": "70ba2ace-085c-4161-9967-867ccc8ffe64",
+                      "charge_id": "75f0c460-c519-4bd8-b3d1-a2e891248f43",
+                      "amount": 3400,
+                      "currency": "usd",
+                      "psp": "stripe",
+                      "state": "closed",
+                      "reason": "fraudulent",
+                      "metadata": {},
+                      "evidence": {
+                        "access_activity_log": null,
+                        "billing_address": null,
+                        "cancellation_policy": null,
+                        "cancellation_policy_disclosure": null,
+                        "cancellation_rebuttal": null,
+                        "buyer_communication": null,
+                        "buyer_email_address": null,
+                        "buyer_name": null,
+                        "buyer_purchase_ip": null,
+                        "buyer_signature": null,
+                        "duplicate_charge_documentation": null,
+                        "duplicate_charge_explanation": null,
+                        "duplicate_charge_id": null,
+                        "product_description": null,
+                        "receipt": null,
+                        "refund_policy": null,
+                        "refund_policy_disclosure": null,
+                        "refund_refusal_explanation": null,
+                        "service_date": null,
+                        "service_documentation": null,
+                        "shipping_address": null,
+                        "shipping_carrier": null,
+                        "shipping_date": null,
+                        "shipping_documentation": null,
+                        "shipping_tracking_number": null,
+                        "uncategorized_file": null,
+                        "uncategorized_text": null
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -724,12 +791,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "8fa3daf7-dc46-4ca3-a505-9ca3eb6a54fe",
-                  "date": 1696582048544,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "4bc4e64a-bfcc-48e0-a740-0a9b6c63e1ce",
+                      "date": 1696938555383,
+                      "errors": [
+                        "Cannot accpet a closed dispute."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -741,12 +814,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "1a7a0829-0a5a-4dfb-a939-fc37968799d9",
-                  "date": 1696582048544,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "f85f215e-4b46-478c-b8c2-fde7fa2d696d",
+                      "date": 1696938555383,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -754,7 +831,7 @@
         }
       }
     },
-    "/disputes/{dispute_id}/counter": {
+    "/disputes/{id}/counter": {
       "post": {
         "tags": [
           "Disputes"
@@ -764,7 +841,7 @@
         "operationId": "BIOSPayinsEndpointsDisputesCounterDisputeEndpoint",
         "parameters": [
           {
-            "name": "dispute_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -780,6 +857,39 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CounterDisputeRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "access_activity_log": null,
+                    "billing_address": null,
+                    "cancellation_policy": null,
+                    "cancellation_policy_disclosure": null,
+                    "cancellation_rebuttal": null,
+                    "buyer_communication": null,
+                    "buyer_email_address": null,
+                    "buyer_name": null,
+                    "buyer_purchase_ip": null,
+                    "buyer_signature": null,
+                    "duplicate_charge_documentation": null,
+                    "duplicate_charge_explanation": null,
+                    "duplicate_charge_id": null,
+                    "product_description": null,
+                    "receipt": null,
+                    "refund_policy": null,
+                    "refund_policy_disclosure": null,
+                    "refund_refusal_explanation": null,
+                    "service_date": null,
+                    "service_documentation": null,
+                    "shipping_address": "West Coreneton, Dominique Ramp - 5590 Emard Falls Wyoming US - 26979-0344",
+                    "shipping_carrier": null,
+                    "shipping_date": null,
+                    "shipping_documentation": null,
+                    "shipping_tracking_number": null,
+                    "uncategorized_file": null,
+                    "uncategorized_text": null
+                  }
+                }
               }
             }
           },
@@ -787,12 +897,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The dispute you have just updated.",
             "content": {
@@ -800,16 +904,49 @@
                 "schema": {
                   "$ref": "#/components/schemas/DisputeContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "charge_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "reason": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "0451371b-9507-4d4a-bc1f-3453cb1d96c2",
+                      "seller_id": "e5141a2e-b579-4f7b-b76d-5e944e3e3103",
+                      "charge_id": "60d66575-a854-4dfe-bd71-b97022b671c0",
+                      "amount": 3400,
+                      "currency": "usd",
+                      "psp": "stripe",
+                      "state": "closed",
+                      "reason": "fraudulent",
+                      "metadata": {},
+                      "evidence": {
+                        "access_activity_log": null,
+                        "billing_address": null,
+                        "cancellation_policy": null,
+                        "cancellation_policy_disclosure": null,
+                        "cancellation_rebuttal": null,
+                        "buyer_communication": null,
+                        "buyer_email_address": null,
+                        "buyer_name": null,
+                        "buyer_purchase_ip": null,
+                        "buyer_signature": null,
+                        "duplicate_charge_documentation": null,
+                        "duplicate_charge_explanation": null,
+                        "duplicate_charge_id": null,
+                        "product_description": null,
+                        "receipt": null,
+                        "refund_policy": null,
+                        "refund_policy_disclosure": null,
+                        "refund_refusal_explanation": null,
+                        "service_date": null,
+                        "service_documentation": null,
+                        "shipping_address": "West Coreneton, Dominique Ramp - 5590 Emard Falls Wyoming US - 26979-0344",
+                        "shipping_carrier": null,
+                        "shipping_date": null,
+                        "shipping_documentation": null,
+                        "shipping_tracking_number": null,
+                        "uncategorized_file": null,
+                        "uncategorized_text": null
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -821,12 +958,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "873d837e-0c04-4cbd-8442-443655f8154c",
-                  "date": 1696582048545,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "e5b94b9c-e768-4def-97eb-aa3986feecf5",
+                      "date": 1696938555385,
+                      "errors": [
+                        "Cannot counter a closed dispute."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -838,12 +981,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "47fa3b57-1a80-40ab-be45-6ab0793de126",
-                  "date": 1696582048545,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "4824daad-6777-46dd-995b-70f322ffdc14",
+                      "date": 1696938555385,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -860,12 +1007,6 @@
         "description": "Use this endpoint to list all your disputes.",
         "operationId": "BIOSPayinsEndpointsDisputesListDisputesEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your disputes.",
             "content": {
@@ -876,14 +1017,99 @@
                     "$ref": "#/components/schemas/DisputeContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "8e6cec12-0377-492a-8f50-98b9506950c1",
+                        "seller_id": "a9931654-cf8c-4a51-b7c2-27692e38f9cc",
+                        "charge_id": "422e36d1-226a-45a7-95d3-9e474879203b",
+                        "amount": 2800,
+                        "currency": "eur",
+                        "psp": "stripe",
+                        "state": "needs_evidence",
+                        "reason": "product_unacceptable",
+                        "metadata": {},
+                        "evidence": {
+                          "access_activity_log": null,
+                          "billing_address": null,
+                          "cancellation_policy": null,
+                          "cancellation_policy_disclosure": null,
+                          "cancellation_rebuttal": null,
+                          "buyer_communication": null,
+                          "buyer_email_address": null,
+                          "buyer_name": null,
+                          "buyer_purchase_ip": null,
+                          "buyer_signature": null,
+                          "duplicate_charge_documentation": null,
+                          "duplicate_charge_explanation": null,
+                          "duplicate_charge_id": null,
+                          "product_description": null,
+                          "receipt": null,
+                          "refund_policy": null,
+                          "refund_policy_disclosure": null,
+                          "refund_refusal_explanation": null,
+                          "service_date": null,
+                          "service_documentation": null,
+                          "shipping_address": null,
+                          "shipping_carrier": null,
+                          "shipping_date": null,
+                          "shipping_documentation": null,
+                          "shipping_tracking_number": null,
+                          "uncategorized_file": null,
+                          "uncategorized_text": null
+                        }
+                      },
+                      {
+                        "id": "aeb48ab6-c906-4fe5-8637-256dd6389c3d",
+                        "seller_id": "0cc510b3-1556-4343-88b4-8b3058435e5c",
+                        "charge_id": "19222352-5f8b-4bf7-9050-5393b14cc7fb",
+                        "amount": 3400,
+                        "currency": "usd",
+                        "psp": "stripe",
+                        "state": "closed",
+                        "reason": "fraudulent",
+                        "metadata": {},
+                        "evidence": {
+                          "access_activity_log": null,
+                          "billing_address": null,
+                          "cancellation_policy": null,
+                          "cancellation_policy_disclosure": null,
+                          "cancellation_rebuttal": null,
+                          "buyer_communication": null,
+                          "buyer_email_address": null,
+                          "buyer_name": null,
+                          "buyer_purchase_ip": null,
+                          "buyer_signature": null,
+                          "duplicate_charge_documentation": null,
+                          "duplicate_charge_explanation": null,
+                          "duplicate_charge_id": null,
+                          "product_description": null,
+                          "receipt": null,
+                          "refund_policy": null,
+                          "refund_policy_disclosure": null,
+                          "refund_refusal_explanation": null,
+                          "service_date": null,
+                          "service_documentation": null,
+                          "shipping_address": null,
+                          "shipping_carrier": null,
+                          "shipping_date": null,
+                          "shipping_documentation": null,
+                          "shipping_tracking_number": null,
+                          "uncategorized_file": null,
+                          "uncategorized_text": null
+                        }
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/disputes/{dispute_id}": {
+    "/disputes/{id}": {
       "get": {
         "tags": [
           "Disputes"
@@ -893,7 +1119,7 @@
         "operationId": "BIOSPayinsEndpointsDisputesRetrieveDisputeEndpoint",
         "parameters": [
           {
-            "name": "dispute_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -903,12 +1129,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The dispute with the ID you provided.",
             "content": {
@@ -916,33 +1136,49 @@
                 "schema": {
                   "$ref": "#/components/schemas/DisputeContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "charge_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "reason": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "584f04a4-67fe-4df9-a10f-d6c63247be8e",
-                  "date": 1696582048546,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "43b9e4d2-f447-4af3-89c7-c976ecc453fb",
+                      "seller_id": "d9073857-7ef6-4e38-b7de-6d1dbf685d91",
+                      "charge_id": "db29ced6-d5fb-4c5c-a0bc-6fdc4d0d4c25",
+                      "amount": 3400,
+                      "currency": "usd",
+                      "psp": "stripe",
+                      "state": "closed",
+                      "reason": "fraudulent",
+                      "metadata": {},
+                      "evidence": {
+                        "access_activity_log": null,
+                        "billing_address": null,
+                        "cancellation_policy": null,
+                        "cancellation_policy_disclosure": null,
+                        "cancellation_rebuttal": null,
+                        "buyer_communication": null,
+                        "buyer_email_address": null,
+                        "buyer_name": null,
+                        "buyer_purchase_ip": null,
+                        "buyer_signature": null,
+                        "duplicate_charge_documentation": null,
+                        "duplicate_charge_explanation": null,
+                        "duplicate_charge_id": null,
+                        "product_description": null,
+                        "receipt": null,
+                        "refund_policy": null,
+                        "refund_policy_disclosure": null,
+                        "refund_refusal_explanation": null,
+                        "service_date": null,
+                        "service_documentation": null,
+                        "shipping_address": null,
+                        "shipping_carrier": null,
+                        "shipping_date": null,
+                        "shipping_documentation": null,
+                        "shipping_tracking_number": null,
+                        "uncategorized_file": null,
+                        "uncategorized_text": null
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -954,12 +1190,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "e6d425d8-be58-4a13-8f42-9a1e7913a93d",
-                  "date": 1696582048546,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "a15de18f-857c-4cf0-8dd0-d780a7348e5a",
+                      "date": 1696938555386,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -975,7 +1215,7 @@
         "operationId": "BIOSPayinsEndpointsDisputesUpdateDisputeEndpoint",
         "parameters": [
           {
-            "name": "dispute_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -991,6 +1231,15 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateDisputeRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "metadata": {
+                      "client_id": "3886d41d-a576-4fff-a51c-f1ba2b518ecb"
+                    }
+                  }
+                }
               }
             }
           },
@@ -998,12 +1247,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The dispute you have just updated.",
             "content": {
@@ -1011,16 +1254,52 @@
                 "schema": {
                   "$ref": "#/components/schemas/DisputeContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "charge_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "reason": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "d421ec60-4712-4cc4-9dca-c1b629279926",
+                      "seller_id": "b236d4d1-7e89-435f-85cb-3ed422f86f92",
+                      "charge_id": "7b9d58d0-8cb3-4d5b-aa25-2ca581f360d1",
+                      "amount": 3400,
+                      "currency": "usd",
+                      "psp": "stripe",
+                      "state": "closed",
+                      "reason": "fraudulent",
+                      "metadata": {
+                        "client_timestamp": "1696938555389",
+                        "client_id": "3886d41d-a576-4fff-a51c-f1ba2b518ecb"
+                      },
+                      "evidence": {
+                        "access_activity_log": null,
+                        "billing_address": null,
+                        "cancellation_policy": null,
+                        "cancellation_policy_disclosure": null,
+                        "cancellation_rebuttal": null,
+                        "buyer_communication": null,
+                        "buyer_email_address": null,
+                        "buyer_name": null,
+                        "buyer_purchase_ip": null,
+                        "buyer_signature": null,
+                        "duplicate_charge_documentation": null,
+                        "duplicate_charge_explanation": null,
+                        "duplicate_charge_id": null,
+                        "product_description": null,
+                        "receipt": null,
+                        "refund_policy": null,
+                        "refund_policy_disclosure": null,
+                        "refund_refusal_explanation": null,
+                        "service_date": null,
+                        "service_documentation": null,
+                        "shipping_address": null,
+                        "shipping_carrier": null,
+                        "shipping_date": null,
+                        "shipping_documentation": null,
+                        "shipping_tracking_number": null,
+                        "uncategorized_file": null,
+                        "uncategorized_text": null
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1032,12 +1311,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "726ff65f-d940-410f-8c40-0d22aa392728",
-                  "date": 1696582048546,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "def2d4d5-d671-4ea6-99f9-cf5a63acbf2c",
+                      "date": 1696938555389,
+                      "errors": [
+                        "Invalid metadata update."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1049,12 +1334,66 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "d1305e41-852e-40a2-8e61-f483bf34279d",
-                  "date": 1696582048546,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "15481979-5411-4972-a7bb-2f566c32a71c",
+                      "date": 1696938555389,
+                      "errors": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stripe/disputes/create": {
+      "post": {
+        "tags": [
+          "Stripe"
+        ],
+        "operationId": "BIOSPayinsEndpointsDisputesStripeCreatedStripeDisputeEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stripe/disputes/update": {
+      "post": {
+        "tags": [
+          "Stripe"
+        ],
+        "operationId": "BIOSPayinsEndpointsDisputesStripeUpdatedStripeDisputeEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
                 }
               }
             }
@@ -1071,12 +1410,6 @@
         "description": "Use this endpoint to list all your charges.",
         "operationId": "BIOSPayinsEndpointsChargesListChargesEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your charges.",
             "content": {
@@ -1087,23 +1420,33 @@
                     "$ref": "#/components/schemas/ChargeContract"
                   }
                 },
-                "example": []
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "afae4e50-4131-4f91-bf1a-59ef7ee1cc3d",
-                  "date": 1696582048547,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "85767e98-c5c2-4868-b45c-7c737c0e2fad",
+                        "seller_id": "7e5bd3d8-61b6-48df-909d-9faed2ec206c",
+                        "payin_id": "2b0c32a0-da0a-457f-a409-e696ce6ec93f",
+                        "payment_method_id": "852c8830-2345-4fb1-bda3-78a2198393ca",
+                        "amount": 20000,
+                        "currency": "eur",
+                        "psp": "stripe",
+                        "state": "pending",
+                        "metadata": null
+                      },
+                      {
+                        "id": "2fe86842-7fd4-4b17-b952-0d59239ef240",
+                        "seller_id": "dbfc4f4c-bd77-4faf-a8db-2c06a8d2a97e",
+                        "payin_id": "34538c31-6e96-4fce-94d2-03cb9b01b6aa",
+                        "payment_method_id": "3a1359f3-bd0c-4acb-8c68-950c9e1532dd",
+                        "amount": 24000,
+                        "currency": "usd",
+                        "psp": "paypal",
+                        "state": "captured",
+                        "metadata": null
+                      }
+                    ]
+                  }
                 }
               }
             }
@@ -1111,91 +1454,7 @@
         }
       }
     },
-    "/charges/{charge_id}/refund": {
-      "post": {
-        "tags": [
-          "Charges"
-        ],
-        "summary": "Refund Charge",
-        "description": "Use this endpoint to refund an existing charge.",
-        "operationId": "BIOSPayinsEndpointsChargesRefundChargeEndpoint",
-        "parameters": [
-          {
-            "name": "charge_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            }
-          }
-        ],
-        "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "200": {
-            "description": "The charge you have just Refunded.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChargeContract"
-                },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "payin_id": null,
-                  "payment_method_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "metadata": null
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "3a8be5bc-125c-4579-b2eb-a456f5388ea1",
-                  "date": 1696582048548,
-                  "errors": []
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Resource not found.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "3f1f9f22-39b1-4dba-912e-e4754cd24369",
-                  "date": 1696582048548,
-                  "errors": []
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/charges/{charge_id}": {
+    "/charges/{id}": {
       "get": {
         "tags": [
           "Charges"
@@ -1205,7 +1464,7 @@
         "operationId": "BIOSPayinsEndpointsChargesRetrieveChargeEndpoint",
         "parameters": [
           {
-            "name": "charge_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -1215,12 +1474,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The charge with the ID you provided.",
             "content": {
@@ -1228,33 +1481,20 @@
                 "schema": {
                   "$ref": "#/components/schemas/ChargeContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "payin_id": null,
-                  "payment_method_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "metadata": null
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "c0d1b0a4-9ced-430b-982f-83c5e8a211e8",
-                  "date": 1696582048548,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "ed055283-7126-4b2c-baeb-ede94cd2cb8b",
+                      "seller_id": "12a945b7-3604-4879-a01c-d2dfa9f38207",
+                      "payin_id": "26cbf67f-7733-4375-8205-46cf9ed959f6",
+                      "payment_method_id": "3d972b39-5a25-4c92-bf92-ade7ae2ca0c5",
+                      "amount": 20000,
+                      "currency": "eur",
+                      "psp": "stripe",
+                      "state": "pending",
+                      "metadata": null
+                    }
+                  }
                 }
               }
             }
@@ -1266,12 +1506,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "0c607126-8a07-4f98-bd83-711da13f6846",
-                  "date": 1696582048548,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "fff9977d-ccd0-4aba-990f-c5f3845b4015",
+                      "date": 1696938555393,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -1287,7 +1531,7 @@
         "operationId": "BIOSPayinsEndpointsChargesUpdateChargeEndpoint",
         "parameters": [
           {
-            "name": "charge_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -1303,6 +1547,15 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateChargeRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "metadata": {
+                      "client_id": "fb2d37c3-6443-49ec-bec9-31677b4dde14"
+                    }
+                  }
+                }
               }
             }
           },
@@ -1310,12 +1563,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The charge you have just updated.",
             "content": {
@@ -1323,16 +1570,23 @@
                 "schema": {
                   "$ref": "#/components/schemas/ChargeContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "payin_id": null,
-                  "payment_method_id": null,
-                  "amount": 0,
-                  "currency": null,
-                  "psp": null,
-                  "state": null,
-                  "metadata": null
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "f671f698-6fe2-464c-8765-33f8dbd987e3",
+                      "seller_id": "21df6fd4-33d6-42aa-a486-93b75403052f",
+                      "payin_id": "17b4e0ae-5cbe-4b28-a830-9da00618e770",
+                      "payment_method_id": "f4377185-14ab-452f-ac97-e201d1ee5c11",
+                      "amount": 20000,
+                      "currency": "eur",
+                      "psp": "stripe",
+                      "state": "pending",
+                      "metadata": {
+                        "client_timestamp": "1696938555394",
+                        "client_id": "fb2d37c3-6443-49ec-bec9-31677b4dde14"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -1344,12 +1598,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "247416c5-6ff6-4f15-85f5-8052b95547bb",
-                  "date": 1696582048549,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "a80aa278-e4da-44b3-aebb-44123d944454",
+                      "date": 1696938555394,
+                      "errors": [
+                        "Invalid metadata update."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1361,12 +1621,66 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "6daf96b0-021d-471c-9916-88a3b493cd12",
-                  "date": 1696582048549,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "23fefd7e-35f8-4a16-bd08-963222fa7ef9",
+                      "date": 1696938555394,
+                      "errors": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stripe/charges/create": {
+      "post": {
+        "tags": [
+          "Stripe"
+        ],
+        "operationId": "BIOSPayinsEndpointsChargesStripeCreatedStripeChargeEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/stripe/charges/update": {
+      "post": {
+        "tags": [
+          "Stripe"
+        ],
+        "operationId": "BIOSPayinsEndpointsChargesStripeUpdatedStripeChargeEndpoint",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmptyResponse"
                 }
               }
             }
@@ -1489,6 +1803,33 @@
           "nullable": true
         }
       },
+      "UpdateRefundRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "metadata": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataOptions"
+              }
+            ]
+          }
+        }
+      },
+      "EmptyResponse": {
+        "type": "object",
+        "description": "a response dto that doesn't have any properties",
+        "additionalProperties": false
+      },
+      "CreatedStripeRefundNotification": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "UpdatedStripeRefundNotification": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "CreatePayinResponse": {
         "allOf": [
           {
@@ -1512,11 +1853,6 @@
       },
       "CreatePayinRequest": {
         "type": "object",
-        "additionalProperties": false
-      },
-      "EmptyResponse": {
-        "type": "object",
-        "description": "a response dto that doesn't have any properties",
         "additionalProperties": false
       },
       "ListPayinsResponse": {
@@ -1550,20 +1886,6 @@
       "UpdatePayinRequest": {
         "type": "object",
         "additionalProperties": false
-      },
-      "UpdateRefundRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "metadata": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/MetadataOptions"
-              }
-            ]
-          }
-        }
       },
       "DisputeContract": {
         "type": "object",
@@ -1604,6 +1926,150 @@
           },
           "metadata": {
             "$ref": "#/components/schemas/MetadataContract"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/DisputeEvidenceContract"
+          }
+        }
+      },
+      "DisputeEvidenceContract": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "access_activity_log": {
+            "type": "string",
+            "description": "Any server or activity logs showing proof that the buyer accessed or downloaded the purchased digital product. This information should include IP addresses, corresponding timestamps, and any detailed recorded activity.",
+            "nullable": true
+          },
+          "billing_address": {
+            "type": "string",
+            "description": "The billing address provided by the buyer.",
+            "nullable": true
+          },
+          "cancellation_policy": {
+            "type": "string",
+            "description": "(ID of a file upload) Your subscription cancellation policy, as shown to the buyer.",
+            "nullable": true
+          },
+          "cancellation_policy_disclosure": {
+            "type": "string",
+            "description": "An explanation of how and when the buyer was shown your refund policy prior to purchase.",
+            "nullable": true
+          },
+          "cancellation_rebuttal": {
+            "type": "string",
+            "description": "A justification for why the buyer’s subscription was not canceled.",
+            "nullable": true
+          },
+          "buyer_communication": {
+            "type": "string",
+            "description": "(ID of a file upload) Any communication with the buyer that you feel is relevant to your case. Examples include emails proving that the buyer received the product or service, or demonstrating their use of or satisfaction with the product or service.",
+            "nullable": true
+          },
+          "buyer_email_address": {
+            "type": "string",
+            "description": "The email address of the buyer.",
+            "nullable": true
+          },
+          "buyer_name": {
+            "type": "string",
+            "description": "The name of the buyer.",
+            "nullable": true
+          },
+          "buyer_purchase_ip": {
+            "type": "string",
+            "description": "The IP address that the buyer used when making the purchase.",
+            "nullable": true
+          },
+          "buyer_signature": {
+            "type": "string",
+            "description": "(ID of a file upload) A relevant document or contract showing the buyer’s signature.",
+            "nullable": true
+          },
+          "duplicate_charge_documentation": {
+            "type": "string",
+            "description": "(ID of a file upload) Documentation for the prior charge that can uniquely identify the charge, such as a receipt, shipping label, work order, etc. This document should be paired with a similar document from the disputed payment that proves the two payments are separate.",
+            "nullable": true
+          },
+          "duplicate_charge_explanation": {
+            "type": "string",
+            "description": "An explanation of the difference between the disputed charge versus the prior charge that appears to be a duplicate.",
+            "nullable": true
+          },
+          "duplicate_charge_id": {
+            "type": "string",
+            "description": "The BIOS ID for the prior charge which appears to be a duplicate of the disputed charge.",
+            "nullable": true
+          },
+          "product_description": {
+            "type": "string",
+            "description": "A description of the product or service that was sold.",
+            "nullable": true
+          },
+          "receipt": {
+            "type": "string",
+            "description": "(ID of a file upload) Any receipt or message sent to the buyer notifying them of the charge.",
+            "nullable": true
+          },
+          "refund_policy": {
+            "type": "string",
+            "description": "(ID of a file upload) Your refund policy, as shown to the buyer.",
+            "nullable": true
+          },
+          "refund_policy_disclosure": {
+            "type": "string",
+            "description": "Documentation demonstrating that the buyer was shown your refund policy prior to purchase.",
+            "nullable": true
+          },
+          "refund_refusal_explanation": {
+            "type": "string",
+            "description": "A justification for why the buyer is not entitled to a refund.",
+            "nullable": true
+          },
+          "service_date": {
+            "type": "string",
+            "description": "The date on which the buyer received or began receiving the purchased service, in a clear human-readable format.",
+            "nullable": true
+          },
+          "service_documentation": {
+            "type": "string",
+            "description": "(ID of a file upload) Documentation showing proof that a service was provided to the buyer. This could include a copy of a signed contract, work order, or other form of written agreement.",
+            "nullable": true
+          },
+          "shipping_address": {
+            "type": "string",
+            "description": "The address to which a physical product was shipped. You should try to include as complete address information as possible.",
+            "nullable": true
+          },
+          "shipping_carrier": {
+            "type": "string",
+            "description": "The delivery service that shipped a physical product, such as Fedex, UPS, USPS, etc. If multiple carriers were used for this purchase, please separate them with commas.",
+            "nullable": true
+          },
+          "shipping_date": {
+            "type": "string",
+            "description": "The date on which a physical product began its route to the shipping address, in a clear human-readable format.",
+            "nullable": true
+          },
+          "shipping_documentation": {
+            "type": "string",
+            "description": "(ID of a file upload) Documentation showing proof that a product was shipped to the buyer at the same address the buyer provided to you. This could include a copy of the shipment receipt, shipping label, etc. It should show the buyer’s full shipping address, if possible.",
+            "nullable": true
+          },
+          "shipping_tracking_number": {
+            "type": "string",
+            "description": "The tracking number for a physical product, obtained from the delivery service. If multiple tracking numbers were generated for this purchase, please separate them with commas.",
+            "nullable": true
+          },
+          "uncategorized_file": {
+            "type": "string",
+            "description": "(ID of a file upload) Any additional evidence or statements.",
+            "nullable": true
+          },
+          "uncategorized_text": {
+            "type": "string",
+            "description": "Any additional evidence or statements.",
+            "nullable": true
           }
         }
       },
@@ -1638,7 +2104,7 @@
           },
           "buyer_communication": {
             "type": "string",
-            "description": "(ID of a file upload) Any communication with the buyer that you feel is relevant to your case. example include emails proving that the buyer received the product or service, or demonstrating their use of or satisfaction with the product or service.",
+            "description": "(ID of a file upload) Any communication with the buyer that you feel is relevant to your case. Examples include emails proving that the buyer received the product or service, or demonstrating their use of or satisfaction with the product or service.",
             "nullable": true
           },
           "buyer_email_address": {
@@ -1762,6 +2228,14 @@
           }
         }
       },
+      "CreatedStripeDisputeNotification": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "UpdatedStripeDisputeNotification": {
+        "type": "object",
+        "additionalProperties": false
+      },
       "ChargeContract": {
         "type": "object",
         "additionalProperties": false,
@@ -1817,6 +2291,14 @@
             ]
           }
         }
+      },
+      "CreatedStripeChargeNotification": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "UpdatedStripeChargeNotification": {
+        "type": "object",
+        "additionalProperties": false
       }
     }
   }

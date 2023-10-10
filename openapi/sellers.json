@@ -26,6 +26,34 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateSellerRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "type": "company",
+                    "country": "us",
+                    "mcc": 5815,
+                    "url": "https://example.com",
+                    "description": "Streaming contents",
+                    "company": {
+                      "name": "Jhonny llc",
+                      "phone": "+12 34567890",
+                      "structure": "llc",
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": null
+                    },
+                    "persons": [],
+                    "bank_accounts": [],
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -33,12 +61,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The seller you have just created.",
             "content": {
@@ -46,17 +68,36 @@
                 "schema": {
                   "$ref": "#/components/schemas/SellerContract"
                 },
-                "example": {
-                  "id": null,
-                  "country": null,
-                  "type": null,
-                  "mcc": null,
-                  "url": null,
-                  "description": null,
-                  "company": null,
-                  "persons": null,
-                  "bank_accounts": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "86ddff35-7153-4fc4-ae29-5fef2a3b24bf",
+                      "country": "us",
+                      "type": "company",
+                      "mcc": 5815,
+                      "url": "https://example.com",
+                      "description": "Streaming contents",
+                      "company": {
+                        "id": "20791a67-acc8-4dd8-bdba-4ed656d1e7a5",
+                        "seller_id": "86ddff35-7153-4fc4-ae29-5fef2a3b24bf",
+                        "name": "Jhonny llc",
+                        "phone": "+12 34567890",
+                        "structure": "llc",
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "metadata": {}
+                      },
+                      "persons": null,
+                      "bank_accounts": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -68,12 +109,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "a380eda8-b3ed-49cd-ad6d-6a5fb6d45cf2",
-                  "date": 1696582049768,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "1c2ea485-718f-417e-a8ce-ffe6f5c4552f",
+                      "date": 1696938556016,
+                      "errors": [
+                        "Invalid seller country."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -88,12 +135,6 @@
         "description": "Use this endpoint to list all your sellers.",
         "operationId": "BIOSSellersEndpointsSellersListSellersEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your sellers.",
             "content": {
@@ -104,14 +145,46 @@
                     "$ref": "#/components/schemas/SellerContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "99f6b146-dc6e-425f-9ec3-cc06fe06b1de",
+                        "country": "us",
+                        "type": "company",
+                        "mcc": 5815,
+                        "url": "https://example.com",
+                        "description": "Streaming contents",
+                        "company": {
+                          "id": "5c1697f4-0e73-443b-8f37-ec7e84e69c16",
+                          "seller_id": "99f6b146-dc6e-425f-9ec3-cc06fe06b1de",
+                          "name": "Jhonny llc",
+                          "phone": "+12 34567890",
+                          "structure": "llc",
+                          "address": {
+                            "city": "East Artberg",
+                            "country": "us",
+                            "line1": "Anderson Station",
+                            "line2": "5170 Rowe Key Apt. 750",
+                            "postal_code": "48862",
+                            "state": "Connecticut"
+                          },
+                          "metadata": {}
+                        },
+                        "persons": null,
+                        "bank_accounts": null,
+                        "metadata": {}
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/sellers/{seller_id}": {
+    "/sellers/{id}": {
       "delete": {
         "tags": [
           "Sellers"
@@ -121,7 +194,7 @@
         "operationId": "BIOSSellersEndpointsSellersDeleteSellerEndpoint",
         "parameters": [
           {
-            "name": "seller_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -131,12 +204,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "204": {
             "description": "The seller has been deleted.",
             "content": {
@@ -144,7 +211,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
+                }
               }
             }
           },
@@ -155,12 +226,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "3ef18b7b-184b-494f-bdba-c0ab70d1e20e",
-                  "date": 1696582049776,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "654b14bf-73dd-4509-afb1-e5f9d54c11bd",
+                      "date": 1696938556019,
+                      "errors": [
+                        "Cannot delete seller with funds to pay out."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -172,12 +249,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "a4eec8ac-ef20-4419-bc96-a60801328ccb",
-                  "date": 1696582049776,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "6b399068-f3aa-4ed7-af38-f5538d1f1017",
+                      "date": 1696938556020,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -193,7 +274,7 @@
         "operationId": "BIOSSellersEndpointsSellersRetrieveSellerEndpoint",
         "parameters": [
           {
-            "name": "seller_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -203,12 +284,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The seller with the ID you provided.",
             "content": {
@@ -216,34 +291,36 @@
                 "schema": {
                   "$ref": "#/components/schemas/SellerContract"
                 },
-                "example": {
-                  "id": null,
-                  "country": null,
-                  "type": null,
-                  "mcc": null,
-                  "url": null,
-                  "description": null,
-                  "company": null,
-                  "persons": null,
-                  "bank_accounts": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "79321f8a-8c0a-44d9-a2d7-6476b6155bee",
-                  "date": 1696582049778,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "601c04df-ea2e-4b53-92bd-e144d71c09b8",
+                      "country": "us",
+                      "type": "company",
+                      "mcc": 5815,
+                      "url": "https://example.com",
+                      "description": "Streaming contents",
+                      "company": {
+                        "id": "4322600a-585e-4361-b0b6-46e79c1c15da",
+                        "seller_id": "601c04df-ea2e-4b53-92bd-e144d71c09b8",
+                        "name": "Jhonny llc",
+                        "phone": "+12 34567890",
+                        "structure": "llc",
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "metadata": {}
+                      },
+                      "persons": null,
+                      "bank_accounts": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -255,12 +332,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "57705ebc-4e17-4670-a351-211db2310462",
-                  "date": 1696582049778,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "9c78ad76-4158-405e-a526-72ec09edf68b",
+                      "date": 1696938556023,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -276,7 +357,7 @@
         "operationId": "BIOSSellersEndpointsSellersUpdateSellerEndpoint",
         "parameters": [
           {
-            "name": "seller_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -292,6 +373,19 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateSellerRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "mcc": null,
+                    "url": null,
+                    "description": "Video game streaming contents",
+                    "company": null,
+                    "persons": [],
+                    "bank_accounts": [],
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -299,12 +393,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The seller you have just updated.",
             "content": {
@@ -312,17 +400,36 @@
                 "schema": {
                   "$ref": "#/components/schemas/SellerContract"
                 },
-                "example": {
-                  "id": null,
-                  "country": null,
-                  "type": null,
-                  "mcc": null,
-                  "url": null,
-                  "description": null,
-                  "company": null,
-                  "persons": null,
-                  "bank_accounts": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "5bb04f4e-ee09-4773-aceb-f0c440c24338",
+                      "country": "us",
+                      "type": "company",
+                      "mcc": 5815,
+                      "url": "https://example.com",
+                      "description": "Video game streaming contents",
+                      "company": {
+                        "id": "4cf3d51b-a279-4cc3-be65-87468ce4b49f",
+                        "seller_id": "5bb04f4e-ee09-4773-aceb-f0c440c24338",
+                        "name": "Jhonny llc",
+                        "phone": "+12 34567890",
+                        "structure": "llc",
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "metadata": {}
+                      },
+                      "persons": null,
+                      "bank_accounts": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -334,12 +441,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "cd1850d8-9e60-4b41-a577-956bf54719ca",
-                  "date": 1696582049778,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "66949846-e4c7-47aa-9be1-bcf9537db36b",
+                      "date": 1696938556026,
+                      "errors": [
+                        "Invalid seller url."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -351,12 +464,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "81be3e7d-a2fa-4541-945d-9aaf0cf7a504",
-                  "date": 1696582049778,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "e6e2e7d4-ace0-45ab-a455-c92efb53ba22",
+                      "date": 1696938556026,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -379,6 +496,32 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreatePersonRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "seller_id": "c36d9850-747a-497c-8c59-67b78faf52b6",
+                    "email": "personemail@example.it",
+                    "first_name": "Jhon",
+                    "last_name": "Doe",
+                    "nationality": "us",
+                    "phone": "+12 34567890",
+                    "dob": {
+                      "day": 2,
+                      "month": 10,
+                      "year": 1983
+                    },
+                    "address": {
+                      "city": "East Artberg",
+                      "country": "us",
+                      "line1": "Anderson Station",
+                      "line2": "5170 Rowe Key Apt. 750",
+                      "postal_code": "48862",
+                      "state": "Connecticut"
+                    },
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -386,12 +529,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The person you have just created.",
             "content": {
@@ -399,17 +536,32 @@
                 "schema": {
                   "$ref": "#/components/schemas/PersonContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "email": null,
-                  "first_name": null,
-                  "last_name": null,
-                  "nationality": null,
-                  "phone": null,
-                  "date_of_birth": null,
-                  "address": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "536df7d2-3927-4d01-a680-96d8d6e5b679",
+                      "seller_id": "c36d9850-747a-497c-8c59-67b78faf52b6",
+                      "email": "personemail@example.it",
+                      "first_name": "Jhon",
+                      "last_name": "Doe",
+                      "nationality": "us",
+                      "phone": "+12 34567890",
+                      "dob": {
+                        "day": 2,
+                        "month": 10,
+                        "year": 1983
+                      },
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -421,12 +573,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "82be4742-b7e3-42e7-86d0-5d9d78983ab3",
-                  "date": 1696582049780,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "944d307c-6b8f-4505-b2b6-0c45a583ea97",
+                      "date": 1696938556033,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -441,12 +597,6 @@
         "description": "Use this endpoint to list all your persons.",
         "operationId": "BIOSSellersEndpointsPersonsListPersonsEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your persons.",
             "content": {
@@ -457,14 +607,65 @@
                     "$ref": "#/components/schemas/PersonContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "9212d71e-5425-4786-bcfc-c338fc1d8c05",
+                        "seller_id": "39a0b052-90d0-46c1-9393-3b20aa00155e",
+                        "email": "personemail@example.it",
+                        "first_name": "Jhon",
+                        "last_name": "Doe",
+                        "nationality": "us",
+                        "phone": "+12 34567890",
+                        "dob": {
+                          "day": 2,
+                          "month": 10,
+                          "year": 1983
+                        },
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "metadata": {}
+                      },
+                      {
+                        "id": "1409801b-5d62-484c-8e59-b47ec25c31a6",
+                        "seller_id": "3974005e-664a-4570-a149-4e5c04f86f7b",
+                        "email": "otherpersonemail@example.it",
+                        "first_name": "Lorem",
+                        "last_name": "Ipsum",
+                        "nationality": "it",
+                        "phone": "+09 87654321",
+                        "dob": {
+                          "day": 3,
+                          "month": 2,
+                          "year": 1974
+                        },
+                        "address": {
+                          "city": "Borgo Sasha sardo",
+                          "country": "it",
+                          "line1": "Piazza Ferrari 137",
+                          "line2": "Strada Gentile 1 Piano 0",
+                          "postal_code": "55383",
+                          "state": "Teramo"
+                        },
+                        "metadata": {}
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/persons/{person_id}": {
+    "/persons/{id}": {
       "delete": {
         "tags": [
           "Persons"
@@ -474,7 +675,7 @@
         "operationId": "BIOSSellersEndpointsPersonsDeletePersonEndpoint",
         "parameters": [
           {
-            "name": "person_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -484,12 +685,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "204": {
             "description": "The person has been deleted.",
             "content": {
@@ -497,23 +692,10 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "9592c2e6-1c3c-4e2e-8591-4758e51ce0f7",
-                  "date": 1696582049781,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
                 }
               }
             }
@@ -525,12 +707,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "cb1ab414-fbf7-44d2-a40e-e91903510fca",
-                  "date": 1696582049781,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "6ced46d5-b957-48ef-bef3-70f832a6dce7",
+                      "date": 1696938556034,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -546,7 +732,7 @@
         "operationId": "BIOSSellersEndpointsPersonsRetrievePersonEndpoint",
         "parameters": [
           {
-            "name": "person_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -556,12 +742,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The person with the ID you provided.",
             "content": {
@@ -569,34 +749,32 @@
                 "schema": {
                   "$ref": "#/components/schemas/PersonContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "email": null,
-                  "first_name": null,
-                  "last_name": null,
-                  "nationality": null,
-                  "phone": null,
-                  "date_of_birth": null,
-                  "address": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "b719e788-6d3f-47ab-82c3-53f5310e9b5e",
-                  "date": 1696582049783,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "17592039-22c5-48ad-8939-fad67d5857c6",
+                      "seller_id": "ddd0b18f-aeab-4abe-ada9-fd9f677d3b6f",
+                      "email": "personemail@example.it",
+                      "first_name": "Jhon",
+                      "last_name": "Doe",
+                      "nationality": "us",
+                      "phone": "+12 34567890",
+                      "dob": {
+                        "day": 2,
+                        "month": 10,
+                        "year": 1983
+                      },
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -608,12 +786,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "94714dc1-32e4-48f8-ac95-271c30f3b429",
-                  "date": 1696582049783,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "7aa7ae11-e39f-4b3d-b91d-98767bebbc10",
+                      "date": 1696938556044,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -629,7 +811,7 @@
         "operationId": "BIOSSellersEndpointsPersonsUpdatePersonEndpoint",
         "parameters": [
           {
-            "name": "person_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -645,6 +827,27 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdatePersonRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "email": null,
+                    "first_name": null,
+                    "last_name": null,
+                    "nationality": null,
+                    "phone": null,
+                    "dob": null,
+                    "address": {
+                      "city": "East Artberg",
+                      "country": "us",
+                      "line1": "Anderson Station",
+                      "line2": "5170 Rowe Key Apt. 750",
+                      "postal_code": "48862",
+                      "state": "Connecticut"
+                    },
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -652,12 +855,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The person you have just updated.",
             "content": {
@@ -665,17 +862,32 @@
                 "schema": {
                   "$ref": "#/components/schemas/PersonContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "email": null,
-                  "first_name": null,
-                  "last_name": null,
-                  "nationality": null,
-                  "phone": null,
-                  "date_of_birth": null,
-                  "address": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "4165e8c7-975b-4bbc-a2a6-91cf14183c20",
+                      "seller_id": "5efa2135-a9b4-45ea-909f-8db6bd22405d",
+                      "email": "personemail@example.it",
+                      "first_name": "Jhon",
+                      "last_name": "Doe",
+                      "nationality": "us",
+                      "phone": "+12 34567890",
+                      "dob": {
+                        "day": 2,
+                        "month": 10,
+                        "year": 1983
+                      },
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -687,12 +899,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "fde63c0a-4b8d-40a3-aad5-7b6e0c7beda0",
-                  "date": 1696582049785,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "aa6b4fa2-3de4-4814-9f9b-de851908fc67",
+                      "date": 1696938556048,
+                      "errors": [
+                        "Invalid email address."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -704,12 +922,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "a63f47ef-eed4-4a6e-98b8-874242b7c144",
-                  "date": 1696582049785,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "6b56f675-551d-4728-ab51-f231c068e440",
+                      "date": 1696938556048,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -732,6 +954,25 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateCompanyRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "seller_id": "3e800315-fc83-4870-9240-516bdb1bcb0c",
+                    "name": "Jhonny llc",
+                    "phone": "+12 34567890",
+                    "structure": "llc",
+                    "address": {
+                      "city": "East Artberg",
+                      "country": "us",
+                      "line1": "Anderson Station",
+                      "line2": "5170 Rowe Key Apt. 750",
+                      "postal_code": "48862",
+                      "state": "Connecticut"
+                    },
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -739,12 +980,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The company you have just created.",
             "content": {
@@ -752,14 +987,25 @@
                 "schema": {
                   "$ref": "#/components/schemas/CompanyContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "name": null,
-                  "phone": null,
-                  "structure": null,
-                  "address": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "bf340684-9b5e-4f42-9a06-86dc24ed68bf",
+                      "seller_id": "3e800315-fc83-4870-9240-516bdb1bcb0c",
+                      "name": "Jhonny llc",
+                      "phone": "+12 34567890",
+                      "structure": "llc",
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -771,12 +1017,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "05a4b1d9-bd8c-46c7-892d-8b6a911c0c13",
-                  "date": 1696582049786,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "a9be8483-aca4-47ae-b1cd-a502218baef6",
+                      "date": 1696938556056,
+                      "errors": [
+                        "Invalid company structure."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -791,12 +1043,6 @@
         "description": "Use this endpoint to list all your companies.",
         "operationId": "BIOSSellersEndpointsCompaniesListCompaniesEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your companies.",
             "content": {
@@ -807,14 +1053,51 @@
                     "$ref": "#/components/schemas/CompanyContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "218416d1-3ca9-47ee-b363-bfa5dc3a84fc",
+                        "seller_id": "04f16fe5-d005-40cb-910a-345d0c1e0ff9",
+                        "name": "Lorem co",
+                        "phone": "+12 34567890",
+                        "structure": "private_corporation",
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "metadata": {}
+                      },
+                      {
+                        "id": "eb26671d-c2e9-4324-a34f-b4827b3c2be9",
+                        "seller_id": "ab7b1ed7-2527-439f-86bb-d02110b22498",
+                        "name": "Jhonny llc",
+                        "phone": "+09 87654321",
+                        "structure": "llc",
+                        "address": {
+                          "city": "Borgo Sasha sardo",
+                          "country": "it",
+                          "line1": "Piazza Ferrari 137",
+                          "line2": "Strada Gentile 1 Piano 0",
+                          "postal_code": "55383",
+                          "state": "Teramo"
+                        },
+                        "metadata": {}
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/companies/{company_id}": {
+    "/companies/{id}": {
       "delete": {
         "tags": [
           "Companies"
@@ -824,7 +1107,7 @@
         "operationId": "BIOSSellersEndpointsCompaniesDeleteCompanyEndpoint",
         "parameters": [
           {
-            "name": "company_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -834,12 +1117,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "204": {
             "description": "The company has been deleted.",
             "content": {
@@ -847,23 +1124,10 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "79c4470f-0901-4187-90b6-4ddc806bd950",
-                  "date": 1696582049787,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
                 }
               }
             }
@@ -875,12 +1139,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "bce411e9-d50a-48ff-ba7c-48c38c518f9c",
-                  "date": 1696582049787,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "c6263f4b-28c6-4711-9660-822fb92db28c",
+                      "date": 1696938556059,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -896,7 +1164,7 @@
         "operationId": "BIOSSellersEndpointsCompaniesRetrieveCompanyEndpoint",
         "parameters": [
           {
-            "name": "company_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -906,12 +1174,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The company with the ID you provided.",
             "content": {
@@ -919,31 +1181,25 @@
                 "schema": {
                   "$ref": "#/components/schemas/CompanyContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "name": null,
-                  "phone": null,
-                  "structure": null,
-                  "address": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "4f025409-0bb3-4cad-a926-2673d1ffae36",
-                  "date": 1696582049788,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "fdc4dc34-1f5d-43f4-9181-31c2f4e5e74d",
+                      "seller_id": "165a8494-307e-452b-b50b-77527d550c54",
+                      "name": "Lorem co",
+                      "phone": "+12 34567890",
+                      "structure": "private_corporation",
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -955,12 +1211,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "29a64f20-228a-41ae-a694-12e992795dbb",
-                  "date": 1696582049788,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "d8bb2ef3-55dc-48e4-af83-6578c96ca44b",
+                      "date": 1696938556065,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -976,7 +1236,7 @@
         "operationId": "BIOSSellersEndpointsCompaniesUpdateCompanyEndpoint",
         "parameters": [
           {
-            "name": "company_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -992,6 +1252,24 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateCompanyRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "name": null,
+                    "phone": null,
+                    "structure": null,
+                    "address": {
+                      "city": "East Artberg",
+                      "country": "us",
+                      "line1": "Anderson Station",
+                      "line2": "5170 Rowe Key Apt. 750",
+                      "postal_code": "48862",
+                      "state": "Connecticut"
+                    },
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -999,12 +1277,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The company you have just updated.",
             "content": {
@@ -1012,14 +1284,25 @@
                 "schema": {
                   "$ref": "#/components/schemas/CompanyContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "name": null,
-                  "phone": null,
-                  "structure": null,
-                  "address": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "2cf2a95a-16f2-400e-a6ed-86e84bd25a8b",
+                      "seller_id": "8421b4d7-f347-43ec-8761-bb2c31a0d737",
+                      "name": "Lorem co",
+                      "phone": "+12 34567890",
+                      "structure": "private_corporation",
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -1031,12 +1314,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "3ad0a5c7-0e4d-466b-84ae-8ff834016c82",
-                  "date": 1696582049789,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "7d289bd9-6b8f-4bb6-a149-dd0524b2dbe3",
+                      "date": 1696938556078,
+                      "errors": [
+                        "Invalid address country."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1048,12 +1337,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "6fb5b15b-e428-4979-a821-c7f312a535f5",
-                  "date": 1696582049789,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "88371468-0242-4842-a461-27299fe46fb1",
+                      "date": 1696938556079,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -1076,6 +1369,19 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateBankAccountRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "seller_id": "6b0d27bc-6c96-4b22-94f3-b312dbffcf06",
+                    "country": "us",
+                    "currency": "usd",
+                    "account_number": "AT82 2474 4736 8559 1351",
+                    "holder_name": "Jhon Doe",
+                    "holder_type": "indiviudal",
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -1083,12 +1389,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The bank account you have just created.",
             "content": {
@@ -1096,14 +1396,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/BankAccountContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "country": null,
-                  "currency": null,
-                  "holder_name": null,
-                  "holder_type": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "108b14ae-88bf-4321-987f-7435a8b3a7b9",
+                      "seller_id": "6b0d27bc-6c96-4b22-94f3-b312dbffcf06",
+                      "country": "us",
+                      "currency": "usd",
+                      "holder_name": "Jhon Doe",
+                      "holder_type": "indiviudal",
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -1115,12 +1419,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "2036d7b6-e015-4ca8-a126-18e1902147ed",
-                  "date": 1696582049790,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "275352b8-ceb7-4075-bc26-9c135f6a52f1",
+                      "date": 1696938556089,
+                      "errors": [
+                        "Invalid bank account country."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1135,14 +1445,8 @@
         "description": "Use this endpoint to list all your bank accounts.",
         "operationId": "BIOSSellersEndpointsBankAccountsListBankAccountsEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
-            "description": "A list of your bank Accounts.",
+            "description": "A list of bank Accounts.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1151,14 +1455,37 @@
                     "$ref": "#/components/schemas/BankAccountContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "69561237-3fa5-4091-8f57-69ef10da403f",
+                        "seller_id": "3bd3090b-97c2-4864-9cf7-a3302f338b04",
+                        "country": "it",
+                        "currency": "eur",
+                        "holder_name": "Jhon Doe",
+                        "holder_type": "indiviudal",
+                        "metadata": {}
+                      },
+                      {
+                        "id": "40beed39-0f65-455e-8881-36adae7ca90d",
+                        "seller_id": "e100ae6e-b03c-4b93-89c8-bd671f0a5bca",
+                        "country": "us",
+                        "currency": "usd",
+                        "holder_name": "Jhon Doe",
+                        "holder_type": "indiviudal",
+                        "metadata": {}
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/bankaccounts/{bank_account_id}": {
+    "/bankaccounts/{id}": {
       "delete": {
         "tags": [
           "Bankaccounts"
@@ -1168,7 +1495,7 @@
         "operationId": "BIOSSellersEndpointsBankAccountsDeleteBankAccountEndpoint",
         "parameters": [
           {
-            "name": "bank_account_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -1178,12 +1505,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "204": {
             "description": "The bank account has been deleted.",
             "content": {
@@ -1191,23 +1512,10 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "af5de16a-68df-49fd-8c32-ee6ad53fe22d",
-                  "date": 1696582049790,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1219,12 +1527,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "84c276f1-190c-4b9f-afa6-577cf51b7b0e",
-                  "date": 1696582049790,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "dd3ae691-a94c-45d9-a434-747016ea7666",
+                      "date": 1696938556090,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -1240,7 +1552,7 @@
         "operationId": "BIOSSellersEndpointsBankAccountsRetrieveBankAccountEndpoint",
         "parameters": [
           {
-            "name": "bank_account_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -1250,12 +1562,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The bank account with the ID you provided.",
             "content": {
@@ -1263,31 +1569,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/BankAccountContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "country": null,
-                  "currency": null,
-                  "holder_name": null,
-                  "holder_type": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "358328b4-0975-4d7c-9fde-14cc335dc158",
-                  "date": 1696582049795,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "0ef1c1a3-c592-427e-be78-9d4eea255756",
+                      "seller_id": "adcf27dc-713b-4e32-bdd4-e3226a213d6d",
+                      "country": "it",
+                      "currency": "eur",
+                      "holder_name": "Jhon Doe",
+                      "holder_type": "indiviudal",
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -1299,12 +1592,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "89179818-8752-4ff7-9c3c-8cee0884556f",
-                  "date": 1696582049795,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "68ed59d6-a1c9-4947-9786-630c5586afe5",
+                      "date": 1696938556092,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -1320,7 +1617,7 @@
         "operationId": "BIOSSellersEndpointsBankAccountsUpdateBankAccountEndpoint",
         "parameters": [
           {
-            "name": "bank_account_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -1336,6 +1633,15 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateBankAccountRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "holder_name": "Lorem Ipsum",
+                    "holder_type": null,
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -1343,12 +1649,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The bank account you have just updated.",
             "content": {
@@ -1356,14 +1656,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/BankAccountContract"
                 },
-                "example": {
-                  "id": null,
-                  "seller_id": null,
-                  "country": null,
-                  "currency": null,
-                  "holder_name": null,
-                  "holder_type": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "e0e7a483-cd2b-4407-ad66-dfca28ff0741",
+                      "seller_id": "ae9921e7-eef3-4190-9a4d-c94a7d7826eb",
+                      "country": "us",
+                      "currency": "usd",
+                      "holder_name": "Lorem Ipsum",
+                      "holder_type": "indiviudal",
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -1375,12 +1679,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "c6086cec-1b3b-45d2-8b25-90346e55020f",
-                  "date": 1696582049796,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "953c5fb3-a571-4840-b3d4-eba2e5ae203b",
+                      "date": 1696938556097,
+                      "errors": [
+                        "Invalid holder type."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -1392,12 +1702,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "075efe61-9770-478e-8480-6fa931661823",
-                  "date": 1696582049796,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "0fc78a97-2182-4557-9e18-a3c7bc16847f",
+                      "date": 1696938556097,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -1418,7 +1732,7 @@
           },
           "country": {
             "type": "string",
-            "description": "The seller’s country.\n/// "
+            "description": "The seller’s country."
           },
           "type": {
             "type": "string",
@@ -1584,7 +1898,7 @@
             "description": "The person’s phone number.",
             "nullable": true
           },
-          "date_of_birth": {
+          "dob": {
             "description": "The person’s date of birth.",
             "nullable": true,
             "oneOf": [

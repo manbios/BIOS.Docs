@@ -11,7 +11,7 @@
     }
   ],
   "paths": {
-    "/paymentmethods/{payment_method_id}/attach": {
+    "/paymentmethods/{id}/attach": {
       "post": {
         "tags": [
           "Paymentmethods"
@@ -21,7 +21,7 @@
         "operationId": "BIOSBuyersEndpointsPaymentMethodsAttachPaymentMethodToBuyerEndpoint",
         "parameters": [
           {
-            "name": "payment_method_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -37,6 +37,13 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/AttachPaymentMethodToBuyerRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "buyer_id": "9dd7c35d-d57f-4775-8f33-5cbf0cd77454"
+                  }
+                }
               }
             }
           },
@@ -44,12 +51,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The payment method you've just attached to buyer.",
             "content": {
@@ -57,13 +58,30 @@
                 "schema": {
                   "$ref": "#/components/schemas/PaymentMethodContract"
                 },
-                "example": {
-                  "id": null,
-                  "type": null,
-                  "billing_details": null,
-                  "card": null,
-                  "bank": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "bb2253c9-3df0-4418-9c35-c378920b8b12",
+                      "buyer_id": "9dd7c35d-d57f-4775-8f33-5cbf0cd77454",
+                      "type": "bancontact",
+                      "billing_details": {
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "email": "buyeremail@example.it",
+                        "name": "Jhon Doe",
+                        "phone": "+12 34567890"
+                      },
+                      "card": null,
+                      "bank": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -75,12 +93,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "9aac91bc-b155-4245-b8e4-e122d3549bf6",
-                  "date": 1696582546368,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "1f8403a6-f3a6-438b-9aa0-94bc3c4ecb6b",
+                      "date": 1696938554640,
+                      "errors": [
+                        "The buyer_id you provided does not correspond to any buyer account."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -92,12 +116,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "cbcb8f9c-a7a1-4670-aa52-b4bb714b4bff",
-                  "date": 1696582546373,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "391d7eb2-7057-473c-b16b-652aa8f2f760",
+                      "date": 1696938554640,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -120,6 +148,29 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreatePaymentMethodRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "type": "bancontact",
+                    "billing_details": {
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "email": "buyeremail@example.it",
+                      "name": "Jhon Doe",
+                      "phone": "+12 34567890"
+                    },
+                    "card": null,
+                    "bank": null,
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -127,21 +178,63 @@
           "x-position": 1
         },
         "responses": {
-          "200": {
-            "description": "Success",
+          "201": {
+            "description": "The payment method you have just created.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PaymentMethodContract"
+                },
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "5be52c47-84ed-4395-903e-4d0dbe77ca68",
+                      "buyer_id": null,
+                      "type": "bancontact",
+                      "billing_details": {
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "email": "buyeremail@example.it",
+                        "name": "Jhon Doe",
+                        "phone": "+12 34567890"
+                      },
+                      "card": null,
+                      "bank": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                },
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "384306e1-0a47-43b7-bc4c-2e4283d31a83",
+                      "date": 1696938554643,
+                      "errors": [
+                        "Invalid payment method type."
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -153,12 +246,6 @@
         "description": "Use this endpoint to list all your payment methods.",
         "operationId": "BIOSBuyersEndpointsPaymentMethodsListPaymentMethodsEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your payment methods.",
             "content": {
@@ -169,14 +256,64 @@
                     "$ref": "#/components/schemas/PaymentMethodContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "98b457e2-c3db-47fe-a53f-4114d2aae044",
+                        "buyer_id": null,
+                        "type": "bancontact",
+                        "billing_details": {
+                          "address": {
+                            "city": "East Artberg",
+                            "country": "us",
+                            "line1": "Anderson Station",
+                            "line2": "5170 Rowe Key Apt. 750",
+                            "postal_code": "48862",
+                            "state": "Connecticut"
+                          },
+                          "email": "buyeremail@example.it",
+                          "name": "Jhon Doe",
+                          "phone": "+12 34567890"
+                        },
+                        "card": null,
+                        "bank": null,
+                        "metadata": {}
+                      },
+                      {
+                        "id": "413ef14b-3d8a-4bdf-acda-805ef7003c2e",
+                        "buyer_id": null,
+                        "type": "sofort",
+                        "billing_details": {
+                          "address": {
+                            "city": "Borgo Sasha sardo",
+                            "country": "it",
+                            "line1": "Piazza Ferrari 137",
+                            "line2": "Strada Gentile 1 Piano 0",
+                            "postal_code": "55383",
+                            "state": "Teramo"
+                          },
+                          "email": "loremipsum@example.it",
+                          "name": "Lorem ipsum",
+                          "phone": "+09 87654321"
+                        },
+                        "card": null,
+                        "bank": {
+                          "name": "method_bank",
+                          "country": "us"
+                        },
+                        "metadata": {}
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/paymentmethods/{payment_method_id}/detach": {
+    "/paymentmethods/{id}/detach": {
       "post": {
         "tags": [
           "Paymentmethods"
@@ -186,7 +323,7 @@
         "operationId": "BIOSBuyersEndpointsPaymentMethodsDetachPaymentMethodFromBuyerEndpoint",
         "parameters": [
           {
-            "name": "payment_method_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -196,12 +333,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The payment method you've just detached from buyer.",
             "content": {
@@ -209,13 +340,30 @@
                 "schema": {
                   "$ref": "#/components/schemas/PaymentMethodContract"
                 },
-                "example": {
-                  "id": null,
-                  "type": null,
-                  "billing_details": null,
-                  "card": null,
-                  "bank": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "cbda61de-555e-49ca-ad7d-9b260bd65260",
+                      "buyer_id": null,
+                      "type": "bancontact",
+                      "billing_details": {
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "email": "buyeremail@example.it",
+                        "name": "Jhon Doe",
+                        "phone": "+12 34567890"
+                      },
+                      "card": null,
+                      "bank": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -227,12 +375,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "5972fc58-69ca-4329-9214-947f7b5dd56e",
-                  "date": 1696582546390,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "7743cfd3-925e-4969-a531-9238ae4292bf",
+                      "date": 1696938554652,
+                      "errors": [
+                        "There is not a buyer to detach from."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -244,12 +398,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "eb126615-5009-4ea9-9045-a58d746b89e8",
-                  "date": 1696582546390,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "2a24cade-1524-4c1c-b873-1b90dd02e608",
+                      "date": 1696938554652,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -257,7 +415,7 @@
         }
       }
     },
-    "/paymentmethods/{payment_method_id}": {
+    "/paymentmethods/{id}": {
       "get": {
         "tags": [
           "Paymentmethods"
@@ -267,7 +425,7 @@
         "operationId": "BIOSBuyersEndpointsPaymentMethodsRetrievePaymentMethodEndpoint",
         "parameters": [
           {
-            "name": "payment_method_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -277,12 +435,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The payment method with the ID you provided.",
             "content": {
@@ -290,30 +442,30 @@
                 "schema": {
                   "$ref": "#/components/schemas/PaymentMethodContract"
                 },
-                "example": {
-                  "id": null,
-                  "type": null,
-                  "billing_details": null,
-                  "card": null,
-                  "bank": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "04769ddd-bc4b-457f-8760-b75e4c7737f8",
-                  "date": 1696582546392,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "3511f12c-9063-4fed-a624-622a1420d1f9",
+                      "buyer_id": null,
+                      "type": "bancontact",
+                      "billing_details": {
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "email": "buyeremail@example.it",
+                        "name": "Jhon Doe",
+                        "phone": "+12 34567890"
+                      },
+                      "card": null,
+                      "bank": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -325,12 +477,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "0805e902-dbde-4e5d-ac9e-2a7b6db9a16e",
-                  "date": 1696582546392,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "dbb28267-dd33-412b-8a3c-a02fbf50bb72",
+                      "date": 1696938554654,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -346,7 +502,7 @@
         "operationId": "BIOSBuyersEndpointsPaymentMethodsUpdatePaymentMethodEndpoint",
         "parameters": [
           {
-            "name": "payment_method_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -362,6 +518,21 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdatePaymentMethodRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "billing_details": {
+                      "address": null,
+                      "email": "updated@example.it",
+                      "name": "Jhon Doe",
+                      "phone": null
+                    },
+                    "card": null,
+                    "bank": null,
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -369,12 +540,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The payment method you have just updated.",
             "content": {
@@ -382,13 +547,30 @@
                 "schema": {
                   "$ref": "#/components/schemas/PaymentMethodContract"
                 },
-                "example": {
-                  "id": null,
-                  "type": null,
-                  "billing_details": null,
-                  "card": null,
-                  "bank": null,
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "f8286f51-36c3-4819-9df4-90e6a345e0d2",
+                      "buyer_id": null,
+                      "type": "bancontact",
+                      "billing_details": {
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "email": "updated@example.it",
+                        "name": "Jhon Doe",
+                        "phone": "+12 34567890"
+                      },
+                      "card": null,
+                      "bank": null,
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -400,12 +582,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "7ef7f41a-ca64-48f3-958c-ee0c13bf3c4f",
-                  "date": 1696582546393,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "6d642434-855f-4f8c-bdb2-bde9acfc7a74",
+                      "date": 1696938554655,
+                      "errors": [
+                        "Invalid email address."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -417,12 +605,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "400b6992-24f4-4a00-a351-12f534396a4b",
-                  "date": 1696582546393,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "8d654120-619c-406b-b3c6-85afdfcbd150",
+                      "date": 1696938554655,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -445,6 +637,24 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateBuyerRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "email": "buyeremail@example.it",
+                    "name": "Jhon Doe",
+                    "phone": "+12 34567890",
+                    "address": {
+                      "city": "East Artberg",
+                      "country": "us",
+                      "line1": "Anderson Station",
+                      "line2": "5170 Rowe Key Apt. 750",
+                      "postal_code": "48862",
+                      "state": "Connecticut"
+                    },
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -452,12 +662,6 @@
           "x-position": 1
         },
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "201": {
             "description": "The buyer you have just created.",
             "content": {
@@ -468,7 +672,7 @@
                 "examples": {
                   "value": {
                     "value": {
-                      "id": "822d91a1-c963-42b0-b602-44fda373d845",
+                      "id": "09bbf3e6-67ac-4b42-8767-a7e0b9ba3e2f",
                       "email": "buyeremail@example.it",
                       "name": "Jhon Doe",
                       "phone": "+12 34567890",
@@ -494,12 +698,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "6ea75ec8-4c36-4dad-90e5-749a099d1b5f",
-                  "date": 1696582546395,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "8688c066-2894-4529-b4ad-bccb9b6eb055",
+                      "date": 1696938554657,
+                      "errors": [
+                        "Invalid email address."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -514,12 +724,6 @@
         "description": "Use this endpoint to list all your buyers.",
         "operationId": "BIOSBuyersEndpointsBuyersListBuyersEndpoint",
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "A list of your buyers.",
             "content": {
@@ -530,14 +734,49 @@
                     "$ref": "#/components/schemas/BuyerContract"
                   }
                 },
-                "example": []
+                "examples": {
+                  "value": {
+                    "value": [
+                      {
+                        "id": "5244b823-b50f-4a66-ac76-93071a40d725",
+                        "email": "buyeremail@example.it",
+                        "name": "Jhon Doe",
+                        "phone": "+12 34567890",
+                        "address": {
+                          "city": "East Artberg",
+                          "country": "us",
+                          "line1": "Anderson Station",
+                          "line2": "5170 Rowe Key Apt. 750",
+                          "postal_code": "48862",
+                          "state": "Connecticut"
+                        },
+                        "metadata": {}
+                      },
+                      {
+                        "id": "593b4457-4370-4b0e-9e9f-c40f65c393c1",
+                        "email": "anotherbuyer@example.it",
+                        "name": "Lorem Ipsum",
+                        "phone": "+09 87654321",
+                        "address": {
+                          "city": "Borgo Sasha sardo",
+                          "country": "it",
+                          "line1": "Piazza Ferrari 137",
+                          "line2": "Strada Gentile 1 Piano 0",
+                          "postal_code": "55383",
+                          "state": "Teramo"
+                        },
+                        "metadata": {}
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
         }
       }
     },
-    "/buyers/{buyer_id}": {
+    "/buyers/{id}": {
       "delete": {
         "tags": [
           "Buyers"
@@ -547,7 +786,7 @@
         "operationId": "BIOSBuyersEndpointsBuyersDeleteBuyerEndpoint",
         "parameters": [
           {
-            "name": "buyer_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -557,12 +796,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "204": {
             "description": "The buyer has been deleted.",
             "content": {
@@ -570,7 +803,11 @@
                 "schema": {
                   "$ref": "#/components/schemas/EmptyResponse"
                 },
-                "example": {}
+                "examples": {
+                  "value": {
+                    "value": {}
+                  }
+                }
               }
             }
           },
@@ -581,12 +818,18 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "260215d3-16b5-436e-aa14-35bade6adf76",
-                  "date": 1696582546395,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "4b0e8249-3a9c-4b7d-bd91-668b41f8bbca",
+                      "date": 1696938554658,
+                      "errors": [
+                        "Cannot delete buyer with attached methods."
+                      ]
+                    }
+                  }
                 }
               }
             }
@@ -598,12 +841,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "16f3cd2f-a0cb-436f-b599-bf75ce206801",
-                  "date": 1696582546395,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "8babfc7a-4680-4345-b802-dc2079f1d133",
+                      "date": 1696938554658,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -619,7 +866,7 @@
         "operationId": "BIOSBuyersEndpointsBuyersRetrieveBuyerEndpoint",
         "parameters": [
           {
-            "name": "buyer_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -629,12 +876,6 @@
           }
         ],
         "responses": {
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
           "200": {
             "description": "The buyer with the ID you provided.",
             "content": {
@@ -642,30 +883,24 @@
                 "schema": {
                   "$ref": "#/components/schemas/BuyerContract"
                 },
-                "example": {
-                  "id": null,
-                  "email": null,
-                  "name": null,
-                  "phone": null,
-                  "address": null,
-                  "metadata": {}
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "The request did not pass validation checks.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ApiErrorResponse"
-                },
-                "example": {
-                  "message": "One or more error occurred",
-                  "type": "bad_request",
-                  "id": "d3471b53-a555-4840-9673-9ed6d1206441",
-                  "date": 1696582546396,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "5041b1b5-2944-4564-86ba-93a59b37c04c",
+                      "email": "buyeremail@example.it",
+                      "name": "Jhon Doe",
+                      "phone": "+12 34567890",
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
@@ -677,12 +912,16 @@
                 "schema": {
                   "$ref": "#/components/schemas/ApiErrorResponse"
                 },
-                "example": {
-                  "message": "The requested resource cannot be found.",
-                  "type": "not_found",
-                  "id": "1814c20d-ec3d-486b-9d13-7ad2fb1eef46",
-                  "date": 1696582546396,
-                  "errors": []
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "fcb73fee-1d97-418e-a004-7be823b0fbea",
+                      "date": 1696938554661,
+                      "errors": []
+                    }
+                  }
                 }
               }
             }
@@ -698,7 +937,7 @@
         "operationId": "BIOSBuyersEndpointsBuyersUpdateBuyerEndpoint",
         "parameters": [
           {
-            "name": "buyer_id",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
@@ -714,6 +953,17 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/UpdateBuyerRequest"
+              },
+              "examples": {
+                "request": {
+                  "value": {
+                    "email": "updated@example.it",
+                    "name": null,
+                    "phone": "+09 87654321",
+                    "address": null,
+                    "metadata": null
+                  }
+                }
               }
             }
           },
@@ -722,35 +972,77 @@
         },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "The buyer you have just updated.",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/BuyerContract"
                 },
-                "example": {
-                  "id": "2c4267ed-7e31-4a64-b6f7-32b2bddfd864",
-                  "email": "buyeremail@example.it",
-                  "name": "Jhon Doe",
-                  "phone": "+12 34567890",
-                  "address": {
-                    "city": "East Artberg",
-                    "country": "us",
-                    "line1": "Anderson Station",
-                    "line2": "5170 Rowe Key Apt. 750",
-                    "postal_code": "48862",
-                    "state": "Connecticut"
-                  },
-                  "metadata": {}
+                "examples": {
+                  "value": {
+                    "value": {
+                      "id": "9bad32e5-519f-4e14-9c85-87bbcfd5333b",
+                      "email": "updated@example.it",
+                      "name": "Jhon Doe",
+                      "phone": "+09 87654321",
+                      "address": {
+                        "city": "East Artberg",
+                        "country": "us",
+                        "line1": "Anderson Station",
+                        "line2": "5170 Rowe Key Apt. 750",
+                        "postal_code": "48862",
+                        "state": "Connecticut"
+                      },
+                      "metadata": {}
+                    }
+                  }
                 }
               }
             }
           },
-          "401": {
-            "description": "Unauthorized"
+          "400": {
+            "description": "The request did not pass validation checks.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                },
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "One or more validation error occurred.",
+                      "type": "bad_request",
+                      "id": "3e3f4000-83ff-43a6-9e61-aa8fbdff6d98",
+                      "date": 1696938554663,
+                      "errors": [
+                        "Invalid phone number."
+                      ]
+                    }
+                  }
+                }
+              }
+            }
           },
-          "403": {
-            "description": "Forbidden"
+          "404": {
+            "description": "Resource not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiErrorResponse"
+                },
+                "examples": {
+                  "value": {
+                    "value": {
+                      "message": "The requested resource cannot be found.",
+                      "type": "not_found",
+                      "id": "c7dacb64-a220-4bf4-9f34-cb0bcdda441b",
+                      "date": 1696938554663,
+                      "errors": []
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -765,6 +1057,11 @@
           "id": {
             "type": "string",
             "description": "Unique identifier for the object."
+          },
+          "buyer_id": {
+            "type": "string",
+            "description": "ID of the buyer associated with this payment method, if exists.",
+            "nullable": true
           },
           "type": {
             "type": "string",
